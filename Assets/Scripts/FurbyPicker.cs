@@ -28,6 +28,8 @@ public class FurbyPicker : MonoBehaviour
                 {
                     furbyCount = furbyCount + 1;
                     added = true;
+                    canInteract = false;
+
                     Destroy(currentFurby);
                 }
             }
