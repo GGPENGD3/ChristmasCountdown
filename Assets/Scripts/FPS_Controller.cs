@@ -45,9 +45,7 @@ public class FPS_Controller : MonoBehaviour
     public bool playerCanMove = true;
     public float walkSpeed = 2f;
     public float maxVelocityChange = 10f;
-
-    // Internal Variables
-    private bool isWalking = false;
+    public bool isWalking = false;
 
     #region Sprint
 
@@ -307,18 +305,23 @@ public class FPS_Controller : MonoBehaviour
             {
                 // Calculate how fast we should be moving
                 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            }
-
-            // Checks if player is walking and isGrounded
-            // Will allow head bob
-            if (targetVelocity.x != 0 || targetVelocity.z != 0 && isGrounded)
-            {
                 isWalking = true;
             }
             else
             {
                 isWalking = false;
             }
+
+            // Checks if player is walking and isGrounded
+            // Will allow head bob
+            //if (targetVelocity.x != 0 || targetVelocity.z != 0 && isGrounded)
+            //{
+            //    isWalking = true;
+            //}
+            //else
+            //{
+            //    isWalking = false;
+            //}
 
             // All movement calculations shile sprint is active
             if (enableSprint && Input.GetKey(sprintKey) && sprintRemaining > 0f && !isSprintCooldown)
@@ -451,7 +454,7 @@ public class FPS_Controller : MonoBehaviour
         }
         else
         {
-            // Resets when play stops moving
+            // Resets when player stops moving
             timer = 0;
             joint.localPosition = new Vector3(Mathf.Lerp(joint.localPosition.x, jointOriginalPos.x, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.y, jointOriginalPos.y, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.z, jointOriginalPos.z, Time.deltaTime * bobSpeed));
         }
