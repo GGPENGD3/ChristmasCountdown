@@ -8512,6 +8512,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e30c1f1bb190ffb41979fd90fc546183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  playerNum:
+  - 1
+  - 2
+  - 3
+  - 4
   playerCamera: {fileID: 330585545}
   fov: 60
   invertCamera: 0
