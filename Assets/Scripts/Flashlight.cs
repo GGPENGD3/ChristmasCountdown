@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Flashlight : MonoBehaviour
 {
+    public GameObject mylight;
+    bool onLight;
+
     public bool isPressed;
     public float timer;
 
@@ -19,6 +22,18 @@ public class Flashlight : MonoBehaviour
         if (Input.GetButtonDown("P1 Y"))
         {
             isPressed = true;
+            
+            if (onLight)
+            {
+                mylight.SetActive(false);
+                onLight = false;
+            }
+            else if (!onLight)
+            {
+                mylight.SetActive(true);
+                onLight = true;
+            }
+
         }
 
         if (Input.GetButtonUp("P1 Y"))
