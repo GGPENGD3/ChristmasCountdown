@@ -22,7 +22,7 @@ public class FurbyPicker : MonoBehaviour
     {
         if (canInteract)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetButtonDown("P1 A"))
             {
                 if (!added)
                 {

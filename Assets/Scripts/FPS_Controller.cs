@@ -51,7 +51,6 @@ public class FPS_Controller : MonoBehaviour
 
     public bool enableSprint = true;
     public bool unlimitedSprint = false;
-    public KeyCode sprintKey = KeyCode.LeftShift;
     public float sprintSpeed = 3f;
     public float currentSprintSpeed;
     public float sprintDuration = 5f;
@@ -82,7 +81,6 @@ public class FPS_Controller : MonoBehaviour
 
     public bool enableCrouch = true;
     public bool holdToCrouch = true;
-    public KeyCode crouchKey = KeyCode.LeftControl;
     public float crouchHeight = .75f;
     public float speedReduction = .5f;
 
@@ -141,19 +139,18 @@ public class FPS_Controller : MonoBehaviour
         // Control camera movement
         if (cameraCanMove)
         {
-
-            if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse X") != 0)
+            if (Input.GetAxis("P1 Right ThumbStick Horizontal") != 0 || Input.GetAxis("P1 Right ThumbStick Vertical") != 0)
             {
-                yaw = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * mouseSensitivity;
+                yaw = transform.localEulerAngles.y + Input.GetAxis("P1 Right ThumbStick Horizontal") * mouseSensitivity;
 
                 if (!invertCamera)
                 {
-                    pitch -= mouseSensitivity * Input.GetAxis("Mouse Y");
+                    pitch -= mouseSensitivity * Input.GetAxis("P1 Right ThumbStick Vertical");
                 }
                 else
                 {
                     // Inverted Y
-                    pitch += mouseSensitivity * Input.GetAxis("Mouse Y");
+                    pitch += mouseSensitivity * Input.GetAxis("P1 Right ThumbStick Vertical");
                 }
 
                 // Clamp pitch between lookAngle
@@ -268,20 +265,42 @@ public class FPS_Controller : MonoBehaviour
 
         if (enableCrouch)
         {
-            if (Input.GetKeyDown(crouchKey) && !holdToCrouch)
+            //if (Input.GetKeyDown(crouchKey) && !holdToCrouch)
+            //{
+            //    Crouch();
+            //}
+
+            //if (Input.GetKeyDown(crouchKey) && holdToCrouch)
+            //{
+            //    isCrouched = false;
+            //    Crouch();
+            //}
+            //else if (Input.GetKeyUp(crouchKey) && holdToCrouch)
+            //{
+            //    isCrouched = true;
+            //    Crouch();
+            //}
+
+            if (Input.GetButtonDown("P1 B"))
             {
-                Crouch();
+                if (!holdToCrouch)
+                {
+                    Crouch();
+                }
+                else if (holdToCrouch)
+                {
+                    isCrouched = false;
+                    Crouch();
+                }
             }
 
-            if (Input.GetKeyDown(crouchKey) && holdToCrouch)
+            if (Input.GetButtonUp("P1 B"))
             {
-                isCrouched = false;
-                Crouch();
-            }
-            else if (Input.GetKeyUp(crouchKey) && holdToCrouch)
-            {
-                isCrouched = true;
-                Crouch();
+                if (holdToCrouch)
+                {
+                    isCrouched = true;
+                    Crouch();
+                }
             }
         }
 
@@ -301,10 +320,10 @@ public class FPS_Controller : MonoBehaviour
 
         if (playerCanMove)
         {
-            if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+            if (Input.GetAxis("P1 Left ThumbStick Vertical") != 0 || Input.GetAxis("P1 Left ThumbStick Horizontal") != 0)
             {
                 // Calculate how fast we should be moving
-                targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                targetVelocity = new Vector3(Input.GetAxis("P1 Left ThumbStick Vertical"), 0, Input.GetAxis("P1 Left ThumbStick Horizontal"));
                 isWalking = true;
             }
             else
@@ -324,7 +343,7 @@ public class FPS_Controller : MonoBehaviour
             //}
 
             // All movement calculations shile sprint is active
-            if (enableSprint && Input.GetKey(sprintKey) && sprintRemaining > 0f && !isSprintCooldown)
+                if (enableSprint && Input.GetButton("P1 RB") && sprintRemaining > 0f && !isSprintCooldown)
             {
                 if (currentSprintSpeed < 8)
                 {
