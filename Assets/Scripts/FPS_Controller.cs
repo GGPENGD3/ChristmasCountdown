@@ -193,6 +193,7 @@ public class FPS_Controller : MonoBehaviour
         {
             if (Input.GetAxis(player_RightThumbStickHorizontal) != 0 || Input.GetAxis(player_RightThumbStickVertical) != 0)
             {
+                Debug.Log("aaa");
                 yaw = transform.localEulerAngles.y + Input.GetAxis(player_RightThumbStickHorizontal) * mouseSensitivity;
 
                 if (!invertCamera)

@@ -9111,7 +9111,7 @@ MonoBehaviour:
   fov: 60
   invertCamera: 0
   cameraCanMove: 1
-  mouseSensitivity: 2
+  mouseSensitivity: 0.5
   maxLookAngle: 50
   lockCursor: 1
   enableZoom: 1
