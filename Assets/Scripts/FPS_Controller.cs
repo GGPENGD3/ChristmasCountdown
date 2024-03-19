@@ -8,14 +8,16 @@ public class FPS_Controller : MonoBehaviour
     private Rigidbody rb;
     Vector3 targetVelocity;
 
+    [Header("Player")]
     public GameObject player;
-    string player_RightThumbStickHorizontal;
-    string player_RightThumbStickVertical;
-    string player_LeftThumbStickHorizontal;
-    string player_LeftThumbStickVertical;
-    string player_RightThumbstickBttn;
-    string player_B_Bttn;
+    public string player_RightThumbStickHorizontal;
+    public string player_RightThumbStickVertical;
+    public string player_LeftThumbStickHorizontal;
+    public string player_LeftThumbStickVertical;
+    public string player_RightThumbstickBttn;
+    public string player_B_Bttn;
 
+    [Header("Camera")]
     #region Camera Movement Variables
 
     public Camera playerCamera;
@@ -48,6 +50,7 @@ public class FPS_Controller : MonoBehaviour
     #endregion
     #endregion
 
+    [Header("Movement")]
     #region Movement Variables
 
     public bool playerCanMove = true;
@@ -99,6 +102,7 @@ public class FPS_Controller : MonoBehaviour
     #endregion
     #endregion
 
+    [Header("Head Bob")]
     #region Head Bob
 
     public bool enableHeadBob = true;
