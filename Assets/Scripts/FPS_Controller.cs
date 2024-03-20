@@ -193,7 +193,6 @@ public class FPS_Controller : MonoBehaviour
         {
             if (Input.GetAxis(player_RightThumbStickHorizontal) != 0 || Input.GetAxis(player_RightThumbStickVertical) != 0)
             {
-                Debug.Log("aaa");
                 yaw = transform.localEulerAngles.y + Input.GetAxis(player_RightThumbStickHorizontal) * mouseSensitivity;
 
                 if (!invertCamera)
@@ -211,6 +210,29 @@ public class FPS_Controller : MonoBehaviour
 
                 transform.localEulerAngles = new Vector3(0, yaw, 0);
                 playerCamera.transform.localEulerAngles = new Vector3(pitch, 0, 0);
+            }
+            else if (Input.GetAxis("Mouse X") != 0 || Input.GetAxis("Mouse X") != 0)
+            {
+                if (player.name == "Player 1")
+                {
+                    yaw = transform.localEulerAngles.y + Input.GetAxis("Mouse X") * mouseSensitivity;
+
+                    if (!invertCamera)
+                    {
+                        pitch -= mouseSensitivity * Input.GetAxis("Mouse Y");
+                    }
+                    else
+                    {
+                        // Inverted Y
+                        pitch += mouseSensitivity * Input.GetAxis("Mouse Y");
+                    }
+
+                    // Clamp pitch between lookAngle
+                    pitch = Mathf.Clamp(pitch, -maxLookAngle, maxLookAngle);
+
+                    transform.localEulerAngles = new Vector3(0, yaw, 0);
+                    playerCamera.transform.localEulerAngles = new Vector3(pitch, 0, 0);
+                }
             }
         }
 
@@ -318,25 +340,52 @@ public class FPS_Controller : MonoBehaviour
 
         if (enableCrouch)
         {
-            if (Input.GetButtonDown(player_B_Bttn))
+            if (player.name == "Player 1")
             {
-                if (!holdToCrouch)
+                if (Input.GetKeyDown(KeyCode.LeftControl))
                 {
-                    Crouch();
+                    if (!holdToCrouch)
+                    {
+                        Crouch();
+                    }
+                    else if (holdToCrouch)
+                    {
+                        isCrouched = false;
+                        Crouch();
+                    }
                 }
-                else if (holdToCrouch)
+
+                if (Input.GetKeyUp(KeyCode.LeftControl))
                 {
-                    isCrouched = false;
-                    Crouch();
+                    if (holdToCrouch)
+                    {
+                        isCrouched = true;
+                        Crouch();
+                    }
                 }
             }
-
-            if (Input.GetButtonUp(player_B_Bttn))
+            else if (player.name != "Player 1")
             {
-                if (holdToCrouch)
+                if (Input.GetButtonDown(player_B_Bttn))
                 {
-                    isCrouched = true;
-                    Crouch();
+                    if (!holdToCrouch)
+                    {
+                        Crouch();
+                    }
+                    else if (holdToCrouch)
+                    {
+                        isCrouched = false;
+                        Crouch();
+                    }
+                }
+
+                if (Input.GetButtonUp(player_B_Bttn))
+                {
+                    if (holdToCrouch)
+                    {
+                        isCrouched = true;
+                        Crouch();
+                    }
                 }
             }
         }
@@ -357,15 +406,30 @@ public class FPS_Controller : MonoBehaviour
 
         if (playerCanMove)
         {
-            if (Input.GetAxis(player_LeftThumbStickVertical) != 0 || Input.GetAxis(player_LeftThumbStickHorizontal) != 0)
+            if (player.name == "Player 1")
             {
-                // Calculate how fast we should be moving
-                targetVelocity = new Vector3(Input.GetAxis(player_LeftThumbStickHorizontal), 0, Input.GetAxis(player_LeftThumbStickVertical));
-                isWalking = true;
+                if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+                {
+                    // Calculate how fast we should be moving
+                    targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+                }
+                else
+                {
+                    isWalking = false;
+                }
             }
-            else
+            else if (player.name != "Player 1")
             {
-                isWalking = false;
+                if (Input.GetAxis(player_LeftThumbStickVertical) != 0 || Input.GetAxis(player_LeftThumbStickHorizontal) != 0)
+                {
+                    // Calculate how fast we should be moving
+                    targetVelocity = new Vector3(Input.GetAxis(player_LeftThumbStickHorizontal), 0, Input.GetAxis(player_LeftThumbStickVertical));
+                    isWalking = true;
+                }
+                else
+                {
+                    isWalking = false;
+                }
             }
 
             // Checks if player is walking and isGrounded
@@ -380,53 +444,103 @@ public class FPS_Controller : MonoBehaviour
             //}
 
             // All movement calculations shile sprint is active
-                if (enableSprint && Input.GetButton(player_RightThumbstickBttn) && sprintRemaining > 0f && !isSprintCooldown)
+            if (player.name == "Player 1") 
             {
-                if (currentSprintSpeed < 8)
+                if (enableSprint && Input.GetKey(KeyCode.LeftShift) && sprintRemaining > 0f && !isSprintCooldown)
                 {
-                    currentSprintSpeed += 0.02f;
-                }
-                targetVelocity = transform.TransformDirection(targetVelocity) * currentSprintSpeed;
-                // Apply a force that attempts to reach our target velocity
-                Vector3 velocity = rb.velocity;
-                Vector3 velocityChange = (targetVelocity - velocity);
-                velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
-                velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
-                velocityChange.y = 0;
-
-                // Player is only moving when valocity change != 0
-                // Makes sure fov change only happens during movement
-                if (velocityChange.x != 0 || velocityChange.z != 0)
-                {
-                    isSprinting = true;
-
-                    if (isCrouched)
+                    if (currentSprintSpeed < 8)
                     {
-                        Crouch();
+                        currentSprintSpeed += 0.02f;
                     }
-                }
+                    targetVelocity = transform.TransformDirection(targetVelocity) * currentSprintSpeed;
+                    // Apply a force that attempts to reach our target velocity
+                    Vector3 velocity = rb.velocity;
+                    Vector3 velocityChange = (targetVelocity - velocity);
+                    velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
+                    velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
+                    velocityChange.y = 0;
 
-                rb.AddForce(velocityChange, ForceMode.VelocityChange);
+                    // Player is only moving when valocity change != 0
+                    // Makes sure fov change only happens during movement
+                    if (velocityChange.x != 0 || velocityChange.z != 0)
+                    {
+                        isSprinting = true;
+
+                        if (isCrouched)
+                        {
+                            Crouch();
+                        }
+                    }
+
+                    rb.AddForce(velocityChange, ForceMode.VelocityChange);
+                }
+                // All movement calculations while walking
+                else
+                {
+                    isSprinting = false;
+                    currentSprintSpeed = sprintSpeed;
+
+                    targetVelocity = transform.TransformDirection(targetVelocity) * walkSpeed;
+
+                    // Apply a force that attempts to reach our target velocity
+                    Vector3 velocity = rb.velocity;
+                    Vector3 velocityChange = (targetVelocity - velocity);
+                    velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
+                    velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
+                    velocityChange.y = 0;
+
+                    rb.AddForce(velocityChange, ForceMode.VelocityChange);
+                }
             }
-            // All movement calculations while walking
             else
             {
-                isSprinting = false;
-                currentSprintSpeed = sprintSpeed;
+                if (enableSprint && Input.GetButton(player_RightThumbstickBttn) && sprintRemaining > 0f && !isSprintCooldown)
+                {
+                    if (currentSprintSpeed < 8)
+                    {
+                        currentSprintSpeed += 0.02f;
+                    }
+                    targetVelocity = transform.TransformDirection(targetVelocity) * currentSprintSpeed;
+                    // Apply a force that attempts to reach our target velocity
+                    Vector3 velocity = rb.velocity;
+                    Vector3 velocityChange = (targetVelocity - velocity);
+                    velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
+                    velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
+                    velocityChange.y = 0;
 
-                targetVelocity = transform.TransformDirection(targetVelocity) * walkSpeed;
+                    // Player is only moving when valocity change != 0
+                    // Makes sure fov change only happens during movement
+                    if (velocityChange.x != 0 || velocityChange.z != 0)
+                    {
+                        isSprinting = true;
 
-                // Apply a force that attempts to reach our target velocity
-                Vector3 velocity = rb.velocity;
-                Vector3 velocityChange = (targetVelocity - velocity);
-                velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
-                velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
-                velocityChange.y = 0;
+                        if (isCrouched)
+                        {
+                            Crouch();
+                        }
+                    }
 
-                rb.AddForce(velocityChange, ForceMode.VelocityChange);
+                    rb.AddForce(velocityChange, ForceMode.VelocityChange);
+                }
+                // All movement calculations while walking
+                else
+                {
+                    isSprinting = false;
+                    currentSprintSpeed = sprintSpeed;
+
+                    targetVelocity = transform.TransformDirection(targetVelocity) * walkSpeed;
+
+                    // Apply a force that attempts to reach our target velocity
+                    Vector3 velocity = rb.velocity;
+                    Vector3 velocityChange = (targetVelocity - velocity);
+                    velocityChange.x = Mathf.Clamp(velocityChange.x, -maxVelocityChange, maxVelocityChange);
+                    velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
+                    velocityChange.y = 0;
+
+                    rb.AddForce(velocityChange, ForceMode.VelocityChange);
+                }
             }
         }
-
         #endregion
     }
 
