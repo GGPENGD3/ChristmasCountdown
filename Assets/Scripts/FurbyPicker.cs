@@ -11,10 +11,33 @@ public class FurbyPicker : MonoBehaviour
     GameObject currentFurby;
     bool added;
 
+    [Header("Player")]
+    public GameObject player;
+    public string player_A_Bttn;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        #region Find Player Number
+        //assigns a string to variable num based on the player assigned to this script
+        //num will be then used to determine which joystick is being used for input
+        if (player.name == "Player 1")
+        {
+            player_A_Bttn = "P1 A";
+        }
+        else if (player.name == "Player 2")
+        {
+            player_A_Bttn = "P2 A";
+        }
+        else if (player.name == "Player 3")
+        {
+            player_A_Bttn = "P3 A";
+        }
+        else if (player.name == "Player 4")
+        {
+            player_A_Bttn = "P4 A";
+        }
+        #endregion
     }
 
     // Update is called once per frame
@@ -22,15 +45,32 @@ public class FurbyPicker : MonoBehaviour
     {
         if (canInteract)
         {
-            if (Input.GetButtonDown("P1 A"))
+            if (player.name == "Player 1")
             {
-                if (!added)
+                if (Input.GetKeyDown(KeyCode.E))
                 {
-                    furbyCount = furbyCount + 1;
-                    added = true;
-                    canInteract = false;
+                    if (!added)
+                    {
+                        furbyCount = furbyCount + 1;
+                        added = true;
+                        canInteract = false;
 
-                    Destroy(currentFurby);
+                        Destroy(currentFurby);
+                    }
+                }
+            }
+            else
+            {
+                if (Input.GetButtonDown(player_A_Bttn))
+                {
+                    if (!added)
+                    {
+                        furbyCount = furbyCount + 1;
+                        added = true;
+                        canInteract = false;
+
+                        Destroy(currentFurby);
+                    }
                 }
             }
         }

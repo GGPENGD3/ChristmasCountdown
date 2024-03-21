@@ -52,26 +52,53 @@ public class Flashlight : MonoBehaviour
         }
         #endregion
 
-        if (Input.GetButtonDown(player_Y))
+        if (player.name == "Player 1")
         {
-            isPressed = true;
-            
-            if (onLight)
+            if (Input.GetKeyDown(KeyCode.F))
             {
-                mylight.SetActive(false);
-                onLight = false;
+                isPressed = true;
+
+                if (onLight)
+                {
+                    mylight.SetActive(false);
+                    onLight = false;
+                }
+                else if (!onLight)
+                {
+                    mylight.SetActive(true);
+                    onLight = true;
+                }
             }
-            else if (!onLight)
+
+            if (Input.GetKeyUp(KeyCode.F))
             {
-                mylight.SetActive(true);
-                onLight = true;
+                isPressed = false;
+                timer = 0;
             }
         }
-
-        if (Input.GetButtonUp(player_Y))
+        else
         {
-            isPressed = false;
-            timer = 0;
+            if (Input.GetButtonDown(player_Y))
+            {
+                isPressed = true;
+
+                if (onLight)
+                {
+                    mylight.SetActive(false);
+                    onLight = false;
+                }
+                else if (!onLight)
+                {
+                    mylight.SetActive(true);
+                    onLight = true;
+                }
+            }
+
+            if (Input.GetButtonUp(player_Y))
+            {
+                isPressed = false;
+                timer = 0;
+            }
         }
 
         if (isPressed)
