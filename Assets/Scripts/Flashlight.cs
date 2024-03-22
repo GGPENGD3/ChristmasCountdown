@@ -9,11 +9,12 @@ public class Flashlight : MonoBehaviour
     public GameObject mylight;
     public bool isPressed;
     bool onLight;
-    float timer;
+    [SerializeField] float timer;
 
     [Header("Battery")]
     [SerializeField] float batteryLife = 100;
-    [SerializeField] float drainRate = 1;
+    [SerializeField] float drainRate;
+    [SerializeField] float chargeRate;
 
     public Image batteryLifeImg;
     public List<Sprite> batteryLifeUI;
@@ -101,17 +102,16 @@ public class Flashlight : MonoBehaviour
             }
         }
 
-        if (isPressed)
+        if (isPressed && timer < 5f && batteryLife >= 0)
         {
             timer += 0.1f;
         }
-
-        if (timer > 5f)
+        else if (isPressed && timer > 5f && batteryLife <= 100)
         {
-            Debug.Log("Charging Time");
+            ChargeBattery();
         }
 
-        if (onLight)
+        if (onLight && batteryLife >= 0)
         {
             DecreaseBatteryLife();
         }
@@ -120,6 +120,7 @@ public class Flashlight : MonoBehaviour
     void DecreaseBatteryLife()
     {
         batteryLife -= drainRate;
+        mylight.GetComponent<Light>().intensity -= drainRate / 10;
 
         if (batteryLife <= 75 && batteryLife > 50)
         {
@@ -141,6 +142,18 @@ public class Flashlight : MonoBehaviour
 
     void ChargeBattery()
     {
+        //shaking anim + noise
+
+        //recharge battery
+        if (mylight.GetComponent<Light>().intensity <= 10)
+        {
+            mylight.GetComponent<Light>().intensity += (chargeRate / 10);
+            batteryLife += chargeRate;
+        }
+        else if (mylight.GetComponent<Light>().intensity >= 10)
+        {
+            batteryLife = 100;
+        }
 
     }
 }

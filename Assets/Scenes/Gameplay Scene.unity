@@ -607,6 +607,7 @@ MonoBehaviour:
   isPressed: 0
   batteryLife: 100
   drainRate: 0.05
+  chargeRate: 1
   batteryLifeImg: {fileID: 1381813116}
   batteryLifeUI:
   - {fileID: 21300000, guid: 294c3eca6a61e3846980f72dfab59e07, type: 3}
@@ -2704,6 +2705,7 @@ MonoBehaviour:
   isPressed: 0
   batteryLife: 100
   drainRate: 0.05
+  chargeRate: 1
   batteryLifeImg: {fileID: 1381813116}
   batteryLifeUI:
   - {fileID: 21300000, guid: 294c3eca6a61e3846980f72dfab59e07, type: 3}
@@ -3598,6 +3600,7 @@ MonoBehaviour:
   isPressed: 0
   batteryLife: 100
   drainRate: 0.05
+  chargeRate: 1
   batteryLifeImg: {fileID: 1381813116}
   batteryLifeUI:
   - {fileID: 21300000, guid: 294c3eca6a61e3846980f72dfab59e07, type: 3}
@@ -8931,6 +8934,7 @@ MonoBehaviour:
   isPressed: 0
   batteryLife: 100
   drainRate: 0.05
+  chargeRate: 1
   batteryLifeImg: {fileID: 1381813116}
   batteryLifeUI:
   - {fileID: 21300000, guid: 294c3eca6a61e3846980f72dfab59e07, type: 3}
