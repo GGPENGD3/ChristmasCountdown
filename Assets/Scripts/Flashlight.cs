@@ -41,11 +41,11 @@ public class Flashlight : MonoBehaviour
         }
         else if (player.name == "Player 2")
         {
-            player_Y = "P2  Y";
+            player_Y = "P2 Y";
         }
         else if (player.name == "Player 3")
         {
-            player_Y = "P3  Y";
+            player_Y = "P3 Y";
         }
         else if (player.name == "Player 4")
         {
@@ -53,53 +53,26 @@ public class Flashlight : MonoBehaviour
         }
         #endregion
 
-        if (player.name == "Player 1")
+        if (Input.GetButtonDown(player_Y))
         {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                isPressed = true;
+            isPressed = true;
 
-                if (onLight)
-                {
-                    mylight.SetActive(false);
-                    onLight = false;
-                }
-                else if (!onLight)
-                {
-                    mylight.SetActive(true);
-                    onLight = true;
-                }
+            if (onLight)
+            {
+                mylight.SetActive(false);
+                onLight = false;
             }
-
-            if (Input.GetKeyUp(KeyCode.F))
+            else if (!onLight)
             {
-                isPressed = false;
-                timer = 0;
+                mylight.SetActive(true);
+                onLight = true;
             }
         }
-        else
+
+        if (Input.GetButtonUp(player_Y))
         {
-            if (Input.GetButtonDown(player_Y))
-            {
-                isPressed = true;
-
-                if (onLight)
-                {
-                    mylight.SetActive(false);
-                    onLight = false;
-                }
-                else if (!onLight)
-                {
-                    mylight.SetActive(true);
-                    onLight = true;
-                }
-            }
-
-            if (Input.GetButtonUp(player_Y))
-            {
-                isPressed = false;
-                timer = 0;
-            }
+            isPressed = false;
+            timer = 0;
         }
 
         if (isPressed && timer < 5f && batteryLife >= 0)

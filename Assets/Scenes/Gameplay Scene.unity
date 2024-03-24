@@ -497,7 +497,7 @@ MonoBehaviour:
   mouseSensitivity: 2
   maxLookAngle: 50
   lockCursor: 1
-  enableZoom: 1
+  enableZoom: 0
   holdToZoom: 0
   zoomKey: 324
   zoomFOV: 30
@@ -515,7 +515,7 @@ MonoBehaviour:
   sprintFOV: 80
   sprintFOVStepTime: 10
   isSprinting: 0
-  enableJump: 1
+  enableJump: 0
   jumpKey: 32
   jumpPower: 5
   enableCrouch: 1
@@ -605,10 +605,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mylight: {fileID: 460468477}
   isPressed: 0
+  timer: 0
   batteryLife: 100
   drainRate: 0.05
   chargeRate: 1
-  batteryLifeImg: {fileID: 1381813116}
+  batteryLifeImg: {fileID: 1668135988}
   batteryLifeUI:
   - {fileID: 21300000, guid: 294c3eca6a61e3846980f72dfab59e07, type: 3}
   - {fileID: 21300000, guid: e4a1c8449e54a5849a8a54b370fe1235, type: 3}
@@ -2520,7 +2521,7 @@ MonoBehaviour:
   mouseSensitivity: 2
   maxLookAngle: 50
   lockCursor: 1
-  enableZoom: 1
+  enableZoom: 0
   holdToZoom: 0
   zoomKey: 324
   zoomFOV: 30
@@ -2538,7 +2539,7 @@ MonoBehaviour:
   sprintFOV: 80
   sprintFOVStepTime: 10
   isSprinting: 0
-  enableJump: 1
+  enableJump: 0
   jumpKey: 32
   jumpPower: 5
   enableCrouch: 1
@@ -2703,6 +2704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mylight: {fileID: 1899315682}
   isPressed: 0
+  timer: 0
   batteryLife: 100
   drainRate: 0.05
   chargeRate: 1
@@ -3598,10 +3600,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mylight: {fileID: 1342767959}
   isPressed: 0
+  timer: 0
   batteryLife: 100
   drainRate: 0.05
   chargeRate: 1
-  batteryLifeImg: {fileID: 1381813116}
+  batteryLifeImg: {fileID: 1796434879}
   batteryLifeUI:
   - {fileID: 21300000, guid: 294c3eca6a61e3846980f72dfab59e07, type: 3}
   - {fileID: 21300000, guid: e4a1c8449e54a5849a8a54b370fe1235, type: 3}
@@ -5435,7 +5438,7 @@ MonoBehaviour:
   mouseSensitivity: 2
   maxLookAngle: 50
   lockCursor: 1
-  enableZoom: 1
+  enableZoom: 0
   holdToZoom: 0
   zoomKey: 324
   zoomFOV: 30
@@ -5453,7 +5456,7 @@ MonoBehaviour:
   sprintFOV: 80
   sprintFOVStepTime: 10
   isSprinting: 0
-  enableJump: 1
+  enableJump: 0
   jumpKey: 32
   jumpPower: 5
   enableCrouch: 1
@@ -8932,10 +8935,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mylight: {fileID: 951216150}
   isPressed: 0
+  timer: 0
   batteryLife: 100
   drainRate: 0.05
   chargeRate: 1
-  batteryLifeImg: {fileID: 1381813116}
+  batteryLifeImg: {fileID: 1531244593}
   batteryLifeUI:
   - {fileID: 21300000, guid: 294c3eca6a61e3846980f72dfab59e07, type: 3}
   - {fileID: 21300000, guid: e4a1c8449e54a5849a8a54b370fe1235, type: 3}
@@ -9657,7 +9661,7 @@ MonoBehaviour:
   mouseSensitivity: 0.5
   maxLookAngle: 50
   lockCursor: 1
-  enableZoom: 1
+  enableZoom: 0
   holdToZoom: 0
   zoomKey: 324
   zoomFOV: 30
@@ -9675,7 +9679,7 @@ MonoBehaviour:
   sprintFOV: 80
   sprintFOVStepTime: 10
   isSprinting: 0
-  enableJump: 1
+  enableJump: 0
   jumpKey: 32
   jumpPower: 5
   enableCrouch: 1
