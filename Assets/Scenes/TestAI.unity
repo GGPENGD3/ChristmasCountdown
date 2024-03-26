@@ -362,7 +362,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156388631}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 25
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2329,7 +2329,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 551182742}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 25
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2647,8 +2647,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mylight: {fileID: 1899315682}
   isPressed: 0
+  timer: 0
   batteryLife: 100
   drainRate: 0.05
+  chargeRate: 0
   batteryLifeImg: {fileID: 1381813116}
   batteryLifeUI:
   - {fileID: 21300000, guid: 294c3eca6a61e3846980f72dfab59e07, type: 3}
@@ -3339,7 +3341,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734224379}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 25
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -3482,6 +3484,7 @@ MonoBehaviour:
   investigateTime: 2
   visionRange: 8
   visionAngle: 45
+  catchDistance: 2
   currentDestination: {fileID: 0}
   investigatePoint: {fileID: 0}
   nearestPlayer: {fileID: 0}
@@ -3556,7 +3559,7 @@ MonoBehaviour:
   canInteract: 0
   interactUI: {fileID: 1803632660}
   furbyCount: 0
-  player: {fileID: 0}
+  player: {fileID: 551182742}
   player_A_Bttn: 
 --- !u!65 &763297686
 BoxCollider:
@@ -4668,7 +4671,7 @@ MonoBehaviour:
   canInteract: 0
   interactUI: {fileID: 1621738467}
   furbyCount: 0
-  player: {fileID: 0}
+  player: {fileID: 156388631}
   player_A_Bttn: 
 --- !u!65 &1023466502
 BoxCollider:
@@ -5400,7 +5403,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1214123259}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 25
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6070,7 +6073,7 @@ MonoBehaviour:
   canInteract: 0
   interactUI: {fileID: 1803632660}
   furbyCount: 0
-  player: {fileID: 0}
+  player: {fileID: 919132148985307712}
   player_A_Bttn: 
 --- !u!1 &1301816238
 GameObject:
@@ -9798,7 +9801,7 @@ MonoBehaviour:
   canInteract: 0
   interactUI: {fileID: 1831722658}
   furbyCount: 0
-  player: {fileID: 0}
+  player: {fileID: 1214123259}
   player_A_Bttn: 
 --- !u!65 &2114027300
 BoxCollider:
@@ -10168,7 +10171,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148985307712}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 25
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}

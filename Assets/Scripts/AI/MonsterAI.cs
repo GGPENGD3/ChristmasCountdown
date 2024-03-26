@@ -9,7 +9,6 @@ public class MonsterAI : MonoBehaviour
     public AIState currentState;
     public LayerMask groundLayer, playerLayer;
     private NavMeshAgent ai;
-    private Animator anim;
     public List<Transform> playerTransform;
     public List<Transform> playersInRange;
     public List<Transform> waypoints;
@@ -27,7 +26,6 @@ public class MonsterAI : MonoBehaviour
     public Transform investigatePoint;
     public Transform nearestPlayer;
     Vector3 dest;
-    bool walkPointSet;
     int waypointIndex;
     public bool walking, chasing;
 
@@ -44,11 +42,17 @@ public class MonsterAI : MonoBehaviour
     void Update()
     {
         LineOfSight();
-        if (playersInRange!=null && currentState!= AIState.Chase || playersInRange!=null && currentState !=AIState.Capture)
+        if (playersInRange!=null)
         {
+            nearestPlayer = ReturnNearestPlayer();
             
-            currentState = AIState.Chase;
         } 
+
+        if (nearestPlayer!=null)
+        {
+            currentState = AIState.Chase;
+
+        }
 
         else if (investigatePoint != null)
         {
@@ -68,7 +72,8 @@ public class MonsterAI : MonoBehaviour
                 break;
 
             case AIState.Chase:
-
+                ReturnNearestPlayer();
+                ChasePlayer();
                 break;
             case AIState.Capture:
 
@@ -77,9 +82,23 @@ public class MonsterAI : MonoBehaviour
         }
     }
 
-    void ChasePlayer(Transform player)
+    void ChasePlayer()
     {
-        ai.SetDestination(player.position);
+        if (nearestPlayer!=null)
+        {
+            ai.SetDestination(nearestPlayer.position);
+            ai.speed = chaseSpeed;
+
+            if (Vector3.Distance(nearestPlayer.position, transform.position) <= 3)
+            {
+                ai.speed = 0;
+            }
+            else
+                ai.speed = chaseSpeed;
+
+        }
+
+       
     }
 
     void Patrol()
@@ -181,14 +200,28 @@ public class MonsterAI : MonoBehaviour
           
     }
 
-    void SetChaseTarget()
+   public Transform ReturnNearestPlayer() //check for all players in range, return nearest player
     {
-        if (playersInRange.Count <= 1)
+        
+        if (playersInRange.Count ==0)
         {
-            nearestPlayer = playersInRange[0];
+            return null;
         }
+
+        Transform nearestPlayer = playersInRange[0];
+        float closestDistance = Vector3.Distance(nearestPlayer.position, transform.position);
         
-        
+        foreach (Transform playerTransform in playersInRange)
+        {
+            float distance = Vector3.Distance(playerTransform.position, transform.position);
+            if (distance < closestDistance)
+            {
+                nearestPlayer= playerTransform;
+                closestDistance = distance;
+            }
+        }
+        return nearestPlayer;
+
     }
         
 }
