@@ -11,6 +11,7 @@ public class MonsterAI : MonoBehaviour
     private NavMeshAgent ai;
     public List<Transform> playerTransform;
     public List<Transform> playersInRange;
+    public List<Transform> investigatePoints;
     public List<Transform> waypoints;
 
     public float walkSpeed = 5f;
@@ -20,14 +21,15 @@ public class MonsterAI : MonoBehaviour
     public float visionRange = 8f;
     public float visionAngle = 45f;
     public float catchDistance = 2f;
+    public float soundDetectionRange = 10f;
 
     float idleTime;
     public Transform currentDestination;
-    public Transform investigatePoint;
+    public  Vector3 investigatePoint;
     public Transform nearestPlayer;
     Vector3 dest;
     int waypointIndex;
-    public bool walking, chasing;
+    public bool walking, investigating ,chasing;
 
     void Start()
     {
@@ -54,7 +56,7 @@ public class MonsterAI : MonoBehaviour
 
         }
 
-        else if (investigatePoint != null)
+        else if (investigating)
         {
             currentState = AIState.Investigate;
         }
@@ -133,14 +135,14 @@ public class MonsterAI : MonoBehaviour
 
 
 
-    public void Investigate(Transform destination)
+    public void Investigate(Vector3 destination)
     {
         walking = true;
         if (walking)
         {
-            currentDestination = destination;
-            dest = currentDestination.position;
-            ai.destination = dest;
+          
+
+            ai.destination = destination;
             ai.speed = walkSpeed;
 
             if (ai.remainingDistance <= ai.stoppingDistance)
@@ -166,7 +168,7 @@ public class MonsterAI : MonoBehaviour
         walking = true;
         waypointIndex = Random.Range(0, waypoints.Count);
         currentDestination = waypoints[waypointIndex];
-        investigatePoint = null;
+        investigating = false;
         currentState = AIState.Patrol;
     }
 
