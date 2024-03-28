@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Furby
+  - Player1
   layers:
   - Default
   - TransparentFX
