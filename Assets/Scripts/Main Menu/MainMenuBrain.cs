@@ -53,6 +53,30 @@ public class MainMenuBrain : MonoBehaviour
             {
                 calledFunction = true;
             }
+
+            if (Input.GetButtonDown("P1 A"))
+            {
+                if (currentBttn == "Option")
+                {
+                    MainMenuButtons[1].image.sprite = MainMenuButtons[1].spriteState.selectedSprite;
+                    OptionsMenu();
+                }
+                else if (currentBttn == "HowToPlay")
+                {
+                    MainMenuButtons[2].image.sprite = MainMenuButtons[2].spriteState.selectedSprite;
+                    HowToPlay();
+                }
+                else if (currentBttn == "Quit")
+                {
+                    MainMenuButtons[3].image.sprite = MainMenuButtons[3].spriteState.selectedSprite;
+                    ExitGame();
+                }
+                else if (currentBttn == "Start")
+                {
+                    MainMenuButtons[0].image.sprite = MainMenuButtons[0].spriteState.selectedSprite;
+                    StartGame();
+                }
+            }
         }
         #endregion
     }
