@@ -32,7 +32,8 @@ public class MonsterAI : MonoBehaviour
     int waypointIndex;
     public bool walking, investigating, chasing;
     public bool seePlayer1, seePlayer2, seePlayer3, seePlayer4;
-   
+
+    public WhoIsMonster whoIsMonsterScript;
 
     void Start()
     {
@@ -144,7 +145,6 @@ public class MonsterAI : MonoBehaviour
         currentDestination = waypoints[waypointIndex];
     }
 
-
     public void Investigate(Vector3 destination)
     {
         walking = true;
@@ -228,8 +228,6 @@ public class MonsterAI : MonoBehaviour
         }
       
     }
-
-
    public Transform ReturnNearestPlayer() //check for all players in range, return nearest player
     {
         
@@ -325,5 +323,29 @@ public class MonsterAI : MonoBehaviour
         }
     }
 
-        
+    #region AI Catch Player Code
+    private void OnCollisionEnter(Collision collision)
+    {
+        //YS pls insert code to play catch animation
+
+        #region Setting which player to become the monster based on who the AI catched
+        if (collision.gameObject.tag == "P1")
+        {
+            whoIsMonsterScript.currentMonsterPlayer = whoIsMonsterScript.playerOne;
+        }
+        else if (collision.gameObject.tag == "P2")
+        {
+            whoIsMonsterScript.currentMonsterPlayer = whoIsMonsterScript.playerTwo;
+        }
+        else if(collision.gameObject.tag == "P3")
+        {
+            whoIsMonsterScript.currentMonsterPlayer = whoIsMonsterScript.playerThree;
+        }
+        else if (collision.gameObject.tag == "P4")
+        {
+            whoIsMonsterScript.currentMonsterPlayer = whoIsMonsterScript.playerFour;
+        }
+        #endregion
+    }
+    #endregion
 }
