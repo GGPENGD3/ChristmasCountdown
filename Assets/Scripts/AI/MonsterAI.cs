@@ -32,7 +32,8 @@ public class MonsterAI : MonoBehaviour
     int waypointIndex;
     public bool walking, investigating, chasing;
     public bool seePlayer1, seePlayer2, seePlayer3, seePlayer4;
-    public Animator anim;
+
+    public WhoIsMonster whoIsMonsterScript;
 
     void Start()
     {
@@ -42,7 +43,7 @@ public class MonsterAI : MonoBehaviour
         currentDestination = waypoints[waypointIndex];
         currentState = AIState.Patrol;
         agent.autoBraking = false;
-        anim=GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -59,21 +60,16 @@ public class MonsterAI : MonoBehaviour
         if (closestPlayer!=null)
         {
             currentState = AIState.Chase;
-            chasing = true;
-            walking = false;
+
         }
 
         else if (closestPlayer == null)
         {
             currentState = AIState.Patrol;
-            chasing = false;
-            walking = true;
         }
         else if (investigating)
         {
             currentState = AIState.Investigate;
-            chasing = false;
-            walking = true;
         }
         else currentState = AIState.Patrol;
 
@@ -96,20 +92,6 @@ public class MonsterAI : MonoBehaviour
 
                 break;
 
-        }
-
-       if (walking)
-        {
-            anim.SetBool("Walk",true);
-            anim.SetBool("Run", false);
-        }
-       if (chasing)
-        {
-            if (walking)
-            {
-                anim.SetBool("Walk", false);
-                anim.SetBool("Run", true);
-            }
         }
     }
 
@@ -155,8 +137,6 @@ public class MonsterAI : MonoBehaviour
 
     IEnumerator IdleTimer()
     {
-        anim.SetBool("Walk", false);
-        anim.SetBool("Run", false);
         idleTime = Random.Range(minIdleTime, maxIdleTime);
         yield return new WaitForSeconds(idleTime);
         walking = true;
@@ -164,7 +144,6 @@ public class MonsterAI : MonoBehaviour
         waypointIndex = (waypointIndex+1) % waypoints.Count;
         currentDestination = waypoints[waypointIndex];
     }
-
 
     public void Investigate(Vector3 destination)
     {
@@ -249,8 +228,6 @@ public class MonsterAI : MonoBehaviour
         }
       
     }
-
-
    public Transform ReturnNearestPlayer() //check for all players in range, return nearest player
     {
         
@@ -287,14 +264,10 @@ public class MonsterAI : MonoBehaviour
         }
         if (!seePlayer1)
         {
-            if (playersInRange!=null)
+           if (playersInRange.Contains(playerTransform[0]))
             {
-                if (playersInRange.Contains(playerTransform[0]))
-                {
-                    playersInRange.Remove(playerTransform[0]);
-                }
+                playersInRange.Remove(playerTransform[0]);
             }
-         
         }
         if (seePlayer2)
         {
@@ -350,5 +323,29 @@ public class MonsterAI : MonoBehaviour
         }
     }
 
-        
+    #region AI Catch Player Code
+    private void OnCollisionEnter(Collision collision)
+    {
+        //YS pls insert code to play catch animation
+
+        #region Setting which player to become the monster based on who the AI catched
+        if (collision.gameObject.tag == "P1")
+        {
+            whoIsMonsterScript.currentMonsterPlayer = whoIsMonsterScript.playerOne;
+        }
+        else if (collision.gameObject.tag == "P2")
+        {
+            whoIsMonsterScript.currentMonsterPlayer = whoIsMonsterScript.playerTwo;
+        }
+        else if(collision.gameObject.tag == "P3")
+        {
+            whoIsMonsterScript.currentMonsterPlayer = whoIsMonsterScript.playerThree;
+        }
+        else if (collision.gameObject.tag == "P4")
+        {
+            whoIsMonsterScript.currentMonsterPlayer = whoIsMonsterScript.playerFour;
+        }
+        #endregion
+    }
+    #endregion
 }
