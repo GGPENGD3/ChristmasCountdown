@@ -20,7 +20,7 @@ public class PlayerBecomeMonster : MonoBehaviour
             monsterModel.SetActive(true);
 
             //set playerCam to monsterCam position
-            playerCam.position = monsterCamPos;
+            //playerCam.position = monsterCamPos;
 
             becomeMonster = false;
         }

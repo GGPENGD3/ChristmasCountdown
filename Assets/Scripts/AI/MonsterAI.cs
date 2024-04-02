@@ -331,19 +331,20 @@ public class MonsterAI : MonoBehaviour
         #region Setting which player to become the monster based on who the AI catched
         if (collision.gameObject.tag == "P1")
         {
-            whoIsMonsterScript.currentMonsterPlayer = whoIsMonsterScript.playerOne;
+            whoIsMonsterScript.currentMonsterPlayer = "P1";
+            Destroy(this.gameObject);
         }
         else if (collision.gameObject.tag == "P2")
         {
-            whoIsMonsterScript.currentMonsterPlayer = whoIsMonsterScript.playerTwo;
+            whoIsMonsterScript.currentMonsterPlayer = "P2";
         }
         else if(collision.gameObject.tag == "P3")
         {
-            whoIsMonsterScript.currentMonsterPlayer = whoIsMonsterScript.playerThree;
+            whoIsMonsterScript.currentMonsterPlayer = "P3";
         }
         else if (collision.gameObject.tag == "P4")
         {
-            whoIsMonsterScript.currentMonsterPlayer = whoIsMonsterScript.playerFour;
+            whoIsMonsterScript.currentMonsterPlayer = "P4";
         }
         #endregion
     }
