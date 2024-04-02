@@ -32,7 +32,7 @@ public class MonsterAI : MonoBehaviour
     int waypointIndex;
     public bool walking, investigating, chasing;
     public bool seePlayer1, seePlayer2, seePlayer3, seePlayer4;
-   
+    public Animator anim;
 
     void Start()
     {
@@ -42,7 +42,7 @@ public class MonsterAI : MonoBehaviour
         currentDestination = waypoints[waypointIndex];
         currentState = AIState.Patrol;
         agent.autoBraking = false;
-        
+        anim=GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -59,16 +59,21 @@ public class MonsterAI : MonoBehaviour
         if (closestPlayer!=null)
         {
             currentState = AIState.Chase;
-
+            chasing = true;
+            walking = false;
         }
 
         else if (closestPlayer == null)
         {
             currentState = AIState.Patrol;
+            chasing = false;
+            walking = true;
         }
         else if (investigating)
         {
             currentState = AIState.Investigate;
+            chasing = false;
+            walking = true;
         }
         else currentState = AIState.Patrol;
 
@@ -91,6 +96,20 @@ public class MonsterAI : MonoBehaviour
 
                 break;
 
+        }
+
+       if (walking)
+        {
+            anim.SetBool("Walk",true);
+            anim.SetBool("Run", false);
+        }
+       if (chasing)
+        {
+            if (walking)
+            {
+                anim.SetBool("Walk", false);
+                anim.SetBool("Run", true);
+            }
         }
     }
 
@@ -136,6 +155,8 @@ public class MonsterAI : MonoBehaviour
 
     IEnumerator IdleTimer()
     {
+        anim.SetBool("Walk", false);
+        anim.SetBool("Run", false);
         idleTime = Random.Range(minIdleTime, maxIdleTime);
         yield return new WaitForSeconds(idleTime);
         walking = true;
@@ -266,10 +287,14 @@ public class MonsterAI : MonoBehaviour
         }
         if (!seePlayer1)
         {
-           if (playersInRange.Contains(playerTransform[0]))
+            if (playersInRange!=null)
             {
-                playersInRange.Remove(playerTransform[0]);
+                if (playersInRange.Contains(playerTransform[0]))
+                {
+                    playersInRange.Remove(playerTransform[0]);
+                }
             }
+         
         }
         if (seePlayer2)
         {
