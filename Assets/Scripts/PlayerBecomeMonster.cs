@@ -7,12 +7,8 @@ public class PlayerBecomeMonster : MonoBehaviour
     public bool becomeMonster;
     public GameObject playerModel;
     public GameObject monsterModel;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Transform playerCam;
+    public Vector3 monsterCamPos;
 
     // Update is called once per frame
     void Update()
@@ -24,7 +20,9 @@ public class PlayerBecomeMonster : MonoBehaviour
             monsterModel.SetActive(true);
 
             //set playerCam to monsterCam position
-            
+            playerCam.position = monsterCamPos;
+
+            becomeMonster = false;
         }
     }
 }
