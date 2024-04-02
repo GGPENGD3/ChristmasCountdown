@@ -17,10 +17,6 @@ public class FPS_Controller : MonoBehaviour
     public string player_RightThumbstickBttn;
     public string player_B_Bttn;
 
-    [Header("Player Footsteps")]
-    public List<AudioClip> playerFootsteps;
-    public AudioSource footstepAudioSource;
-
     [Header("Camera")]
     #region Camera Movement Variables
 
