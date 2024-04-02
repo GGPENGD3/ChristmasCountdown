@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 public class MainMenuBrain : MonoBehaviour
 {
     public string currentMenu; //MainMenu, OptionMenu, HowToPlay, Credits
@@ -22,7 +21,6 @@ public class MainMenuBrain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        OptionBtn.interactable = false;
         currentMenu = "MainMenu";
     }
 
@@ -31,27 +29,31 @@ public class MainMenuBrain : MonoBehaviour
     {
         #region Main Menu Stuff
         //Controller Input For MainMenu
-        if (currentMenu == "MainMenul")
+        if (currentMenu == "MainMenu")
         {
-            if (Input.GetAxis("P1 Right ThumbStick Horizontal") < 0)
+            if (Input.GetAxis("P1 Left ThumbStick Horizontal") < 0)
             {
                 //go down the list of buttons
                 if (!calledFunction)
                 {
-                    SelectingMainMenuBttn();
+                    GoDownMainMenuButtons();
                 }
             }
-            else if (Input.GetAxis("P1 Right ThumbStick Horizontal") > 0)
+            else if (Input.GetAxis("P1 Left ThumbStick Horizontal") > 0)
             {
                 //go up the list of buttons
                 if (!calledFunction)
                 {
-                    SelectingMainMenuBttn();
+                    GoUpMainMenuButtons();
                 }
             }
-            else if (Input.GetAxis("P1 Right ThumbStick Horizontal") == 0)
+            else if (Input.GetAxis("P1 Left ThumbStick Horizontal") == 0)
             {
-                calledFunction = true;
+                //go up the list of buttons
+                if (calledFunction)
+                {
+                    calledFunction = false;
+                }
             }
 
             if (Input.GetButtonDown("P1 A"))
@@ -110,37 +112,101 @@ public class MainMenuBrain : MonoBehaviour
     }
     #endregion
 
-    void SelectingMainMenuBttn()
+    void GoDownMainMenuButtons()
     {
         if (currentBttn == "")
         {
-            calledFunction = false;
+            calledFunction = true;
             currentBttn = "Start";
             MainMenuButtons[0].image.sprite = MainMenuButtons[0].spriteState.highlightedSprite;
+            MainMenuButtons[1].image.sprite = MainMenuButtons[1].spriteState.disabledSprite;
+            MainMenuButtons[2].image.sprite = MainMenuButtons[2].spriteState.disabledSprite;
+            MainMenuButtons[3].image.sprite = MainMenuButtons[3].spriteState.disabledSprite;
         }
         else if (currentBttn == "Start")
         {
-            calledFunction = false;
+            calledFunction = true;
             currentBttn = "Option";
             MainMenuButtons[1].image.sprite = MainMenuButtons[1].spriteState.highlightedSprite;
+            MainMenuButtons[0].image.sprite = MainMenuButtons[0].spriteState.disabledSprite;
+            MainMenuButtons[2].image.sprite = MainMenuButtons[2].spriteState.disabledSprite;
+            MainMenuButtons[3].image.sprite = MainMenuButtons[3].spriteState.disabledSprite;
         }
         else if (currentBttn == "Option")
         {
-            calledFunction = false;
+            calledFunction = true;
             currentBttn = "HowToPlay";
             MainMenuButtons[2].image.sprite = MainMenuButtons[2].spriteState.highlightedSprite;
+            MainMenuButtons[1].image.sprite = MainMenuButtons[1].spriteState.disabledSprite;
+            MainMenuButtons[0].image.sprite = MainMenuButtons[0].spriteState.disabledSprite;
+            MainMenuButtons[3].image.sprite = MainMenuButtons[3].spriteState.disabledSprite;
         }
         else if (currentBttn == "HowToPlay")
         {
-            calledFunction = false;
+            calledFunction = true;
             currentBttn = "Quit";
             MainMenuButtons[3].image.sprite = MainMenuButtons[3].spriteState.highlightedSprite;
+            MainMenuButtons[1].image.sprite = MainMenuButtons[1].spriteState.disabledSprite;
+            MainMenuButtons[2].image.sprite = MainMenuButtons[2].spriteState.disabledSprite;
+            MainMenuButtons[0].image.sprite = MainMenuButtons[0].spriteState.disabledSprite;
         }
         else if (currentBttn == "Quit")
         {
-            calledFunction = false;
+            calledFunction = true;
             currentBttn = "Start";
             MainMenuButtons[0].image.sprite = MainMenuButtons[0].spriteState.highlightedSprite;
+            MainMenuButtons[1].image.sprite = MainMenuButtons[1].spriteState.disabledSprite;
+            MainMenuButtons[2].image.sprite = MainMenuButtons[2].spriteState.disabledSprite;
+            MainMenuButtons[3].image.sprite = MainMenuButtons[3].spriteState.disabledSprite;
+        }
+    }
+
+    void GoUpMainMenuButtons()
+    {
+        if (currentBttn == "")
+        {
+            calledFunction = true;
+            currentBttn = "Quit";
+            MainMenuButtons[3].image.sprite = MainMenuButtons[3].spriteState.highlightedSprite;
+            MainMenuButtons[1].image.sprite = MainMenuButtons[1].spriteState.disabledSprite;
+            MainMenuButtons[2].image.sprite = MainMenuButtons[2].spriteState.disabledSprite;
+            MainMenuButtons[0].image.sprite = MainMenuButtons[0].spriteState.disabledSprite;
+        }
+        else if (currentBttn == "Quit")
+        {
+            calledFunction = true;
+            currentBttn = "HowToPlay";
+            MainMenuButtons[2].image.sprite = MainMenuButtons[2].spriteState.highlightedSprite;
+            MainMenuButtons[0].image.sprite = MainMenuButtons[0].spriteState.disabledSprite;
+            MainMenuButtons[1].image.sprite = MainMenuButtons[1].spriteState.disabledSprite;
+            MainMenuButtons[3].image.sprite = MainMenuButtons[3].spriteState.disabledSprite;
+        }
+        else if (currentBttn == "HowToPlay")
+        {
+            calledFunction = true;
+            currentBttn = "Option";
+            MainMenuButtons[1].image.sprite = MainMenuButtons[1].spriteState.highlightedSprite;
+            MainMenuButtons[2].image.sprite = MainMenuButtons[2].spriteState.disabledSprite;
+            MainMenuButtons[0].image.sprite = MainMenuButtons[0].spriteState.disabledSprite;
+            MainMenuButtons[3].image.sprite = MainMenuButtons[3].spriteState.disabledSprite;
+        }
+        else if (currentBttn == "Option")
+        {
+            calledFunction = true;
+            currentBttn = "Start";
+            MainMenuButtons[0].image.sprite = MainMenuButtons[0].spriteState.highlightedSprite;
+            MainMenuButtons[1].image.sprite = MainMenuButtons[1].spriteState.disabledSprite;
+            MainMenuButtons[2].image.sprite = MainMenuButtons[2].spriteState.disabledSprite;
+            MainMenuButtons[3].image.sprite = MainMenuButtons[3].spriteState.disabledSprite;
+        }
+        else if (currentBttn == "Start")
+        {
+            calledFunction = true;
+            currentBttn = "Quit";
+            MainMenuButtons[3].image.sprite = MainMenuButtons[3].spriteState.highlightedSprite;
+            MainMenuButtons[1].image.sprite = MainMenuButtons[1].spriteState.disabledSprite;
+            MainMenuButtons[2].image.sprite = MainMenuButtons[2].spriteState.disabledSprite;
+            MainMenuButtons[0].image.sprite = MainMenuButtons[0].spriteState.disabledSprite;
         }
     }
 }

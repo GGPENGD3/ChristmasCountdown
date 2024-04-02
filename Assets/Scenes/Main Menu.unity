@@ -1360,7 +1360,7 @@ MonoBehaviour:
       type: 3}
     m_SelectedSprite: {fileID: 1315119124, guid: fd579de4dc5f77a44bb1da46f3014f3d,
       type: 3}
-    m_DisabledSprite: {fileID: -1300214507, guid: fd579de4dc5f77a44bb1da46f3014f3d,
+    m_DisabledSprite: {fileID: -556313572, guid: fd579de4dc5f77a44bb1da46f3014f3d,
       type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1824,7 +1824,7 @@ MonoBehaviour:
   - {fileID: 1209299697}
   - {fileID: 1474578911}
   currentBttn: 
-  calledFunction: 1
+  calledFunction: 0
 --- !u!1 &1209299695
 GameObject:
   m_ObjectHideFlags: 0
@@ -1900,7 +1900,7 @@ MonoBehaviour:
       type: 3}
     m_SelectedSprite: {fileID: 1315119124, guid: fd579de4dc5f77a44bb1da46f3014f3d,
       type: 3}
-    m_DisabledSprite: {fileID: -1300214507, guid: fd579de4dc5f77a44bb1da46f3014f3d,
+    m_DisabledSprite: {fileID: -556313572, guid: fd579de4dc5f77a44bb1da46f3014f3d,
       type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -2557,7 +2557,7 @@ MonoBehaviour:
       type: 3}
     m_SelectedSprite: {fileID: 1315119124, guid: fd579de4dc5f77a44bb1da46f3014f3d,
       type: 3}
-    m_DisabledSprite: {fileID: -1300214507, guid: fd579de4dc5f77a44bb1da46f3014f3d,
+    m_DisabledSprite: {fileID: -556313572, guid: fd579de4dc5f77a44bb1da46f3014f3d,
       type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -2886,7 +2886,7 @@ MonoBehaviour:
       type: 3}
     m_SelectedSprite: {fileID: 1315119124, guid: fd579de4dc5f77a44bb1da46f3014f3d,
       type: 3}
-    m_DisabledSprite: {fileID: -1300214507, guid: fd579de4dc5f77a44bb1da46f3014f3d,
+    m_DisabledSprite: {fileID: -556313572, guid: fd579de4dc5f77a44bb1da46f3014f3d,
       type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
