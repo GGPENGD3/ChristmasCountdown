@@ -332,6 +332,7 @@ public class MonsterAI : MonoBehaviour
         if (collision.gameObject.tag == "P1")
         {
             whoIsMonsterScript.currentMonsterPlayer = "P1";
+            whoIsMonsterScript.ChangeMonster();
             Destroy(this.gameObject);
         }
         else if (collision.gameObject.tag == "P2")

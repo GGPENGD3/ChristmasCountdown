@@ -675,6 +675,7 @@ GameObject:
   - component: {fileID: 156388633}
   - component: {fileID: 156388638}
   - component: {fileID: 156388639}
+  - component: {fileID: 156388640}
   m_Layer: 13
   m_Name: Player 4
   m_TagString: P4
@@ -884,6 +885,27 @@ MonoBehaviour:
   minPitch: 0.7
   maxPitch: 1
   footstepSource: {fileID: 1100065922}
+--- !u!114 &156388640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156388631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59840c5b50802d2489d1cd9a25de4190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  becomeMonster: 0
+  becomePlayer: 0
+  playerModel: {fileID: 0}
+  monsterModel: {fileID: 0}
+  playerCam: {fileID: 984804401}
+  monsterCamPos: {x: 0, y: 0, z: 0}
+  blackScreen: {fileID: 0}
+  fadeBlack: 0
+  startFading: 0
 --- !u!1 &232414992
 GameObject:
   m_ObjectHideFlags: 0
@@ -3344,6 +3366,7 @@ GameObject:
   - component: {fileID: 551182744}
   - component: {fileID: 551182749}
   - component: {fileID: 551182750}
+  - component: {fileID: 551182751}
   m_Layer: 11
   m_Name: Player 2
   m_TagString: P2
@@ -3554,6 +3577,27 @@ MonoBehaviour:
   minPitch: 0.7
   maxPitch: 1
   footstepSource: {fileID: 359210979}
+--- !u!114 &551182751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551182742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59840c5b50802d2489d1cd9a25de4190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  becomeMonster: 0
+  becomePlayer: 0
+  playerModel: {fileID: 0}
+  monsterModel: {fileID: 0}
+  playerCam: {fileID: 305336709}
+  monsterCamPos: {x: 0, y: 0, z: 0}
+  blackScreen: {fileID: 0}
+  fadeBlack: 0
+  startFading: 0
 --- !u!4 &555308287 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1049245777259550440, guid: a57fa9deded955f46ac543b8f6de90cc,
@@ -5138,6 +5182,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1381813115}
+  - {fileID: 1596551536}
   - {fileID: 1796434878}
   - {fileID: 1668135987}
   - {fileID: 1531244592}
@@ -6577,6 +6622,7 @@ GameObject:
   - component: {fileID: 1214123261}
   - component: {fileID: 1214123266}
   - component: {fileID: 1214123267}
+  - component: {fileID: 1214123268}
   m_Layer: 12
   m_Name: Player 3
   m_TagString: P3
@@ -6786,6 +6832,27 @@ MonoBehaviour:
   minPitch: 0.7
   maxPitch: 1
   footstepSource: {fileID: 874299644}
+--- !u!114 &1214123268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214123259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59840c5b50802d2489d1cd9a25de4190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  becomeMonster: 0
+  becomePlayer: 0
+  playerModel: {fileID: 0}
+  monsterModel: {fileID: 0}
+  playerCam: {fileID: 1400887827}
+  monsterCamPos: {x: 0, y: 0, z: 0}
+  blackScreen: {fileID: 0}
+  fadeBlack: 0
+  startFading: 0
 --- !u!1 &1256402403
 GameObject:
   m_ObjectHideFlags: 0
@@ -8443,7 +8510,7 @@ GameObject:
   - component: {fileID: 1531244592}
   - component: {fileID: 1531244594}
   - component: {fileID: 1531244593}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: BatteryLife (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8704,6 +8771,82 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554937328}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1596551535
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596551536}
+  - component: {fileID: 1596551538}
+  - component: {fileID: 1596551537}
+  m_Layer: 6
+  m_Name: Black Screen (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1596551536
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596551535}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 933240345}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -480, y: 270}
+  m_SizeDelta: {x: 960, y: 540}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1596551537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596551535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1596551538
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596551535}
+  m_CullTransparentMesh: 1
 --- !u!1 &1621738467
 GameObject:
   m_ObjectHideFlags: 0
@@ -8982,7 +9125,7 @@ GameObject:
   - component: {fileID: 1668135987}
   - component: {fileID: 1668135989}
   - component: {fileID: 1668135988}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: BatteryLife (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10158,7 +10301,7 @@ GameObject:
   - component: {fileID: 1796434878}
   - component: {fileID: 1796434880}
   - component: {fileID: 1796434879}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: BatteryLife (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12439,10 +12582,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   becomeMonster: 0
+  becomePlayer: 0
   playerModel: {fileID: 1876324987}
   monsterModel: {fileID: 2069563286}
   playerCam: {fileID: 330585546}
   monsterCamPos: {x: 0.055, y: 0.565, z: 0.133}
+  blackScreen: {fileID: 1596551537}
+  fadeBlack: 0
+  startFading: 0
 --- !u!136 &3469287836620322662
 CapsuleCollider:
   m_ObjectHideFlags: 0
