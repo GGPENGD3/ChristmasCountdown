@@ -25,6 +25,8 @@ public class RandomFootsteps : MonoBehaviour
             {
                 delay -= Time.deltaTime;
 
+                if (GetComponent<FPS_Controller>().isSprinting) delay -= Time.deltaTime * 5f;
+
                 if (delay <= 0)
                 {
                     PlayFootsteps();

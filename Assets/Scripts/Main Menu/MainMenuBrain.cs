@@ -86,26 +86,31 @@ public class MainMenuBrain : MonoBehaviour
     #region button functions
     public void StartGame()
     {
+        FindObjectOfType<AudioManager>().PlayUI("ui_Confirm");
         SceneManager.LoadScene(1);
     }
 
     public void ExitGame()
     {
+        FindObjectOfType<AudioManager>().PlayUI("ui_Confirm");
         Application.Quit();
     }
 
     public void OptionsMenu()
     {
+        FindObjectOfType<AudioManager>().PlayUI("ui_Confirm");
         //open up option menu
     }
 
     public void CreditsMenu()
     {
+        FindObjectOfType<AudioManager>().PlayUI("ui_Confirm");
         //open up credits menu
     }
 
     public void HowToPlay()
     {
+        FindObjectOfType<AudioManager>().PlayUI("ui_Confirm");
         //open up How To Play
         HowToPlayUI.SetActive(true);
         currentMenu = "HowToPlay";
@@ -114,6 +119,7 @@ public class MainMenuBrain : MonoBehaviour
 
     void GoDownMainMenuButtons()
     {
+        FindObjectOfType<AudioManager>().PlayUI("ui_Shift");
         if (currentBttn == "")
         {
             calledFunction = true;
@@ -163,6 +169,7 @@ public class MainMenuBrain : MonoBehaviour
 
     void GoUpMainMenuButtons()
     {
+        FindObjectOfType<AudioManager>().PlayUI("ui_Shift");
         if (currentBttn == "")
         {
             calledFunction = true;
