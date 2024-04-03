@@ -15,8 +15,7 @@ public class WhoIsMonster : MonoBehaviour
     public PlayerBecomeMonster p3_PBM_Script;
     public PlayerBecomeMonster p4_PBM_Script;
 
-    // Update is called once per frame
-    void Update()
+    public void ChangeMonster()
     {
         if (currentMonsterPlayer == "P1")
         {
@@ -26,6 +25,9 @@ public class WhoIsMonster : MonoBehaviour
             playerFour.tag = "P4";
 
             p1_PBM_Script.becomeMonster = true;
+            //p2_PBM_Script.becomePlayer = true;
+            //p3_PBM_Script.becomePlayer = true;
+            //p4_PBM_Script.becomePlayer = true;
         }
         else if (currentMonsterPlayer == "P2")
         {
@@ -33,6 +35,12 @@ public class WhoIsMonster : MonoBehaviour
             playerOne.tag = "P1";
             playerThree.tag = "P3";
             playerFour.tag = "P4";
+
+            //p2_PBM_Script.becomeMonster = true;
+
+            p1_PBM_Script.becomePlayer = true;
+            //p3_PBM_Script.becomePlayer = true;
+            //p4_PBM_Script.becomePlayer = true;
         }
         else if (currentMonsterPlayer == "P3")
         {
@@ -40,6 +48,12 @@ public class WhoIsMonster : MonoBehaviour
             playerOne.tag = "P1";
             playerTwo.tag = "P2";
             playerFour.tag = "P4";
+
+            //p3_PBM_Script.becomeMonster = true;
+
+            p1_PBM_Script.becomePlayer = true;
+            //p2_PBM_Script.becomePlayer = true;
+            //p4_PBM_Script.becomePlayer = true;
         }
         else if (currentMonsterPlayer == "P4")
         {
@@ -47,6 +61,12 @@ public class WhoIsMonster : MonoBehaviour
             playerOne.tag = "P1";
             playerTwo.tag = "P2";
             playerThree.tag = "P3";
+
+            //p4_PBM_Script.becomeMonster = true;
+
+            p1_PBM_Script.becomePlayer = true;
+            //p2_PBM_Script.becomePlayer = true;
+            //p3_PBM_Script.becomePlayer = true;
         }
     }
 }
