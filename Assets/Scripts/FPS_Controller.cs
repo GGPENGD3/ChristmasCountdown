@@ -96,9 +96,9 @@ public class FPS_Controller : MonoBehaviour
     public float speedReduction = .5f;
 
     // Internal Variables
-    private bool isCrouched = false;
+    public bool isCrouched = false;
     private Vector3 originalScale;
-
+    public Animator anim;
     #endregion
     #endregion
 
@@ -119,12 +119,12 @@ public class FPS_Controller : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-
+        anim=GetComponentInChildren<Animator>();
         //Set Internal Variables
         playerCamera.fieldOfView = fov;
         originalScale = transform.localScale;
         jointOriginalPos = joint.localPosition;
-
+        
         if (!unlimitedSprint)
         {
             sprintRemaining = sprintDuration;
@@ -472,6 +472,7 @@ public class FPS_Controller : MonoBehaviour
             walkSpeed /= speedReduction;
 
             isCrouched = false;
+            anim.SetBool("Crouch", false);
         }
         // Crouches player down to set height
         // Reduces walkSpeed
@@ -481,6 +482,7 @@ public class FPS_Controller : MonoBehaviour
             walkSpeed *= speedReduction;
 
             isCrouched = true;
+            anim.SetBool("Crouch", true);
         }
     }
 

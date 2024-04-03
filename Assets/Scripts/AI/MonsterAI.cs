@@ -8,11 +8,14 @@ public class MonsterAI : MonoBehaviour
     public enum AIState { Patrol, Investigate, Chase, Capture };
     public AIState currentState;
     public LayerMask groundLayer, playerLayer;
+   
     private NavMeshAgent agent;
     public List<Transform> playerTransform;
     public List<Transform> playersInRange;
     public List<Transform> investigatePoints;
     public List<Transform> waypoints;
+    public Transform centrePoint;
+    public float range;
 
     public float walkSpeed = 5f;
     public float chaseSpeed = 8f;
@@ -32,7 +35,8 @@ public class MonsterAI : MonoBehaviour
     int waypointIndex;
     public bool walking, investigating, chasing;
     public bool seePlayer1, seePlayer2, seePlayer3, seePlayer4;
-
+    public Transform possessPosition;
+    public Animator anim;
     public WhoIsMonster whoIsMonsterScript;
 
     void Start()
@@ -43,7 +47,8 @@ public class MonsterAI : MonoBehaviour
         currentDestination = waypoints[waypointIndex];
         currentState = AIState.Patrol;
         agent.autoBraking = false;
-        
+        anim = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
@@ -60,25 +65,31 @@ public class MonsterAI : MonoBehaviour
         if (closestPlayer!=null)
         {
             currentState = AIState.Chase;
+            chasing = true;
+            walking = false;
 
         }
 
-        else if (closestPlayer == null)
-        {
-            currentState = AIState.Patrol;
-        }
+        //else if (closestPlayer == null)
+        //{
+        //    currentState = AIState.Patrol;
+        //    chasing = false;
+        //    walking = true;
+        //}
         else if (investigating)
         {
             currentState = AIState.Investigate;
+            chasing = false;
+            walking = true;
         }
-        else currentState = AIState.Patrol;
+        //else currentState = AIState.Patrol;
 
 
         switch (currentState)
         {
             case AIState.Patrol:
 
-                Patrol();
+                Patrol2();
                 break;
             case AIState.Investigate:
                 Investigate(investigatePoint);
@@ -93,27 +104,89 @@ public class MonsterAI : MonoBehaviour
                 break;
 
         }
+        if (walking)
+        {
+            anim.SetBool("Walk", true);
+            anim.SetBool("Run", false);
+        }
+        if (chasing)
+        {
+            if (walking)
+            {
+                anim.SetBool("Walk", false);
+                anim.SetBool("Run", true);
+            }
+        }
     }
 
     void ChasePlayer()
     {
         if (closestPlayer!=null)
         {
-            agent.SetDestination(closestPlayer.position);
-            agent.speed = chaseSpeed;
-
-            if (Vector3.Distance(closestPlayer.position, transform.position) <= 3)
+  
+            if (Vector3.Distance(closestPlayer.position, transform.position) <= 2)
             {
                 agent.speed = 0;
+                anim.SetBool("Walk", false);
+                anim.SetBool("Run", false);
+                StartCoroutine(Capture());
             }
             else
                 agent.speed = chaseSpeed;
+                agent.SetDestination(closestPlayer.position);
 
         }
 
        
     }
 
+    void Patrol2()
+    {
+        if (agent.remainingDistance<=agent.stoppingDistance)
+        {
+            Vector3 point;
+            if (RandomPoint(centrePoint.position,range, out point))
+            {
+                Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f);
+                agent.SetDestination(point);
+            }
+        }
+    }
+
+    bool RandomPoint (Vector3 Center, float range, out Vector3 result)
+    {
+        Vector3 randomPoint = Center + Random.insideUnitSphere * range;
+        NavMeshHit hit;
+
+        if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
+        {
+            result = hit.position;
+            return true;
+        }
+        result = Vector3.zero;
+        return false;
+    }
+    public void Attack()
+    {
+        anim.SetTrigger("Attack");
+        Debug.Log("attacking player");
+        if (closestPlayer!=null)
+        {
+            Debug.Log("caught player");
+            StartCoroutine(Capture());
+           
+        }
+    }
+    IEnumerator Capture()
+    {
+        anim.SetTrigger("Attack");
+        yield return new WaitForSeconds(2f);
+        closestPlayer.GetComponent<FPS_Controller>().playerCanMove = false;
+        anim.SetTrigger("Possess");
+       
+        yield return new WaitForSeconds(3f);
+        PlayerToMonster();
+    }
     void Patrol()
     {
 
@@ -137,6 +210,8 @@ public class MonsterAI : MonoBehaviour
 
     IEnumerator IdleTimer()
     {
+        anim.SetBool("Walk", false);
+        anim.SetBool("Run", false);
         idleTime = Random.Range(minIdleTime, maxIdleTime);
         yield return new WaitForSeconds(idleTime);
         walking = true;
@@ -199,30 +274,48 @@ public class MonsterAI : MonoBehaviour
                 Debug.DrawRay(transform.position, directionToPlayer, Color.red);
                 if (Physics.Raycast(transform.position, directionToPlayer, out hit, visionRange))
                 {
-                    if (hit.collider.CompareTag("Player"))
+                    if (hit.collider.CompareTag("P1"))
                     {
-                        if (hit.collider.name == "Player 1")
-                        {
-                            seePlayer1 = true;
-                        }
-                        if (hit.collider.name == "Player 2")
-                        {
-                            seePlayer2 = true;
-                        }
-                        if (hit.collider.name == "Player 3")
-                        {
-                            seePlayer3 = true;
-                        }
-                        if (hit.collider.name == "Player 4")
-                        {
-                            seePlayer4 = true;
-                        }
+                        seePlayer1 = true;
                     }
-                    else 
-                    seePlayer1 = false;
-                    seePlayer2 = false;
-                    seePlayer3 = false;
-                    seePlayer4 = false;
+                    if (hit.collider.CompareTag("P2"))
+                    {
+                        seePlayer2 = true;
+                    }
+                    if (hit.collider.CompareTag("P3"))
+                    {
+                        seePlayer3 = true;
+                    }
+                    if (hit.collider.CompareTag("P4"))
+                    {
+                        seePlayer4 = true;
+                    }
+                    //if (hit.collider.CompareTag("Player"))
+                    //{
+                    //    Debug.Log("Saw player");
+                    //    if (hit.collider.name == "Player 1")
+                    //    {
+                    //        seePlayer1 = true;
+
+                    //    }
+                    //    if (hit.collider.name == "Player 2")
+                    //    {
+                    //        seePlayer2 = true;
+                    //    }
+                    //    if (hit.collider.name == "Player 3")
+                    //    {
+                    //        seePlayer3 = true;
+                    //    }
+                    //    if (hit.collider.name == "Player 4")
+                    //    {
+                    //        seePlayer4 = true;
+                    //    }
+                    //}
+                    //else 
+                    //seePlayer1 = false;
+                    //seePlayer2 = false;
+                    //seePlayer3 = false;
+                    //seePlayer4 = false;
                 }
             }
         }
@@ -230,10 +323,10 @@ public class MonsterAI : MonoBehaviour
     }
    public Transform ReturnNearestPlayer() //check for all players in range, return nearest player
     {
-        
-        if (playersInRange.Count ==0)
+
+        if (playersInRange.Count == 0)
         {
-            closestPlayer = null;
+            //closestPlayer = null;
             return null;
         }
 
@@ -264,10 +357,14 @@ public class MonsterAI : MonoBehaviour
         }
         if (!seePlayer1)
         {
-           if (playersInRange.Contains(playerTransform[0]))
+            if (playersInRange!=null)
             {
-                playersInRange.Remove(playerTransform[0]);
+                if (playersInRange.Contains(playerTransform[0]))
+                {
+                    playersInRange.Remove(playerTransform[0]);
+                }
             }
+       
         }
         if (seePlayer2)
         {
@@ -313,13 +410,33 @@ public class MonsterAI : MonoBehaviour
         }
 
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<FPS_Controller>()!=null)
+        {
+            closestPlayer = other.transform;
+            Debug.Log("detected player via trigger");
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<FPS_Controller>() != null)
+        {
+            closestPlayer = null;
+        }
+    }
     void ClearLOS()
     {
         LOSTimer += Time.deltaTime;
         if (LOSTimer >=LOSInterval)
         {
             LOSTimer = 0;
-            playersInRange.Clear();
+            seePlayer1 = false;
+            seePlayer2 = false;
+            seePlayer3 = false;
+            seePlayer4 = false;
         }
     }
 
@@ -329,25 +446,53 @@ public class MonsterAI : MonoBehaviour
         //YS pls insert code to play catch animation
 
         #region Setting which player to become the monster based on who the AI catched
-        if (collision.gameObject.tag == "P1")
+        //if (collision.gameObject.tag == "P1")
+        //{
+        //    whoIsMonsterScript.currentMonsterPlayer = "P1";
+        //    whoIsMonsterScript.ChangeMonster();
+        //    Destroy(this.gameObject);
+        //}
+        //else if (collision.gameObject.tag == "P2")
+        //{
+        //    whoIsMonsterScript.currentMonsterPlayer = "P2";
+        //}
+        //else if(collision.gameObject.tag == "P3")
+        //{
+        //    whoIsMonsterScript.currentMonsterPlayer = "P3";
+        //}
+        //else if (collision.gameObject.tag == "P4")
+        //{
+        //    whoIsMonsterScript.currentMonsterPlayer = "P4";
+        //}
+        #endregion
+    }
+
+    void PlayerToMonster()
+    {
+        if (closestPlayer.gameObject.tag == "P1")
         {
             whoIsMonsterScript.currentMonsterPlayer = "P1";
             whoIsMonsterScript.ChangeMonster();
             Destroy(this.gameObject);
         }
-        else if (collision.gameObject.tag == "P2")
+        else if (closestPlayer.gameObject.tag == "P2")
         {
             whoIsMonsterScript.currentMonsterPlayer = "P2";
+            whoIsMonsterScript.ChangeMonster();
+            Destroy(this.gameObject);
         }
-        else if(collision.gameObject.tag == "P3")
+        else if (closestPlayer.gameObject.tag == "P3")
         {
             whoIsMonsterScript.currentMonsterPlayer = "P3";
+            whoIsMonsterScript.ChangeMonster();
+            Destroy(this.gameObject);
         }
-        else if (collision.gameObject.tag == "P4")
+        else if (closestPlayer.gameObject.tag == "P4")
         {
             whoIsMonsterScript.currentMonsterPlayer = "P4";
+            whoIsMonsterScript.ChangeMonster();
+            Destroy(this.gameObject);
         }
-        #endregion
     }
     #endregion
 }
