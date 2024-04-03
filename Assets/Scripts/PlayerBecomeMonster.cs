@@ -11,6 +11,7 @@ public class PlayerBecomeMonster : MonoBehaviour
     public GameObject monsterModel;
     public Transform playerCam;
     public Vector3 monsterCamPos;
+    public PlayerMonsterCollision myPMC;
 
     [Header("Black Screen Varibles")]
     public Image blackScreen;
@@ -31,6 +32,7 @@ public class PlayerBecomeMonster : MonoBehaviour
 
             fadeIn = true;
             becomeMonster = false;
+            myPMC.enabled = true;
         }
 
         if (becomePlayer)
@@ -39,7 +41,9 @@ public class PlayerBecomeMonster : MonoBehaviour
             playerModel.SetActive(true);
             monsterModel.SetActive(false);
 
+            fadeIn = true;
             becomePlayer = false;
+            myPMC.enabled = false;
         }
 
         #region Black Screen
