@@ -28,7 +28,6 @@ public class PlayerBecomeMonster : MonoBehaviour
             this.GetComponent<FPS_Controller>().playerCanMove = false;
             fadeIn = true;
             becomeMonster = false;
-            myPMC.enabled = true;
         }
 
         if (becomePlayer)
@@ -40,7 +39,6 @@ public class PlayerBecomeMonster : MonoBehaviour
             //this.GetComponent<FPS_Controller>().playerCanMove = false;
 
             becomePlayer = false;
-            myPMC.enabled = false;
         }
 
         #region Black Screen

@@ -13,6 +13,7 @@ public class FurbyPicker : MonoBehaviour
 
     [Header("Player")]
     public GameObject player;
+    public GameObject currentlyHeldFurby;
     public Transform plushieHoldPos;
     public PlayerEventTrigger eventTrigger;
     public string player_A_Bttn;
@@ -48,7 +49,7 @@ public class FurbyPicker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canInteract)
+        if (canInteract && eventTrigger.playerAnim.GetBool("Run") == false && eventTrigger.playerAnim.GetBool("Crouch") == false)
         {
             if (Input.GetButtonDown(player_A_Bttn))
             {
@@ -63,6 +64,8 @@ public class FurbyPicker : MonoBehaviour
         {
             added = false;
         }
+
+        //insert code whereby player drops 
     }
 
     private void OnTriggerEnter(Collider other)
@@ -101,7 +104,7 @@ public class FurbyPicker : MonoBehaviour
                 player.GetComponent<FPS_Controller>().playerCanMove = true;
 
                 //spawn plushie onto player holding positiion
-                Instantiate(plushies[0], plushieHoldPos);
+                currentlyHeldFurby = Instantiate(plushies[0], plushieHoldPos);
 
                 Destroy(currentFurby);
             }
