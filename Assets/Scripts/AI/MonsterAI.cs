@@ -205,16 +205,21 @@ public class MonsterAI : MonoBehaviour
 
     IEnumerator Capture()
     {
-        Debug.Log("capturing");
-        // anim.SetTrigger("Attack");
-        anim.SetTrigger("Possess");
-        yield return new WaitForSeconds(2f);
-        //closestPlayer.gameObject.transform.LookAt(transform.position);
-        closestPlayer.GetComponent<FPS_Controller>().playerCanMove = false;
-        //anim.SetTrigger("Possess");
-       
-        yield return new WaitForSeconds(5f);
-        PlayerToMonster();
+        if (!capture)
+        {
+            capture = true;
+            Debug.Log("capturing");
+            anim.SetTrigger("Attack");
+            //anim.SetTrigger("Possess");
+            yield return new WaitForSeconds(2f);
+            //closestPlayer.gameObject.transform.LookAt(transform.position);
+            closestPlayer.GetComponent<FPS_Controller>().playerCanMove = false;
+            anim.SetTrigger("Possess");
+
+            yield return new WaitForSeconds(3f);
+            PlayerToMonster();
+        }
+
     }
 
     void Patrol()
@@ -478,7 +483,7 @@ public class MonsterAI : MonoBehaviour
         if (other.CompareTag("P1"))
         {
             seePlayer1 = false;
-            Debug.Log("Saw player 1");
+ 
         }
         if (other.CompareTag("P2"))
         {
