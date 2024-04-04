@@ -25,9 +25,10 @@ public class WhoIsMonster : MonoBehaviour
             playerFour.tag = "P4";
 
             p1_PBM_Script.becomeMonster = true;
-            //p2_PBM_Script.becomePlayer = true;
-            //p3_PBM_Script.becomePlayer = true;
-            //p4_PBM_Script.becomePlayer = true;
+
+            p2_PBM_Script.becomePlayer = true;
+            p3_PBM_Script.becomePlayer = true;
+            p4_PBM_Script.becomePlayer = true;
         }
         else if (currentMonsterPlayer == "P2")
         {
@@ -36,11 +37,11 @@ public class WhoIsMonster : MonoBehaviour
             playerThree.tag = "P3";
             playerFour.tag = "P4";
 
-            //p2_PBM_Script.becomeMonster = true;
+            p2_PBM_Script.becomeMonster = true;
 
             p1_PBM_Script.becomePlayer = true;
-            //p3_PBM_Script.becomePlayer = true;
-            //p4_PBM_Script.becomePlayer = true;
+            p3_PBM_Script.becomePlayer = true;
+            p4_PBM_Script.becomePlayer = true;
         }
         else if (currentMonsterPlayer == "P3")
         {
@@ -49,11 +50,11 @@ public class WhoIsMonster : MonoBehaviour
             playerTwo.tag = "P2";
             playerFour.tag = "P4";
 
-            //p3_PBM_Script.becomeMonster = true;
+            p3_PBM_Script.becomeMonster = true;
 
             p1_PBM_Script.becomePlayer = true;
-            //p2_PBM_Script.becomePlayer = true;
-            //p4_PBM_Script.becomePlayer = true;
+            p2_PBM_Script.becomePlayer = true;
+            p4_PBM_Script.becomePlayer = true;
         }
         else if (currentMonsterPlayer == "P4")
         {
@@ -62,11 +63,11 @@ public class WhoIsMonster : MonoBehaviour
             playerTwo.tag = "P2";
             playerThree.tag = "P3";
 
-            //p4_PBM_Script.becomeMonster = true;
+            p4_PBM_Script.becomeMonster = true;
 
             p1_PBM_Script.becomePlayer = true;
-            //p2_PBM_Script.becomePlayer = true;
-            //p3_PBM_Script.becomePlayer = true;
+            p2_PBM_Script.becomePlayer = true;
+            p3_PBM_Script.becomePlayer = true;
         }
     }
 }

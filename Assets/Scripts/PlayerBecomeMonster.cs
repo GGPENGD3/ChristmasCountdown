@@ -9,8 +9,6 @@ public class PlayerBecomeMonster : MonoBehaviour
     public bool becomePlayer;
     public GameObject playerModel;
     public GameObject monsterModel;
-    public Transform playerCam;
-    public Vector3 monsterCamPos;
     public PlayerMonsterCollision myPMC;
 
     [Header("Black Screen Varibles")]
@@ -27,9 +25,7 @@ public class PlayerBecomeMonster : MonoBehaviour
             playerModel.SetActive(false);
             monsterModel.SetActive(true);
 
-            //set playerCam to monsterCam position
-            //playerCam.position = monsterCamPos;
-
+            this.GetComponent<FPS_Controller>().playerCanMove = false;
             fadeIn = true;
             becomeMonster = false;
             myPMC.enabled = true;
@@ -41,6 +37,7 @@ public class PlayerBecomeMonster : MonoBehaviour
             playerModel.SetActive(true);
             monsterModel.SetActive(false);
 
+            this.GetComponent<FPS_Controller>().playerCanMove = false;
             fadeIn = true;
             becomePlayer = false;
             myPMC.enabled = false;
@@ -69,6 +66,7 @@ public class PlayerBecomeMonster : MonoBehaviour
             if (newColor.a <= 0)
             {
                 fadeOut = false;
+                this.GetComponent<FPS_Controller>().playerCanMove = true;
             }
         }
         #endregion
