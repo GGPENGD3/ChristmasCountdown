@@ -6170,6 +6170,7 @@ MonoBehaviour:
   interactUI: {fileID: 1803632660}
   furbyCount: 0
   player: {fileID: 551182742}
+  eventTrigger: {fileID: 0}
   player_A_Bttn: 
 --- !u!65 &763297686
 BoxCollider:
@@ -7836,6 +7837,7 @@ MonoBehaviour:
   interactUI: {fileID: 1621738467}
   furbyCount: 0
   player: {fileID: 156388631}
+  eventTrigger: {fileID: 0}
   player_A_Bttn: 
 --- !u!65 &1023466502
 BoxCollider:
@@ -13276,7 +13278,7 @@ PrefabInstance:
     - target: {fileID: 5043994614624071845, guid: 97809dc24124b0a49a22b34ca1dfdeea,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5803298268047700689, guid: 97809dc24124b0a49a22b34ca1dfdeea,
         type: 3}
@@ -16048,6 +16050,7 @@ MonoBehaviour:
   interactUI: {fileID: 1831722658}
   furbyCount: 0
   player: {fileID: 1214123259}
+  eventTrigger: {fileID: 0}
   player_A_Bttn: 
 --- !u!65 &2114027300
 BoxCollider:
@@ -19756,6 +19759,7 @@ MonoBehaviour:
   interactUI: {fileID: 1803632660}
   furbyCount: 0
   player: {fileID: 3282465385530043439}
+  eventTrigger: {fileID: 0}
   player_A_Bttn: 
 --- !u!1 &6390981476785821569
 GameObject:
@@ -20772,6 +20776,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7324050860409461280}
   - component: {fileID: 7867963566968702313}
+  - component: {fileID: 7993768252199780507}
   m_Layer: 10
   m_Name: Player1 Mesh
   m_TagString: P1
@@ -20779,6 +20784,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &7993768252199780507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7993768252199780506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed234b2d770342747b748ffc16569b70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAnim: {fileID: 7867963566968702313}
+  furbyPickerScript: {fileID: 6330583457761199783}
 --- !u!4 &8095558110555977255
 Transform:
   m_ObjectHideFlags: 0

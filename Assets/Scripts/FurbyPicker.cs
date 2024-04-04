@@ -13,6 +13,7 @@ public class FurbyPicker : MonoBehaviour
 
     [Header("Player")]
     public GameObject player;
+    public PlayerEventTrigger eventTrigger;
     public string player_A_Bttn;
 
     // Start is called before the first frame update
@@ -45,33 +46,13 @@ public class FurbyPicker : MonoBehaviour
     {
         if (canInteract)
         {
-            if (player.name == "Player 1")
+            if (Input.GetButtonDown(player_A_Bttn))
             {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    if (!added)
-                    {
-                        furbyCount = furbyCount + 1;
-                        added = true;
-                        canInteract = false;
+                //play pickup animation
+                eventTrigger.SetPickUp(true);
+                player.GetComponent<FPS_Controller>().playerCanMove = false;
 
-                        Destroy(currentFurby);
-                    }
-                }
-            }
-            else
-            {
-                if (Input.GetButtonDown(player_A_Bttn))
-                {
-                    if (!added)
-                    {
-                        furbyCount = furbyCount + 1;
-                        added = true;
-                        canInteract = false;
-
-                        Destroy(currentFurby);
-                    }
-                }
+                //place furby on player?
             }
         }
         else
@@ -97,6 +78,24 @@ public class FurbyPicker : MonoBehaviour
             canInteract = false;
             interactUI.SetActive(false);
             currentFurby = null;
+        }
+    }
+
+    public void FinishPickUp()
+    {
+        if (canInteract)
+        {
+            if (!added)
+            {
+                furbyCount = furbyCount + 1;
+                added = true;
+                canInteract = false;
+
+                //once pickup animation is done, set carry to true
+                eventTrigger.SetPickUp(false);
+                eventTrigger.SetCarry(true);
+                player.GetComponent<FPS_Controller>().playerCanMove = true;
+            }
         }
     }
 }
