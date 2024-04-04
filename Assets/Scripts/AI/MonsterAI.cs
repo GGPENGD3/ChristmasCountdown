@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -150,7 +151,7 @@ public class MonsterAI : MonoBehaviour
             {
                 agent.speed = 0;
                 agent.updateRotation = false;
-                agent.transform.LookAt(closestPlayer);
+                //agent.transform.LookAt(closestPlayer);
                 agent.isStopped = true;
                 anim.SetBool("Walk", false);
                 anim.SetBool("Run", false);
@@ -205,11 +206,12 @@ public class MonsterAI : MonoBehaviour
     IEnumerator Capture()
     {
         Debug.Log("capturing");
-        anim.SetTrigger("Attack");
-        yield return new WaitForSeconds(2f);
-        closestPlayer.gameObject.transform.LookAt(transform.position);
-        closestPlayer.GetComponent<FPS_Controller>().playerCanMove = false;
+        // anim.SetTrigger("Attack");
         anim.SetTrigger("Possess");
+        yield return new WaitForSeconds(2f);
+        //closestPlayer.gameObject.transform.LookAt(transform.position);
+        closestPlayer.GetComponent<FPS_Controller>().playerCanMove = false;
+        //anim.SetTrigger("Possess");
        
         yield return new WaitForSeconds(5f);
         PlayerToMonster();
@@ -301,24 +303,28 @@ public class MonsterAI : MonoBehaviour
                 Debug.DrawRay(transform.position, directionToPlayer, Color.red);
                 if (Physics.Raycast(transform.position, directionToPlayer, out hit, visionRange))
                 {
-                    if (hit.collider.CompareTag("P1"))
+                    if (hit.collider!=null)
                     {
-                        seePlayer1 = true;
-                        Debug.Log("Saw player 1");
+                        if (hit.collider.CompareTag("P1"))
+                        {
+                            seePlayer1 = true;
+                            Debug.Log("Saw player 1");
+                        }
+                        if (hit.collider.CompareTag("P2"))
+                        {
+                            seePlayer2 = true;
+                        }
+                        if (hit.collider.CompareTag("P3"))
+                        {
+                            seePlayer3 = true;
+                        }
+                        if (hit.collider.CompareTag("P4"))
+                        {
+                            seePlayer4 = true;
+                        }
                     }
-                    if (hit.collider.CompareTag("P2"))
-                    {
-                        seePlayer2 = true;
-                    }
-                    if (hit.collider.CompareTag("P3"))
-                    {
-                        seePlayer3 = true;
-                    }
-                    if (hit.collider.CompareTag("P4"))
-                    {
-                        seePlayer4 = true;
-                    }
-             
+
+
                     //if (hit.collider.CompareTag("Player"))
                     //{
                     //    Debug.Log("Saw player");
@@ -340,11 +346,11 @@ public class MonsterAI : MonoBehaviour
                     //        seePlayer4 = true;
                     //    }
                     //}
-                    //else 
-                    //seePlayer1 = false;
-                    //seePlayer2 = false;
-                    //seePlayer3 = false;
-                    //seePlayer4 = false;
+                    else
+                        seePlayer1 = false;
+                    seePlayer2 = false;
+                    seePlayer3 = false;
+                    seePlayer4 = false;
                 }
             }
         }
