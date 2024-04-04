@@ -16,6 +16,7 @@ public class FPS_Controller : MonoBehaviour
     public string player_LeftThumbStickVertical;
     public string player_RightThumbstickBttn;
     public string player_B_Bttn;
+    public PlayerEventTrigger playerEventTriggerScript;
 
     [Header("Camera")]
     #region Camera Movement Variables
@@ -361,10 +362,29 @@ public class FPS_Controller : MonoBehaviour
                 // Calculate how fast we should be moving
                 targetVelocity = new Vector3(Input.GetAxis(player_LeftThumbStickHorizontal), 0, Input.GetAxis(player_LeftThumbStickVertical));
                 isWalking = true;
+
+                if (playerEventTriggerScript.playerAnim.GetBool("Carry") == true)
+                {
+                    playerEventTriggerScript.SetCarryRun(true);
+                }
+                else
+                {
+                    playerEventTriggerScript.SetRun(true);
+                }
+                
             }
             else
             {
                 isWalking = false;
+
+                if (playerEventTriggerScript.playerAnim.GetBool("Carry") == true)
+                {
+                    playerEventTriggerScript.SetCarryRun(false);
+                }
+                else
+                {
+                    playerEventTriggerScript.SetRun(false);
+                }
             }
 
             // Checks if player is walking and isGrounded
@@ -428,6 +448,37 @@ public class FPS_Controller : MonoBehaviour
         #endregion
     }
 
+    private void HeadBob()
+    {
+        if (isWalking)
+        {
+            // Calculates HeadBob speed during sprint
+            if (isSprinting)
+            {
+                timer += Time.deltaTime * (bobSpeed + sprintSpeed);
+            }
+            // Calculates HeadBob speed during crouched movement
+            else if (isCrouched)
+            {
+                timer += Time.deltaTime * (bobSpeed * speedReduction);
+            }
+            // Calculates HeadBob speed during walking
+            else
+            {
+                timer += Time.deltaTime * bobSpeed;
+            }
+            // Applies HeadBob movement
+            joint.localPosition = new Vector3(jointOriginalPos.x + Mathf.Sin(timer) * bobAmount.x, jointOriginalPos.y + Mathf.Sin(timer) * bobAmount.y, jointOriginalPos.z + Mathf.Sin(timer) * bobAmount.z);
+        }
+        else
+        {
+            // Resets when player stops moving
+            timer = 0;
+            joint.localPosition = new Vector3(Mathf.Lerp(joint.localPosition.x, jointOriginalPos.x, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.y, jointOriginalPos.y, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.z, jointOriginalPos.z, Time.deltaTime * bobSpeed));
+        }
+    }
+
+    #region Unused Code
     // Sets isGrounded based on a raycast sent straigth down from the player object
     private void CheckGround()
     {
@@ -485,34 +536,5 @@ public class FPS_Controller : MonoBehaviour
             anim.SetBool("Crouch", true);
         }
     }
-
-    private void HeadBob()
-    {
-        if (isWalking)
-        {
-            // Calculates HeadBob speed during sprint
-            if (isSprinting)
-            {
-                timer += Time.deltaTime * (bobSpeed + sprintSpeed);
-            }
-            // Calculates HeadBob speed during crouched movement
-            else if (isCrouched)
-            {
-                timer += Time.deltaTime * (bobSpeed * speedReduction);
-            }
-            // Calculates HeadBob speed during walking
-            else
-            {
-                timer += Time.deltaTime * bobSpeed;
-            }
-            // Applies HeadBob movement
-            joint.localPosition = new Vector3(jointOriginalPos.x + Mathf.Sin(timer) * bobAmount.x, jointOriginalPos.y + Mathf.Sin(timer) * bobAmount.y, jointOriginalPos.z + Mathf.Sin(timer) * bobAmount.z);
-        }
-        else
-        {
-            // Resets when player stops moving
-            timer = 0;
-            joint.localPosition = new Vector3(Mathf.Lerp(joint.localPosition.x, jointOriginalPos.x, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.y, jointOriginalPos.y, Time.deltaTime * bobSpeed), Mathf.Lerp(joint.localPosition.z, jointOriginalPos.z, Time.deltaTime * bobSpeed));
-        }
-    }
+    #endregion
 }

@@ -95,6 +95,7 @@ public class FurbyPicker : MonoBehaviour
                 eventTrigger.SetPickUp(false);
                 eventTrigger.SetCarry(true);
                 player.GetComponent<FPS_Controller>().playerCanMove = true;
+                Destroy(currentFurby);
             }
         }
     }
