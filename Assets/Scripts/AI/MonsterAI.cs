@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
@@ -308,7 +309,7 @@ public class MonsterAI : MonoBehaviour
                         if (hit.collider.CompareTag("P1"))
                         {
                             seePlayer1 = true;
-                            Debug.Log("Saw player 1");
+                 
                         }
                         if (hit.collider.CompareTag("P2"))
                         {
@@ -449,18 +450,50 @@ public class MonsterAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<FPS_Controller>()!=null)
+        if (other.CompareTag("P1"))
         {
-            closestPlayer = other.transform;
-            Debug.Log("detected player via trigger");
+            seePlayer1 = true;
+            Debug.Log("Saw player 1");
         }
+        if (other.CompareTag("P2"))
+        {
+            seePlayer2 = true;
+  
+        }
+        if (other.CompareTag("P1"))
+        {
+            seePlayer3 = true;
+   
+        }
+        if (other.CompareTag("P1"))
+        {
+            seePlayer4 = true;
+     
+        }
+
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<FPS_Controller>() != null)
+        if (other.CompareTag("P1"))
         {
-            closestPlayer = null;
+            seePlayer1 = false;
+            Debug.Log("Saw player 1");
+        }
+        if (other.CompareTag("P2"))
+        {
+            seePlayer2 = false;
+
+        }
+        if (other.CompareTag("P1"))
+        {
+            seePlayer3 = false;
+
+        }
+        if (other.CompareTag("P1"))
+        {
+            seePlayer4 = false;
+
         }
     }
     void ClearLOS()
