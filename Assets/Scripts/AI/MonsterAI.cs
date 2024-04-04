@@ -47,8 +47,6 @@ public class MonsterAI : MonoBehaviour
         currentDestination = waypoints[waypointIndex];
         currentState = AIState.Patrol;
         //agent.autoBraking = true;
-        
-        
 
     }
 
@@ -202,6 +200,7 @@ public class MonsterAI : MonoBehaviour
            
         }
     }
+
     IEnumerator Capture()
     {
         Debug.Log("capturing");
@@ -214,6 +213,7 @@ public class MonsterAI : MonoBehaviour
         yield return new WaitForSeconds(5f);
         PlayerToMonster();
     }
+
     void Patrol()
     {
 
@@ -350,6 +350,7 @@ public class MonsterAI : MonoBehaviour
         }
       
     }
+
    public Transform ReturnNearestPlayer() //check for all players in range, return nearest player
     {
 
@@ -470,31 +471,31 @@ public class MonsterAI : MonoBehaviour
     }
 
     #region AI Catch Player Code
-    private void OnCollisionEnter(Collision collision)
-    {
-        //YS pls insert code to play catch animation
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    //YS pls insert code to play catch animation
 
-        #region Setting which player to become the monster based on who the AI catched
-        //if (collision.gameObject.tag == "P1")
-        //{
-        //    whoIsMonsterScript.currentMonsterPlayer = "P1";
-        //    whoIsMonsterScript.ChangeMonster();
-        //    Destroy(this.gameObject);
-        //}
-        //else if (collision.gameObject.tag == "P2")
-        //{
-        //    whoIsMonsterScript.currentMonsterPlayer = "P2";
-        //}
-        //else if(collision.gameObject.tag == "P3")
-        //{
-        //    whoIsMonsterScript.currentMonsterPlayer = "P3";
-        //}
-        //else if (collision.gameObject.tag == "P4")
-        //{
-        //    whoIsMonsterScript.currentMonsterPlayer = "P4";
-        //}
-        #endregion
-    }
+    //    #region Setting which player to become the monster based on who the AI catched
+    //    //if (collision.gameObject.tag == "P1")
+    //    //{
+    //    //    whoIsMonsterScript.currentMonsterPlayer = "P1";
+    //    //    whoIsMonsterScript.ChangeMonster();
+    //    //    Destroy(this.gameObject);
+    //    //}
+    //    //else if (collision.gameObject.tag == "P2")
+    //    //{
+    //    //    whoIsMonsterScript.currentMonsterPlayer = "P2";
+    //    //}
+    //    //else if(collision.gameObject.tag == "P3")
+    //    //{
+    //    //    whoIsMonsterScript.currentMonsterPlayer = "P3";
+    //    //}
+    //    //else if (collision.gameObject.tag == "P4")
+    //    //{
+    //    //    whoIsMonsterScript.currentMonsterPlayer = "P4";
+    //    //}
+    //    #endregion
+    //}
 
     void PlayerToMonster()
     {
