@@ -146,12 +146,15 @@ public class MonsterAI : MonoBehaviour
             //if (Vector3.Distance(closestPlayer.position, transform.position) <= 4f)
             //if (agent.remainingDistance <= 0.5f)
             float distanceToPlayer = Vector3.Distance(transform.position, closestPlayer.position);
-            if (distanceToPlayer <= 1f) 
+            Debug.Log(distanceToPlayer);
+            if (distanceToPlayer <= 5f) 
             {
                 agent.speed = 0;
-                agent.updateRotation = false;
-                //agent.transform.LookAt(closestPlayer);
+                agent.ResetPath();
                 agent.isStopped = true;
+                //agent.updateRotation = false;
+                //agent.transform.LookAt(closestPlayer);
+
                 anim.SetBool("Walk", false);
                 anim.SetBool("Run", false);
                 StartCoroutine(Capture());
@@ -570,3 +573,4 @@ public class MonsterAI : MonoBehaviour
     }
     #endregion
 }
+   
