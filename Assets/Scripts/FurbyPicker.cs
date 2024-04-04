@@ -13,8 +13,12 @@ public class FurbyPicker : MonoBehaviour
 
     [Header("Player")]
     public GameObject player;
+    public Transform plushieHoldPos;
     public PlayerEventTrigger eventTrigger;
     public string player_A_Bttn;
+
+    [Header("Plushie Prefabs")]
+    public List<GameObject> plushies;
 
     // Start is called before the first frame update
     void Start()
@@ -95,6 +99,10 @@ public class FurbyPicker : MonoBehaviour
                 eventTrigger.SetPickUp(false);
                 eventTrigger.SetCarry(true);
                 player.GetComponent<FPS_Controller>().playerCanMove = true;
+
+                //spawn plushie onto player holding positiion
+                Instantiate(plushies[0], plushieHoldPos);
+
                 Destroy(currentFurby);
             }
         }
