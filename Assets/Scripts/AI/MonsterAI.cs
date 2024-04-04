@@ -146,12 +146,15 @@ public class MonsterAI : MonoBehaviour
             //if (Vector3.Distance(closestPlayer.position, transform.position) <= 4f)
             //if (agent.remainingDistance <= 0.5f)
             float distanceToPlayer = Vector3.Distance(transform.position, closestPlayer.position);
-            if (distanceToPlayer <= 1f) 
+            Debug.Log(distanceToPlayer);
+            if (distanceToPlayer <= 5f) 
             {
                 agent.speed = 0;
-                agent.updateRotation = false;
-                //agent.transform.LookAt(closestPlayer);
+                agent.ResetPath();
                 agent.isStopped = true;
+                //agent.updateRotation = false;
+                //agent.transform.LookAt(closestPlayer);
+
                 anim.SetBool("Walk", false);
                 anim.SetBool("Run", false);
                 StartCoroutine(Capture());
@@ -205,16 +208,21 @@ public class MonsterAI : MonoBehaviour
 
     IEnumerator Capture()
     {
-        Debug.Log("capturing");
-        // anim.SetTrigger("Attack");
-        anim.SetTrigger("Possess");
-        yield return new WaitForSeconds(2f);
-        //closestPlayer.gameObject.transform.LookAt(transform.position);
-        closestPlayer.GetComponent<FPS_Controller>().playerCanMove = false;
-        //anim.SetTrigger("Possess");
-       
-        yield return new WaitForSeconds(5f);
-        PlayerToMonster();
+        if (!capture)
+        {
+            capture = true;
+            Debug.Log("capturing");
+            anim.SetTrigger("Attack");
+            //anim.SetTrigger("Possess");
+            yield return new WaitForSeconds(2f);
+            //closestPlayer.gameObject.transform.LookAt(transform.position);
+            closestPlayer.GetComponent<FPS_Controller>().playerCanMove = false;
+            anim.SetTrigger("Possess");
+
+            yield return new WaitForSeconds(3f);
+            PlayerToMonster();
+        }
+
     }
 
     void Patrol()
@@ -478,7 +486,7 @@ public class MonsterAI : MonoBehaviour
         if (other.CompareTag("P1"))
         {
             seePlayer1 = false;
-            Debug.Log("Saw player 1");
+ 
         }
         if (other.CompareTag("P2"))
         {
@@ -565,3 +573,4 @@ public class MonsterAI : MonoBehaviour
     }
     #endregion
 }
+   
