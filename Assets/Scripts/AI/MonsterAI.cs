@@ -55,7 +55,7 @@ public class MonsterAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LineOfSight();
+        LOS2();
         CheckPlayer();
         if (playersInRange!=null)
         {
@@ -146,7 +146,7 @@ public class MonsterAI : MonoBehaviour
             //if (Vector3.Distance(closestPlayer.position, transform.position) <= 4f)
             //if (agent.remainingDistance <= 0.5f)
             float distanceToPlayer = Vector3.Distance(transform.position, closestPlayer.position);
-            Debug.Log(distanceToPlayer);
+            //Debug.Log(distanceToPlayer);
             if (distanceToPlayer <= 5f) 
             {
                 agent.speed = 0;
@@ -364,6 +364,35 @@ public class MonsterAI : MonoBehaviour
             }
         }
       
+    }
+
+    void LOS2()
+    {
+        Collider[] players = Physics.OverlapSphere(transform.position, visionRange, playerLayer);
+
+        foreach (Collider player in players)
+        {
+            Vector3 directionToPlayer = player.transform.position - transform.position;
+            float angleToPlayer = Vector3.Angle(transform.forward, directionToPlayer);
+
+            if (angleToPlayer <= visionAngle / 2f)
+            {
+                // Check if there are obstacles between the enemy and the player
+                RaycastHit hit;
+                if (Physics.Raycast(transform.position, directionToPlayer, out hit, visionRange))
+                {
+                    if (hit.collider.GetComponent<FPS_Controller>()!=null)
+                    {
+                        // Player is within vision range and cone
+                        if (!playersInRange.Contains(player.transform))
+                        {
+                            playersInRange.Add(player.transform);
+                        }
+                      
+                    }
+                }
+            }
+        }
     }
 
    public Transform ReturnNearestPlayer() //check for all players in range, return nearest player
