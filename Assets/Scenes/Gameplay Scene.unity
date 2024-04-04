@@ -918,7 +918,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &156388633
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8461,7 +8461,6 @@ GameObject:
   - component: {fileID: 968629868}
   - component: {fileID: 968629871}
   - component: {fileID: 968629870}
-  - component: {fileID: 968629869}
   m_Layer: 10
   m_Name: Carry Toy Position
   m_TagString: Untagged
@@ -8477,36 +8476,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 968629867}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.008, y: 0.7107, z: 0.092}
-  m_LocalScale: {x: 0.168545, y: 0.08528376, z: 0.10198657}
+  m_LocalPosition: {x: 0.008, y: 0.623, z: 0.106}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7324050860409461280}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &968629869
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 968629867}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &968629870
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9813,7 +9789,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!54 &1214123261
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21649,7 +21625,7 @@ MonoBehaviour:
   interactUI: {fileID: 1803632660}
   furbyCount: 0
   player: {fileID: 3282465385530043439}
-  plushieHoldPos: {fileID: 7324050860409461280}
+  plushieHoldPos: {fileID: 968629868}
   eventTrigger: {fileID: 7993768252199780507}
   player_A_Bttn: 
   plushies:

@@ -48,7 +48,7 @@ public class FurbyPicker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canInteract)
+        if (canInteract && eventTrigger.playerAnim.GetBool("Run") == false && eventTrigger.playerAnim.GetBool("Crouch") == false)
         {
             if (Input.GetButtonDown(player_A_Bttn))
             {
