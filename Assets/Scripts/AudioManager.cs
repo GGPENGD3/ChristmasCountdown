@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 public class AudioManager : MonoBehaviour
 {
-    // Use FindObjectOfType<AudioManager>().Play("bundleName, "audioName"); to play audio
+    // Use FindObjectOfType<AudioManager>().Play("bundleName", "audioName"); to play audio
 
     [Serializable]
     public class AudioBundle
@@ -53,6 +53,7 @@ public class AudioManager : MonoBehaviour
 
     public void Play(string bundleName, string audioName)
     {
+        /// Plays a specific AudioClip based on which bundle name it's in and what it's audio name is
         foreach (AudioBundle ab in audioBundles)
         {
             if (ab.bundleName != bundleName)
@@ -60,14 +61,30 @@ public class AudioManager : MonoBehaviour
 
             foreach (Sound s in ab.bundleSounds)
             {
-                if (s.name != audioName)
+                if (s.name != audioName && s.clip.name != audioName)
                     continue;
 
                 s.source.Play();
                 return;
             }
         }
-        Debug.LogError("Didn't find shit");
+
+        Debug.LogError("AudioManager.Play() - Didn't find shit");
+    }
+
+    public void PlayRandom(string bundleName)
+    {
+        /// Plays a random AudioClip based on which bundle name it's in
+        foreach (AudioBundle ab in audioBundles)
+        {
+            if (ab.bundleName != bundleName)
+                continue;
+
+            ab.bundleSounds[Random.Range(0, ab.bundleSounds.Length)].source.Play();
+            return;
+        }
+
+        Debug.LogError("AudioManager.PlayRandom() - Didn't find shit");
     }
 
     /*public void PlaySFX(string name)
@@ -123,6 +140,7 @@ public class AudioManager : MonoBehaviour
 
     public void StopBundle(string bundleName)
     {
+        /// Stop every sound inside a particular audio bundle
         foreach (AudioBundle ab in audioBundles)
 		{
             if (ab.bundleName != bundleName)
@@ -135,11 +153,12 @@ public class AudioManager : MonoBehaviour
             return;
 		}
 
-        Debug.LogError("Can't find shit");
+        Debug.LogError("AudioManager.StopBundle - Didn't find shit");
     }
 
     public void StopSpecific(string bundleName, string audioName)
     {
+        /// Stop a specific AudioClip inside a particular audio bundle
         foreach (AudioBundle ab in audioBundles)
         {
             if (ab.bundleName != bundleName)
@@ -147,7 +166,7 @@ public class AudioManager : MonoBehaviour
 
             foreach (Sound s in ab.bundleSounds)
             {
-                if (s.name == audioName && s.source.isPlaying)
+                if ((s.name == audioName || s.clip.name != audioName) && s.source.isPlaying)
                 {
                     s.source.Stop();
                     return;
@@ -155,7 +174,7 @@ public class AudioManager : MonoBehaviour
             }
         }
 
-        Debug.LogError("Can't find shit");
+        Debug.LogError("AudioManager.StopSpecific() - Didn't find shit");
     }
 
     public void StopAll()
@@ -171,11 +190,15 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    /*public void SetPitch(string name, float pitchValue)
+    public void SetPitch(string bundleName, float pitchValue)
     {
-        foreach (Sound s in sounds)
+        /// Sets the pitch of an audio bundle's AudioClips
+        foreach (AudioBundle ab in audioBundles)
         {
-            if (s.name == name)
+            if (ab.bundleName != bundleName)
+                continue;
+
+            foreach (Sound s in ab.bundleSounds)
             {
                 s.source.pitch = pitchValue;
                 return;
@@ -183,7 +206,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void Pause(string name)
+    /*public void Pause(string name)
     {
         foreach (Sound s in sounds)
         {
@@ -219,6 +242,7 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
         }
     }
+
     public void LoadSingle(Sound s)
     {
         s.source = gameObject.AddComponent<AudioSource>();

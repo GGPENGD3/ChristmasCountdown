@@ -23,7 +23,7 @@ public class MainMenuBrain : MonoBehaviour
     {
         currentMenu = "MainMenu";
         
-        FindObjectOfType<AudioManager>().Play("bgm", "bgm_Title");
+        FindObjectOfType<AudioManager>().Play("bgm", "title");
     }
 
     // Update is called once per frame
@@ -88,33 +88,33 @@ public class MainMenuBrain : MonoBehaviour
     #region button functions
     public void StartGame()
     {
-        FindObjectOfType<AudioManager>().Play("ui", "ui_Confirm");
+        FindObjectOfType<AudioManager>().Play("ui", "confirm");
         SceneManager.LoadScene(1);
         FindObjectOfType<AudioManager>().StopBundle("bgm");
-        FindObjectOfType<AudioManager>().Play("bgm", "bgm_Normal");
+        FindObjectOfType<AudioManager>().Play("bgm", "normal");
     }
 
     public void ExitGame()
     {
-        FindObjectOfType<AudioManager>().Play("ui", "ui_Confirm");
+        FindObjectOfType<AudioManager>().Play("ui", "confirm");
         Application.Quit();
     }
 
     public void OptionsMenu()
     {
-        FindObjectOfType<AudioManager>().Play("ui", "ui_Confirm");
+        FindObjectOfType<AudioManager>().Play("ui", "confirm");
         //open up option menu
     }
 
     public void CreditsMenu()
     {
-        FindObjectOfType<AudioManager>().Play("ui", "ui_Confirm");
+        FindObjectOfType<AudioManager>().Play("ui", "confirm");
         //open up credits menu
     }
 
     public void HowToPlay()
     {
-        FindObjectOfType<AudioManager>().Play("ui", "ui_Confirm");
+        FindObjectOfType<AudioManager>().Play("ui", "confirm");
         //open up How To Play
         HowToPlayUI.SetActive(true);
         currentMenu = "HowToPlay";
@@ -123,7 +123,7 @@ public class MainMenuBrain : MonoBehaviour
 
     void GoDownMainMenuButtons()
     {
-        FindObjectOfType<AudioManager>().Play("ui", "ui_Shift");
+        FindObjectOfType<AudioManager>().Play("ui", "shift");
         if (currentBttn == "")
         {
             calledFunction = true;
@@ -173,7 +173,7 @@ public class MainMenuBrain : MonoBehaviour
 
     void GoUpMainMenuButtons()
     {
-        FindObjectOfType<AudioManager>().Play("ui", "ui_Shift");
+        FindObjectOfType<AudioManager>().Play("ui", "shift");
         if (currentBttn == "")
         {
             calledFunction = true;

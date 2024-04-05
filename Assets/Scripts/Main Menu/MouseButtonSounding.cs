@@ -18,6 +18,6 @@ public class MouseButtonSounding : MonoBehaviour
 
 	void OnMouseOver()
 	{
-        FindObjectOfType<AudioManager>().Play("ui ", "ui_Shift");
+        FindObjectOfType<AudioManager>().Play("ui ", "shift");
     }
 }

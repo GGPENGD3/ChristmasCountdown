@@ -47,31 +47,31 @@ MonoBehaviour:
   audioBundles:
   - bundleName: bgm
     bundleSounds:
-    - name: bgm_Title
+    - name: title
       clip: {fileID: 8300000, guid: bdd98fd25f802e4498f43dfc8d983c92, type: 3}
       volume: 0.6
       pitch: 1
       loop: 1
       source: {fileID: 0}
-    - name: bgm_Normal
+    - name: normal
       clip: {fileID: 8300000, guid: 2afc4ccbd1b704c48b48159962e80699, type: 3}
       volume: 0.65
       pitch: 1
       loop: 1
       source: {fileID: 0}
-    - name: bgm_Chase
+    - name: chase
       clip: {fileID: 8300000, guid: f89c6f78ebd70cc49b28a6dbf42b62e8, type: 3}
       volume: 0.6
       pitch: 1
       loop: 1
       source: {fileID: 0}
-    - name: bgm_TimeUp
+    - name: timeup
       clip: {fileID: 8300000, guid: bd3d938937ca721458f965d40cf40aa9, type: 3}
       volume: 0.7
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: bgm_GameOver
+    - name: gameover
       clip: {fileID: 8300000, guid: bc51f70594743f84ebe36f7eb023af14, type: 3}
       volume: 0.6
       pitch: 1
@@ -79,27 +79,231 @@ MonoBehaviour:
       source: {fileID: 0}
   - bundleName: ui
     bundleSounds:
-    - name: ui_Cancel
+    - name: vancel
       clip: {fileID: 8300000, guid: dbab4618da5323c4caedae2fb830a1b2, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: ui_Confirm
+    - name: confirm
       clip: {fileID: 8300000, guid: 341ba4d91c13592429eefbff35ac09e0, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: ui_Shift
+    - name: shift
       clip: {fileID: 8300000, guid: 3c05ae98182ab4c438d8027529fd81c5, type: 3}
       volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: select
+      clip: {fileID: 8300000, guid: 2a11d141bb86efa449b6bd428be037ce, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+  - bundleName: amb
+    bundleSounds:
+    - name: monsternear
+      clip: {fileID: 8300000, guid: d23ed83a9d8c7554d8b87be514e1f738, type: 3}
+      volume: 0.6
       pitch: 1
       loop: 0
       source: {fileID: 0}
     - name: ui_Select
       clip: {fileID: 8300000, guid: 2a11d141bb86efa449b6bd428be037ce, type: 3}
       volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: whoosh
+      clip: {fileID: 8300000, guid: 48c61377eb11aa347bea2ba26bd5f4cf, type: 3}
+      volume: 0.5
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: standard
+      clip: {fileID: 8300000, guid: dda9742abcd8f7949bcd2e986c4ec7cd, type: 3}
+      volume: 0.4
+      pitch: 1
+      loop: 1
+      source: {fileID: 0}
+    - name: terror
+      clip: {fileID: 8300000, guid: bf57aa6f78b3e4744aaeebab98d772f0, type: 3}
+      volume: 0.6
+      pitch: 1
+      loop: 1
+      source: {fileID: 0}
+  - bundleName: sfx
+    bundleSounds:
+    - name: clock
+      clip: {fileID: 8300000, guid: 579684c7bf577204cbbeac607f8052dd, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: fl_full
+      clip: {fileID: 8300000, guid: 89e76275680fe564f8c5f1ca099abfb9, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: fl_low
+      clip: {fileID: 8300000, guid: baa92f56dc02dab48838859d0f50bb5c, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: fl_off
+      clip: {fileID: 8300000, guid: c0855867664edbf4e92d1ef1855040a3, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: fl_on
+      clip: {fileID: 8300000, guid: 1fd098406f0d2e34383e202723f3671c, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: plush_get
+      clip: {fileID: 8300000, guid: b963cc7e6d60aad4da39b73f1909d8c0, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: treeshake
+      clip: {fileID: 8300000, guid: 79deff9011a15e441b4ceac5baf44922, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+  - bundleName: flashlight_shake
+    bundleSounds:
+    - name: fl_shake1
+      clip: {fileID: 8300000, guid: 7fee7de176a7020459e99749692a935c, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: fl_shake2
+      clip: {fileID: 8300000, guid: 3a725f8662323e44bac77294043ac2c7, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+  - bundleName: footstep_carpet
+    bundleSounds:
+    - name: 0
+      clip: {fileID: 8300000, guid: dfc78760399b90a47972046a54dbd186, type: 3}
+      volume: 0.3
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: 1
+      clip: {fileID: 8300000, guid: 852fcc35d54106149bd947504efad280, type: 3}
+      volume: 0.3
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: 2
+      clip: {fileID: 8300000, guid: 17c93889c4c480340ac07d254d5571ae, type: 3}
+      volume: 0.3
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: 3
+      clip: {fileID: 8300000, guid: 86f530c4dddbd9445b44341af1428201, type: 3}
+      volume: 0.3
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+  - bundleName: footstep_concrete
+    bundleSounds:
+    - name: 0
+      clip: {fileID: 8300000, guid: 03225208e1940c848a9c0c79214a4faf, type: 3}
+      volume: 0.3
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: 1
+      clip: {fileID: 8300000, guid: 9e1f15732c6ddc8459b307fb56c07f48, type: 3}
+      volume: 0.3
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: 2
+      clip: {fileID: 8300000, guid: de55162212035f94ab06f2a3b70637d5, type: 3}
+      volume: 0.3
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: 3
+      clip: {fileID: 8300000, guid: 68176f4b7fc427d4b836848751025c22, type: 3}
+      volume: 0.3
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+  - bundleName: footstep_wood
+    bundleSounds:
+    - name: 0
+      clip: {fileID: 8300000, guid: bea73bf2c05854f4581ad70273858568, type: 3}
+      volume: 0.3
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: 1
+      clip: {fileID: 8300000, guid: 6959aa33a174fd547a7d29df7af71761, type: 3}
+      volume: 0.3
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: 2
+      clip: {fileID: 8300000, guid: 907b558e68315044795fca0a8ec0c32d, type: 3}
+      volume: 0.3
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: 3
+      clip: {fileID: 8300000, guid: f05ad2a67c3bcaf4ab6f9c1a352f49ba, type: 3}
+      volume: 0.3
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: 4
+      clip: {fileID: 8300000, guid: 57014d6cb6f976a4698f3ba4c52f30fa, type: 3}
+      volume: 0.3
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: 5
+      clip: {fileID: 8300000, guid: 791877296a737e542bcdae0bd60558c3, type: 3}
+      volume: 0.3
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: 6
+      clip: {fileID: 8300000, guid: 6b731f5b3af63514d9dee638f6e2579c, type: 3}
+      volume: 0.3
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: 7
+      clip: {fileID: 8300000, guid: abb9192bc8430ed4dbddf242c6dae1ec, type: 3}
+      volume: 0.3
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: 8
+      clip: {fileID: 8300000, guid: 05256c08cef96b84582923543ff0d037, type: 3}
+      volume: 0.3
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: 9
+      clip: {fileID: 8300000, guid: a38095875efc63841a6218304e3c8301, type: 3}
+      volume: 0.3
       pitch: 1
       loop: 0
       source: {fileID: 0}
