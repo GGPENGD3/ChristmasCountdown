@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ChristmasTree : MonoBehaviour
 {
-    public List<GameObject> plushiesToFill;
+    public List<Transform> plushiesToFill;
+    public List<GameObject> plushies;
 
     // Start is called before the first frame update
     void Start()

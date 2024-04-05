@@ -7043,13 +7043,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canInteract: 0
-  interactUI: {fileID: 1803632660}
+  interactUI: {fileID: 1956233139}
   furbyCount: 0
   player: {fileID: 551182742}
+  currentlyHeldFurby: {fileID: 0}
   plushieHoldPos: {fileID: 0}
   eventTrigger: {fileID: 1835554329}
   player_A_Bttn: 
-  plushies: []
+  plushies:
+  - {fileID: 6058487129573482489, guid: f770e13484787d74696e3427e0560a81, type: 3}
+  - {fileID: 15832007502046211, guid: 599be8702f6063a4b9c9aa70f940f5a4, type: 3}
+  - {fileID: 6726283253317659446, guid: 5d8e9b8f7749a1444a891e201012eb2a, type: 3}
+  - {fileID: 5724210041268672449, guid: dafef1411bfc4614a9ee3b1bf9a8c640, type: 3}
 --- !u!65 &763297686
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8767,10 +8772,15 @@ MonoBehaviour:
   interactUI: {fileID: 1621738467}
   furbyCount: 0
   player: {fileID: 156388631}
+  currentlyHeldFurby: {fileID: 0}
   plushieHoldPos: {fileID: 0}
   eventTrigger: {fileID: 2035130654}
   player_A_Bttn: 
-  plushies: []
+  plushies:
+  - {fileID: 6058487129573482489, guid: f770e13484787d74696e3427e0560a81, type: 3}
+  - {fileID: 15832007502046211, guid: 599be8702f6063a4b9c9aa70f940f5a4, type: 3}
+  - {fileID: 6726283253317659446, guid: 5d8e9b8f7749a1444a891e201012eb2a, type: 3}
+  - {fileID: 5724210041268672449, guid: dafef1411bfc4614a9ee3b1bf9a8c640, type: 3}
 --- !u!65 &1023466502
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10458,6 +10468,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1301816239}
+  - component: {fileID: 1301816240}
   m_Layer: 0
   m_Name: Christmas Tree
   m_TagString: Untagged
@@ -10479,9 +10490,35 @@ Transform:
   m_Children:
   - {fileID: 1553238939}
   - {fileID: 1655646380}
+  - {fileID: 1530422899}
   m_Father: {fileID: 1506154222}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1301816240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301816238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6743315a3179af74b846bf0280617d93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plushiesToFill:
+  - {fileID: 6058487128378068921}
+  - {fileID: 6058487128811244640}
+  - {fileID: 6058487129215599373}
+  - {fileID: 6058487128776941668}
+  - {fileID: 6058487128448739003}
+  - {fileID: 6058487129569477469}
+  - {fileID: 6058487128704851489}
+  plushies:
+  - {fileID: 6058487129573482489, guid: f770e13484787d74696e3427e0560a81, type: 3}
+  - {fileID: 15832007502046211, guid: 599be8702f6063a4b9c9aa70f940f5a4, type: 3}
+  - {fileID: 6726283253317659446, guid: 5d8e9b8f7749a1444a891e201012eb2a, type: 3}
+  - {fileID: 5724210041268672449, guid: dafef1411bfc4614a9ee3b1bf9a8c640, type: 3}
 --- !u!1 &1316872648
 GameObject:
   m_ObjectHideFlags: 0
@@ -11987,6 +12024,44 @@ Transform:
   m_Father: {fileID: 2088019163}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 14.663437, y: -3.1521642, z: -0.50708055}
+--- !u!1 &1530422898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1530422899}
+  m_Layer: 0
+  m_Name: Plushies Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1530422899
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1530422898}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6872424162404603139}
+  - {fileID: 6872424163171260122}
+  - {fileID: 6872424162768214455}
+  - {fileID: 6872424163071949534}
+  - {fileID: 6872424162469018625}
+  - {fileID: 6872424163327580647}
+  - {fileID: 6872424162171471003}
+  m_Father: {fileID: 1301816239}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1531244591
 GameObject:
   m_ObjectHideFlags: 0
@@ -17799,10 +17874,15 @@ MonoBehaviour:
   interactUI: {fileID: 1831722658}
   furbyCount: 0
   player: {fileID: 1214123259}
+  currentlyHeldFurby: {fileID: 0}
   plushieHoldPos: {fileID: 0}
   eventTrigger: {fileID: 1133331723}
   player_A_Bttn: 
-  plushies: []
+  plushies:
+  - {fileID: 6058487129573482489, guid: f770e13484787d74696e3427e0560a81, type: 3}
+  - {fileID: 15832007502046211, guid: 599be8702f6063a4b9c9aa70f940f5a4, type: 3}
+  - {fileID: 6726283253317659446, guid: 5d8e9b8f7749a1444a891e201012eb2a, type: 3}
+  - {fileID: 5724210041268672449, guid: dafef1411bfc4614a9ee3b1bf9a8c640, type: 3}
 --- !u!65 &2114027300
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21475,6 +21555,118 @@ Transform:
   m_Father: {fileID: 5493890882040480666}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 75.57982, y: -92.19072, z: -150.57188}
+--- !u!1 &6058487128378068921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6872424162404603139}
+  m_Layer: 0
+  m_Name: Plushie Position (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &6058487128448739003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6872424162469018625}
+  m_Layer: 0
+  m_Name: Plushie Position (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &6058487128704851489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6872424162171471003}
+  m_Layer: 0
+  m_Name: Plushie Position (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &6058487128776941668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6872424163071949534}
+  m_Layer: 0
+  m_Name: Plushie Position (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &6058487128811244640
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6872424163171260122}
+  m_Layer: 0
+  m_Name: Plushie Position (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &6058487129215599373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6872424162768214455}
+  m_Layer: 0
+  m_Name: Plushie Position (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &6058487129569477469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6872424163327580647}
+  m_Layer: 0
+  m_Name: Plushie Position (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &6067342950807589132
 Transform:
   m_ObjectHideFlags: 0
@@ -21625,6 +21817,7 @@ MonoBehaviour:
   interactUI: {fileID: 1803632660}
   furbyCount: 0
   player: {fileID: 3282465385530043439}
+  currentlyHeldFurby: {fileID: 0}
   plushieHoldPos: {fileID: 968629868}
   eventTrigger: {fileID: 7993768252199780507}
   player_A_Bttn: 
@@ -22018,6 +22211,111 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 19ebcc5024cab1c4c9b1397ac1e43110, type: 3}
   player: {fileID: 3282465385530043439}
   player_Y: 
+--- !u!4 &6872424162171471003
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6058487128704851489}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -1.91, y: -1.012, z: 0.522}
+  m_LocalScale: {x: 2.2461345, y: 2.2461345, z: 2.2461345}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1530422899}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!4 &6872424162404603139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6058487128378068921}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.5, y: -1.012, z: 2.29}
+  m_LocalScale: {x: 2.2461345, y: 2.2461345, z: 2.2461345}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1530422899}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &6872424162469018625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6058487128448739003}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -0.4, y: -1.012, z: -2}
+  m_LocalScale: {x: 2.2461345, y: 2.2461345, z: 2.2461345}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1530422899}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!4 &6872424162768214455
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6058487129215599373}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -1.85, y: -1.012, z: -0.622}
+  m_LocalScale: {x: 2.2461345, y: 2.2461345, z: 2.2461345}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1530422899}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!4 &6872424163071949534
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6058487128776941668}
+  m_LocalRotation: {x: 0, y: -0.92387956, z: 0, w: 0.38268343}
+  m_LocalPosition: {x: -1.457, y: -1.0120001, z: -1.3199997}
+  m_LocalScale: {x: 2.2461345, y: 2.2461345, z: 2.2461345}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1530422899}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: -135, z: 0}
+--- !u!4 &6872424163171260122
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6058487128811244640}
+  m_LocalRotation: {x: 0, y: -0.38268343, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: -1.698, y: -1.012, z: 1.37}
+  m_LocalScale: {x: 2.2461345, y: 2.2461345, z: 2.2461345}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1530422899}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
+--- !u!4 &6872424163327580647
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6058487129569477469}
+  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 0.86, y: -1.012, z: 2.03}
+  m_LocalScale: {x: 2.2461345, y: 2.2461345, z: 2.2461345}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1530422899}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!1 &6884426643372461926
 GameObject:
   m_ObjectHideFlags: 0
