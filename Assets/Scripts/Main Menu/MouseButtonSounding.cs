@@ -1,13 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class MouseButtonSounding : MonoBehaviour
+public class MouseButtonSounding : MonoBehaviour, IPointerEnterHandler
 {
-    // Start is called before the first frame update
-    void Start()
+    private Button btn;
+
+	public void OnPointerEnter(PointerEventData eventData)
+	{
+		((IPointerEnterHandler)btn).OnPointerEnter(eventData);
+        FindObjectOfType<AudioManager>().Play("ui", "shift");
+    }
+
+	// Start is called before the first frame update
+	void Start()
     {
-        
+        btn = GetComponent<Button>();
     }
 
     // Update is called once per frame
@@ -16,8 +27,5 @@ public class MouseButtonSounding : MonoBehaviour
         
     }
 
-	void OnMouseOver()
-	{
-        FindObjectOfType<AudioManager>().Play("ui ", "shift");
-    }
+    
 }
