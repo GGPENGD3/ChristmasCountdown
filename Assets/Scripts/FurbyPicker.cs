@@ -9,6 +9,7 @@ public class FurbyPicker : MonoBehaviour
     public int furbyCount;
 
     GameObject currentFurby;
+    string currentFurbyName;
     bool added;
 
     [Header("Player")]
@@ -56,7 +57,7 @@ public class FurbyPicker : MonoBehaviour
                 //play pickup animation
                 eventTrigger.SetPickUp(true);
                 player.GetComponent<FPS_Controller>().playerCanMove = false;
-
+                currentFurbyName = currentFurby.name;
                 //place furby on player?
             }
         }
@@ -104,7 +105,13 @@ public class FurbyPicker : MonoBehaviour
                 player.GetComponent<FPS_Controller>().playerCanMove = true;
 
                 //spawn plushie onto player holding positiion
-                currentlyHeldFurby = Instantiate(plushies[0], plushieHoldPos);
+                for (int i = 0; i < plushies.Count; i++)
+                {
+                    if (plushies[i].name == currentFurbyName)
+                    {
+                        currentlyHeldFurby = Instantiate(plushies[i], plushieHoldPos);
+                    }
+                }
 
                 Destroy(currentFurby);
             }
