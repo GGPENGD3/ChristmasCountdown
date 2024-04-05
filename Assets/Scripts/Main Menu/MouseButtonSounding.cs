@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioBundle : MonoBehaviour
+public class MouseButtonSounding : MonoBehaviour
 {
-    public Sound[] bundleAudios;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -16,5 +14,10 @@ public class AudioBundle : MonoBehaviour
     void Update()
     {
         
+    }
+
+	void OnMouseOver()
+	{
+        FindObjectOfType<AudioManager>().Play("ui ", "ui_Shift");
     }
 }

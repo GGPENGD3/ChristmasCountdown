@@ -7,9 +7,15 @@ using Random = UnityEngine.Random;
 
 public class AudioManager : MonoBehaviour
 {
-    // Use FindObjectOfType<AudioManager>().Play("Name"); to play a sound
+    // Use FindObjectOfType<AudioManager>().Play("bundleName, "audioName"); to play audio
 
-    public Sound[] bgm, sfxSounds, sfxUI;
+    [Serializable]
+    public class AudioBundle
+	{
+        public string bundleName;
+        public Sound[] bundleSounds;
+    }
+    [SerializeField] AudioBundle[] audioBundles;
 
     public static AudioManager itsMe;
     public float MasterVolume = 1;
@@ -26,10 +32,13 @@ public class AudioManager : MonoBehaviour
             return;
         }
 
-        // Will stay from scene to scene :D
+        // Will stay from scene to scene
         DontDestroyOnLoad(gameObject);
 
-        LoadArray(sfxUI);
+        foreach (AudioBundle ab in audioBundles)
+		{
+            LoadArray(ab.bundleSounds);
+		}
     }
 
     private void Start()
@@ -42,7 +51,26 @@ public class AudioManager : MonoBehaviour
 	{
     }
 
-    public void PlaySFX(string name)
+    public void Play(string bundleName, string audioName)
+    {
+        foreach (AudioBundle ab in audioBundles)
+        {
+            if (ab.bundleName != bundleName)
+                continue;
+
+            foreach (Sound s in ab.bundleSounds)
+            {
+                if (s.name != audioName)
+                    continue;
+
+                s.source.Play();
+                return;
+            }
+        }
+        Debug.LogError("Didn't find shit");
+    }
+
+    /*public void PlaySFX(string name)
     {
         //Sound s = Array.Find(sounds, sound => sound.name == name);
 
@@ -91,36 +119,44 @@ public class AudioManager : MonoBehaviour
         //Debug.LogWarning(s.name);
     }
 
-    #endregion
-    public void Stop(string name)
+    #endregion*/
+
+    public void StopBundle(string bundleName)
     {
-        foreach (Sound s in bgm)
-        {
-            if (s.name == name)
-            {
-                s.source.Stop();
-                return;
-            }
-        }
-        foreach (Sound s in sfxSounds)
-        {
-            if (s.name == name)
-            {
-                s.source.Stop();
-                return;
-            }
-        }
-        foreach (Sound s in sfxUI)
-        {
-            if (s.name == name)
-            {
-                s.source.Stop();
-                return;
-            }
-        }
+        foreach (AudioBundle ab in audioBundles)
+		{
+            if (ab.bundleName != bundleName)
+                continue;
+
+            foreach (Sound s in ab.bundleSounds)
+			{
+                if (s.source.isPlaying) s.source.Stop();
+			}
+            return;
+		}
+
         Debug.LogError("Can't find shit");
     }
 
+    public void StopSpecific(string bundleName, string audioName)
+    {
+        foreach (AudioBundle ab in audioBundles)
+        {
+            if (ab.bundleName != bundleName)
+                continue;
+
+            foreach (Sound s in ab.bundleSounds)
+            {
+                if (s.name == audioName && s.source.isPlaying)
+                {
+                    s.source.Stop();
+                    return;
+                }
+            }
+        }
+
+        Debug.LogError("Can't find shit");
+    }
 
     public void StopAll()
     {
