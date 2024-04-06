@@ -26,7 +26,7 @@ public class FurbyPicker : MonoBehaviour
     [Header("Christmas Tree")]
     public bool canInteractwTree;
     public ChristmasTree myCTScript;
-
+    public GameObject plushieTransform;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +50,8 @@ public class FurbyPicker : MonoBehaviour
             player_A_Bttn = "P4 A";
         }
         #endregion
+
+        myCTScript = GameObject.Find("Christmas Tree").GetComponent<ChristmasTree>();
     }
 
     // Update is called once per frame
@@ -80,7 +82,13 @@ public class FurbyPicker : MonoBehaviour
                 //drop furby
                 if (!myCTScript.completed)
                 {
-                    myCTScript.CheckForEmptySpot(currentlyHeldFurby);
+                    //myCTScript.CheckForEmptySpot(currentlyHeldFurby);
+                    //myCTScript.PlaceToy(currentlyHeldFurby);
+                    plushieTransform = myCTScript.plushiesToFill[myCTScript.plushieCounter];
+                    currentlyHeldFurby.transform.SetParent(plushieTransform.transform);
+                    currentlyHeldFurby.transform.position = plushieTransform.transform.position;
+                    currentlyHeldFurby = null;
+                  
                 }
             }
         }
@@ -90,9 +98,7 @@ public class FurbyPicker : MonoBehaviour
             //drop furby
             if (currentlyHeldFurby != null)
             {
-                //insert code to drop the current furby found in the variable "currentlyHeldFurby" at where the player is
-                //might need to add rb, to give it gravity else it will float in the air
-                //or u can manualy set its height to be at the floor
+                
                 currentlyHeldFurby.transform.SetParent(null);  
                 DropFurby();        
             }
@@ -112,6 +118,8 @@ public class FurbyPicker : MonoBehaviour
         {
             currentlyHeldFurby.transform.position = hit.point;
             currentlyHeldFurby = null;
+
+            eventTrigger.SetCarry(false);
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -121,11 +129,13 @@ public class FurbyPicker : MonoBehaviour
             canInteract = true;
             interactUI.SetActive(true);
             currentFurby = other.gameObject;
+            plushieTransform = myCTScript.plushiesToFill[myCTScript.plushieCounter];
         }
         if (other.gameObject.name == "Christmas Tree" && currentlyHeldFurby != null)
         {
             canInteractwTree = true;
             Debug.Log("Collided w tree");
+            plushieTransform = null;
             //Set Interact UI For Tree to be active;
         }
 
@@ -143,8 +153,8 @@ public class FurbyPicker : MonoBehaviour
 
         if (other.gameObject.name == "Christmas Tree" && currentlyHeldFurby != null)
         {
-            canInteractwTree = true;
-            Debug.Log("Collided w tree");
+            canInteractwTree = false;
+            Debug.Log("triggerexit w tree");
             //Set Interact UI For Tree to be active;
         }
     }
@@ -178,22 +188,22 @@ public class FurbyPicker : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.name == "Christmas Tree" && currentlyHeldFurby != null)
-        {
-            canInteractwTree = true;
-            Debug.Log("Collided w tree");
-            //Set Interact UI For Tree to be active;
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.name == "Christmas Tree" && currentlyHeldFurby != null)
+    //    {
+    //        canInteractwTree = true;
+    //        Debug.Log("Collided w tree");
+    //        //Set Interact UI For Tree to be active;
+    //    }
+    //}
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.name == "Christmas Tree" && currentlyHeldFurby != null)
-        {
-            canInteractwTree = false;
-            //Set Interact UI For Tree to be active;
-        }
-    }
+    //private void OnCollisionExit(Collision collision)
+    //{
+    //    if (collision.gameObject.name == "Christmas Tree" && currentlyHeldFurby != null)
+    //    {
+    //        canInteractwTree = false;
+    //        //Set Interact UI For Tree to be active;
+    //    }
+    //}
 }
