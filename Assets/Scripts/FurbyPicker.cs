@@ -82,6 +82,7 @@ public class FurbyPicker : MonoBehaviour
                 //drop furby
                 if (!myCTScript.completed)
                 {
+                    FindObjectOfType<AudioManager>().Play("sfx", "gift_up");
                     //myCTScript.CheckForEmptySpot(currentlyHeldFurby);
                     //myCTScript.PlaceToy(currentlyHeldFurby);
                     plushieTransform = myCTScript.plushiesToFill[myCTScript.plushieCounter];
@@ -120,6 +121,7 @@ public class FurbyPicker : MonoBehaviour
             currentlyHeldFurby = null;
 
             eventTrigger.SetCarry(false);
+            FindObjectOfType<AudioManager>().Play("sfx", "gift_down");
         }
     }
     private void OnTriggerEnter(Collider other)

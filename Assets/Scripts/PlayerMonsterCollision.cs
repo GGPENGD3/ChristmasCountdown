@@ -44,6 +44,7 @@ public class PlayerMonsterCollision : MonoBehaviour
         {
             if (gameObject.tag == "Monster" && collision.gameObject.GetComponent<PlayerMonsterCollision>().immune == false)
             {
+                FindObjectOfType<AudioManager>().Play("sfx", "player_die");
                 if (collision.gameObject.tag == "P1")
                 {
                     whoIsMonsterScript.currentMonsterPlayer = "P1";

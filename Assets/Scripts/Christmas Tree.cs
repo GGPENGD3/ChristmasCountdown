@@ -49,6 +49,8 @@ public class ChristmasTree : MonoBehaviour
             if (plushies[i].name == FurbyName)
             {
                 Instantiate(plushies[i], currentEmptyPos);
+
+                FindObjectOfType<AudioManager>().Play("sfx", "plush_get");
             }
         }
     }

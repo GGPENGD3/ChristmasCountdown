@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6593299650513883357}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.722431, y: 0.6275804, z: 2.500508}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -179,15 +179,39 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       source: {fileID: 0}
+    - name: gift_up
+      clip: {fileID: 8300000, guid: 60e99f3a17ce91542a324445feb198a0, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
     - name: gift_down
       clip: {fileID: 8300000, guid: e7f751373ab030b4690ffa769c430063, type: 3}
       volume: 1
       pitch: 1
       loop: 0
       source: {fileID: 0}
-    - name: gift_up
-      clip: {fileID: 8300000, guid: 60e99f3a17ce91542a324445feb198a0, type: 3}
-      volume: 1
+    - name: vent_open
+      clip: {fileID: 8300000, guid: 9e0ac8fa43ac90343b2f3a8699fe583f, type: 3}
+      volume: 0.8
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: vent_close
+      clip: {fileID: 8300000, guid: 0c6a333193c0e294191ef493aca0f043, type: 3}
+      volume: 0.8
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: player_die
+      clip: {fileID: 8300000, guid: 803d03daf711df448b9a75715b3028ae, type: 3}
+      volume: 0.6
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: monster_atk
+      clip: {fileID: 8300000, guid: 7087216bd804424419cbdb5d251bc714, type: 3}
+      volume: 0.8
       pitch: 1
       loop: 0
       source: {fileID: 0}
