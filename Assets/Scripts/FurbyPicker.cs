@@ -6,7 +6,6 @@ public class FurbyPicker : MonoBehaviour
 {
     public bool canInteract;
     public GameObject interactUI;
-    public int furbyCount;
 
     GameObject currentFurby;
     string currentFurbyName;
@@ -21,6 +20,10 @@ public class FurbyPicker : MonoBehaviour
 
     [Header("Plushie Prefabs")]
     public List<GameObject> plushies;
+
+    [Header("Christmas Tree")]
+    public bool canInteractwTree;
+    public ChristmasTree myCTScript;
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +69,18 @@ public class FurbyPicker : MonoBehaviour
             added = false;
         }
 
+        if (canInteractwTree && eventTrigger.playerAnim.GetBool("Run") == false && eventTrigger.playerAnim.GetBool("Crouch") == false)
+        {
+            if (Input.GetButtonDown(player_A_Bttn))
+            {
+                //drop furby
+                if (!myCTScript.completed)
+                {
+                    myCTScript.CheckForEmptySpot(currentlyHeldFurby);
+                }
+            }
+        }
+
         //insert code whereby player drops 
     }
 
@@ -95,7 +110,6 @@ public class FurbyPicker : MonoBehaviour
         {
             if (!added)
             {
-                furbyCount = furbyCount + 1;
                 added = true;
                 canInteract = false;
 
@@ -115,6 +129,24 @@ public class FurbyPicker : MonoBehaviour
 
                 Destroy(currentFurby);
             }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Christmas Tree" && currentlyHeldFurby != null)
+        {
+            canInteractwTree = true;
+            //Set Interact UI For Tree to be active;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.name == "Christmas Tree" && currentlyHeldFurby != null)
+        {
+            canInteractwTree = false;
+            //Set Interact UI For Tree to be active;
         }
     }
 }

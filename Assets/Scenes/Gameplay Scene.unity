@@ -918,7 +918,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!54 &156388633
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7044,7 +7044,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 0
   interactUI: {fileID: 1956233139}
-  furbyCount: 0
   player: {fileID: 551182742}
   currentlyHeldFurby: {fileID: 0}
   plushieHoldPos: {fileID: 0}
@@ -7055,6 +7054,8 @@ MonoBehaviour:
   - {fileID: 15832007502046211, guid: 599be8702f6063a4b9c9aa70f940f5a4, type: 3}
   - {fileID: 6726283253317659446, guid: 5d8e9b8f7749a1444a891e201012eb2a, type: 3}
   - {fileID: 5724210041268672449, guid: dafef1411bfc4614a9ee3b1bf9a8c640, type: 3}
+  canInteractwTree: 0
+  myCTScript: {fileID: 1301816240}
 --- !u!65 &763297686
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8770,7 +8771,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 0
   interactUI: {fileID: 1621738467}
-  furbyCount: 0
   player: {fileID: 156388631}
   currentlyHeldFurby: {fileID: 0}
   plushieHoldPos: {fileID: 0}
@@ -8781,6 +8781,8 @@ MonoBehaviour:
   - {fileID: 15832007502046211, guid: 599be8702f6063a4b9c9aa70f940f5a4, type: 3}
   - {fileID: 6726283253317659446, guid: 5d8e9b8f7749a1444a891e201012eb2a, type: 3}
   - {fileID: 5724210041268672449, guid: dafef1411bfc4614a9ee3b1bf9a8c640, type: 3}
+  canInteractwTree: 0
+  myCTScript: {fileID: 1301816240}
 --- !u!65 &1023466502
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9688,7 +9690,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!54 &1214123261
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10469,6 +10471,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1301816239}
   - component: {fileID: 1301816240}
+  - component: {fileID: 1301816241}
   m_Layer: 0
   m_Name: Christmas Tree
   m_TagString: Untagged
@@ -10514,11 +10517,41 @@ MonoBehaviour:
   - {fileID: 6058487128448739003}
   - {fileID: 6058487129569477469}
   - {fileID: 6058487128704851489}
+  slotTaken:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   plushies:
   - {fileID: 6058487129573482489, guid: f770e13484787d74696e3427e0560a81, type: 3}
   - {fileID: 15832007502046211, guid: 599be8702f6063a4b9c9aa70f940f5a4, type: 3}
   - {fileID: 6726283253317659446, guid: 5d8e9b8f7749a1444a891e201012eb2a, type: 3}
   - {fileID: 5724210041268672449, guid: dafef1411bfc4614a9ee3b1bf9a8c640, type: 3}
+  completed: 0
+--- !u!65 &1301816241
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301816238}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.5378494, y: 5.849916, z: 4.9844646}
+  m_Center: {x: 0.052705295, y: 2.4249573, z: 0.10696748}
 --- !u!1 &1316872648
 GameObject:
   m_ObjectHideFlags: 0
@@ -17872,7 +17905,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 0
   interactUI: {fileID: 1831722658}
-  furbyCount: 0
   player: {fileID: 1214123259}
   currentlyHeldFurby: {fileID: 0}
   plushieHoldPos: {fileID: 0}
@@ -17883,6 +17915,8 @@ MonoBehaviour:
   - {fileID: 15832007502046211, guid: 599be8702f6063a4b9c9aa70f940f5a4, type: 3}
   - {fileID: 6726283253317659446, guid: 5d8e9b8f7749a1444a891e201012eb2a, type: 3}
   - {fileID: 5724210041268672449, guid: dafef1411bfc4614a9ee3b1bf9a8c640, type: 3}
+  canInteractwTree: 0
+  myCTScript: {fileID: 1301816240}
 --- !u!65 &2114027300
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21815,7 +21849,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 0
   interactUI: {fileID: 1803632660}
-  furbyCount: 0
   player: {fileID: 3282465385530043439}
   currentlyHeldFurby: {fileID: 0}
   plushieHoldPos: {fileID: 968629868}
@@ -21826,6 +21859,8 @@ MonoBehaviour:
   - {fileID: 15832007502046211, guid: 599be8702f6063a4b9c9aa70f940f5a4, type: 3}
   - {fileID: 6726283253317659446, guid: 5d8e9b8f7749a1444a891e201012eb2a, type: 3}
   - {fileID: 5724210041268672449, guid: dafef1411bfc4614a9ee3b1bf9a8c640, type: 3}
+  canInteractwTree: 0
+  myCTScript: {fileID: 1301816240}
 --- !u!1 &6390981476785821569
 GameObject:
   m_ObjectHideFlags: 0
