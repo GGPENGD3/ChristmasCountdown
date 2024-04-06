@@ -3762,6 +3762,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnim: {fileID: 219409924}
+  monsterAnim: {fileID: 2051983444}
   furbyPickerScript: {fileID: 1633958091}
 --- !u!1001 &232617239
 PrefabInstance:
@@ -5450,7 +5451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47819dc171bbdee49aa917a080f22d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whoIsMonsterScript: {fileID: 0}
+  whoIsMonsterScript: {fileID: 1960302555}
   immunityTimer: 5
   resetTimer: 5
   immune: 0
@@ -7374,6 +7375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnim: {fileID: 455741137}
+  monsterAnim: {fileID: 699847568}
   furbyPickerScript: {fileID: 2002670527}
 --- !u!1 &457268073
 GameObject:
@@ -8057,7 +8059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47819dc171bbdee49aa917a080f22d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whoIsMonsterScript: {fileID: 0}
+  whoIsMonsterScript: {fileID: 1960302555}
   immunityTimer: 5
   resetTimer: 5
   immune: 0
@@ -9953,6 +9955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnim: {fileID: 595866148}
+  monsterAnim: {fileID: 1555760292}
   furbyPickerScript: {fileID: 1265895513}
 --- !u!1 &605442298
 GameObject:
@@ -13850,7 +13853,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1099898502
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14477,7 +14480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47819dc171bbdee49aa917a080f22d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whoIsMonsterScript: {fileID: 0}
+  whoIsMonsterScript: {fileID: 1960302555}
   immunityTimer: 5
   resetTimer: 5
   immune: 0
@@ -20010,6 +20013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerAnim: {fileID: 1599838833}
+  monsterAnim: {fileID: 1575904545}
   furbyPickerScript: {fileID: 2035187915}
 --- !u!95 &1599838833
 Animator:
@@ -22921,7 +22925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47819dc171bbdee49aa917a080f22d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  whoIsMonsterScript: {fileID: 0}
+  whoIsMonsterScript: {fileID: 1960302555}
   immunityTimer: 5
   resetTimer: 5
   immune: 0

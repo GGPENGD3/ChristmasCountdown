@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerEventTrigger : MonoBehaviour
 {
     public Animator playerAnim;
-
+    public Animator monsterAnim;
     [Header("Other Variables")]
     public FurbyPicker furbyPickerScript;
 
@@ -13,6 +13,8 @@ public class PlayerEventTrigger : MonoBehaviour
     public void SetRun(bool option)
     {
         playerAnim.SetBool("Run", option);
+        monsterAnim.SetBool("Run", option);
+  
     }
     public void SetCarryRun(bool option)
     {
