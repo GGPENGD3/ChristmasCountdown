@@ -112,6 +112,8 @@ public class FurbyPicker : MonoBehaviour
         {
             currentlyHeldFurby.transform.position = hit.point;
             currentlyHeldFurby = null;
+
+            eventTrigger.SetCarry(false);
         }
     }
     private void OnTriggerEnter(Collider other)
