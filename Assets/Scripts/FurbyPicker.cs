@@ -7,6 +7,8 @@ public class FurbyPicker : MonoBehaviour
     public bool canInteract;
     public GameObject interactUI;
 
+    public bool drop;
+
     GameObject currentFurby;
     string currentFurbyName;
     bool added;
@@ -78,6 +80,21 @@ public class FurbyPicker : MonoBehaviour
                 {
                     myCTScript.CheckForEmptySpot(currentlyHeldFurby);
                 }
+            }
+        }
+
+        if (drop)
+        {
+            //drop furby
+            if (currentlyHeldFurby != null)
+            {
+                //insert code to drop the current furby found in the variable "currentlyHeldFurby" at where the player is
+                //might need to add rb, to give it gravity else it will float in the air
+                //or u can manualy set its height to be at the floor
+            }
+            else
+            {
+                drop = false;
             }
         }
 

@@ -579,6 +579,7 @@ public class MonsterAI : MonoBehaviour
         {
             whoIsMonsterScript.currentMonsterPlayer = "P1";
             whoIsMonsterScript.ChangeMonster();
+            closestPlayer.gameObject.transform.Find("Furby Collider?");
             Destroy(this.gameObject);
         }
         else if (closestPlayer.gameObject.tag == "P2")

@@ -73,8 +73,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plushie_3 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 37a31cf8d610911419e1845da3deefaf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Furby
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 37a31cf8d610911419e1845da3deefaf,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 453723577296198524}
   m_SourcePrefab: {fileID: 100100000, guid: 37a31cf8d610911419e1845da3deefaf, type: 3}
+--- !u!1 &6726283253317659446 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 37a31cf8d610911419e1845da3deefaf,
+    type: 3}
+  m_PrefabInstance: {fileID: 5879984958778725991}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &453723577296198524
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6726283253317659446}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.128662
+  m_Height: 0.3322052
+  m_Direction: 1
+  m_Center: {x: 2.382913e-17, y: 0.1637685, z: -0.006135672}

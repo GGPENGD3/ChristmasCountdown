@@ -45,21 +45,33 @@ public class PlayerMonsterCollision : MonoBehaviour
             {
                 whoIsMonsterScript.currentMonsterPlayer = "P1";
                 immune = true;
+
+                //find the child object called "Furby Collider?" then access the "Furby Picker" script in it to make drop true
+                collision.gameObject.transform.Find("Furby Collider?").GetComponent<FurbyPicker>().drop = true;
             }
             else if (collision.gameObject.tag == "P2")
             {
                 whoIsMonsterScript.currentMonsterPlayer = "P2";
                 immune = true;
+
+                //find the child object called "Furby Collider?" then access the "Furby Picker" script in it to make drop true
+                collision.gameObject.transform.Find("Furby Collider?").GetComponent<FurbyPicker>().drop = true;
             }
             else if (collision.gameObject.tag == "P3")
             {
                 whoIsMonsterScript.currentMonsterPlayer = "P3";
                 immune = true;
+
+                //find the child object called "Furby Collider?" then access the "Furby Picker" script in it to make drop true
+                collision.gameObject.transform.Find("Furby Collider?").GetComponent<FurbyPicker>().drop = true;
             }
             else if (collision.gameObject.tag == "P4")
             {
                 whoIsMonsterScript.currentMonsterPlayer = "P4";
                 immune = true;
+
+                //find the child object called "Furby Collider?" then access the "Furby Picker" script in it to make drop true
+                collision.gameObject.transform.Find("Furby Collider?").GetComponent<FurbyPicker>().drop = true;
             }
         }
         #endregion
