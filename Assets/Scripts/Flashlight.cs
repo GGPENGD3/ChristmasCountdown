@@ -22,6 +22,7 @@ public class Flashlight : MonoBehaviour
     [Header("Player")]
     public GameObject player;
     public string player_Y;
+    public PlayerEventTrigger eventTriggers;
 
     // Start is called before the first frame update
     void Start()
@@ -53,7 +54,7 @@ public class Flashlight : MonoBehaviour
         }
         #endregion
 
-        if (Input.GetButtonDown(player_Y))
+        if (Input.GetButtonDown(player_Y) && player.tag != "Monster")
         {
             isPressed = true;
 
@@ -73,6 +74,9 @@ public class Flashlight : MonoBehaviour
         {
             isPressed = false;
             timer = 0;
+
+            //stop shaking
+            eventTriggers.SetStartShaking(false);
         }
 
         if (isPressed && timer < 5f && batteryLife >= 0)
@@ -116,6 +120,7 @@ public class Flashlight : MonoBehaviour
     void ChargeBattery()
     {
         //shaking anim + noise
+        eventTriggers.SetStartShaking(true);
 
         //recharge battery
         if (mylight.GetComponent<Light>().intensity <= 10)
