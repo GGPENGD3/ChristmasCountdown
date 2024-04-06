@@ -77,12 +77,7 @@ public class MonsterAI : MonoBehaviour
 
         }
 
-        //else if (closestPlayer == null)
-        //{
-        //    currentState = AIState.Patrol;
-        //    chasing = false;
-        //    walking = true;
-        //}
+
         else if (investigating)
         {
             currentState = AIState.Investigate;
@@ -334,32 +329,7 @@ public class MonsterAI : MonoBehaviour
                     }
 
 
-                    //if (hit.collider.CompareTag("Player"))
-                    //{
-                    //    Debug.Log("Saw player");
-                    //    if (hit.collider.name == "Player 1")
-                    //    {
-                    //        seePlayer1 = true;
-
-                    //    }
-                    //    if (hit.collider.name == "Player 2")
-                    //    {
-                    //        seePlayer2 = true;
-                    //    }
-                    //    if (hit.collider.name == "Player 3")
-                    //    {
-                    //        seePlayer3 = true;
-                    //    }
-                    //    if (hit.collider.name == "Player 4")
-                    //    {
-                    //        seePlayer4 = true;
-                    //    }
-                    ////}
-                    //else
-                    //    seePlayer1 = false;
-                    //seePlayer2 = false;
-                    //seePlayer3 = false;
-                    //seePlayer4 = false;
+         
                 }
             }
         }

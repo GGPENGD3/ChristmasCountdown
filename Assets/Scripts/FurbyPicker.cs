@@ -9,7 +9,7 @@ public class FurbyPicker : MonoBehaviour
 
     public bool drop;
     public LayerMask groundLayer;
-    GameObject currentFurby;
+    public GameObject currentFurby;
     string currentFurbyName;
     bool added;
    
@@ -51,7 +51,7 @@ public class FurbyPicker : MonoBehaviour
         }
         #endregion
 
-        myCTScript = GameObject.Find("Christmas Tree").GetComponent<ChristmasTree>();
+        //myCTScript = GameObject.Find("Christmas Tree").GetComponent<ChristmasTree>();
     }
 
     // Update is called once per frame
@@ -126,10 +126,14 @@ public class FurbyPicker : MonoBehaviour
     {
         if (other.tag == "Furby")
         {
-            canInteract = true;
-            interactUI.SetActive(true);
-            currentFurby = other.gameObject;
-            plushieTransform = myCTScript.plushiesToFill[myCTScript.plushieCounter];
+            //if ( other !=null)
+            {
+                canInteract = true;
+                //interactUI.SetActive(true);
+                currentFurby = other.gameObject;
+                plushieTransform = myCTScript.plushiesToFill[myCTScript.plushieCounter];
+            }
+
         }
         if (other.gameObject.name == "Christmas Tree" && currentlyHeldFurby != null)
         {
@@ -147,7 +151,7 @@ public class FurbyPicker : MonoBehaviour
         if (other.tag == "Furby")
         {
             canInteract = false;
-            interactUI.SetActive(false);
+            //interactUI.SetActive(false);
             currentFurby = null;
         }
 
@@ -180,10 +184,12 @@ public class FurbyPicker : MonoBehaviour
                     if (plushies[i].name == currentFurbyName)
                     {
                         currentlyHeldFurby = Instantiate(plushies[i], plushieHoldPos);
+                        currentlyHeldFurby.name = plushies[i].name;
                     }
                 }
 
                 Destroy(currentFurby);
+                currentFurby = null;
             }
         }
     }

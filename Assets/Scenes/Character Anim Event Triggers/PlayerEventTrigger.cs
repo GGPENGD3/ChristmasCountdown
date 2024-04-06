@@ -13,7 +13,8 @@ public class PlayerEventTrigger : MonoBehaviour
     public void SetRun(bool option)
     {
         playerAnim.SetBool("Run", option);
-        monsterAnim.SetBool("Run", option);
+       
+        //monsterAnim.SetBool("Run", option);
   
     }
     public void SetCarryRun(bool option)
@@ -41,14 +42,15 @@ public class PlayerEventTrigger : MonoBehaviour
         playerAnim.SetBool("CrouchWalk", option);
     }
 
-    public void SetStartShaking(bool option)
+    public void SetStartShaking()
     {
-        playerAnim.SetBool("StartShaking", option);
+        playerAnim.SetTrigger("StartShake");
     }
 
     public void SetShaking(bool option)
     {
         playerAnim.SetBool("Shaking", option);
+        
     }
     #endregion
 

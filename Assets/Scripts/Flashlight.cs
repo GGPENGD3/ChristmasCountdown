@@ -76,7 +76,8 @@ public class Flashlight : MonoBehaviour
             timer = 0;
 
             //stop shaking
-            eventTriggers.SetStartShaking(false);
+           
+            eventTriggers.SetShaking(false);    
         }
 
         if (isPressed && timer < 5f && batteryLife >= 0)
@@ -120,7 +121,8 @@ public class Flashlight : MonoBehaviour
     void ChargeBattery()
     {
         //shaking anim + noise
-        eventTriggers.SetStartShaking(true);
+        eventTriggers.SetStartShaking();
+        eventTriggers.SetShaking(true);
 
         //recharge battery
         if (mylight.GetComponent<Light>().intensity <= 10)
