@@ -9,4 +9,9 @@ public class cutsceneManager : MonoBehaviour
     {
         SceneManager.LoadScene("Gameplay Scene");
     }
+
+    public void ReturntoMain()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
 }
