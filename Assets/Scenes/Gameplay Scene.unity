@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 20551907}
   - component: {fileID: 20551906}
   - component: {fileID: 20551905}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Wall (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1903,7 +1903,7 @@ GameObject:
   - component: {fileID: 325868912}
   - component: {fileID: 325868911}
   - component: {fileID: 325868910}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Living Room Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2170,7 +2170,7 @@ GameObject:
   - component: {fileID: 387061102}
   - component: {fileID: 387061101}
   - component: {fileID: 387061100}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Wall (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3226,37 +3226,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &503577837
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 503577838}
-  m_Layer: 0
-  m_Name: PlayerPos (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &503577838
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 503577837}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.549, z: 0.809}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1778104698}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &511910837
 GameObject:
   m_ObjectHideFlags: 0
@@ -3854,7 +3823,7 @@ GameObject:
   - component: {fileID: 636730698}
   - component: {fileID: 636730697}
   - component: {fileID: 636730696}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Wall (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4230,7 +4199,7 @@ GameObject:
   - component: {fileID: 677429048}
   - component: {fileID: 677429047}
   - component: {fileID: 677429046}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Wall (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5589,7 +5558,7 @@ GameObject:
   - component: {fileID: 698231104}
   - component: {fileID: 698231103}
   - component: {fileID: 698231102}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Wall (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7008,7 +6977,7 @@ GameObject:
   - component: {fileID: 763297684}
   - component: {fileID: 763297686}
   - component: {fileID: 763297685}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Furby Collider?
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7044,6 +7013,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 0
   interactUI: {fileID: 1956233139}
+  drop: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
   player: {fileID: 551182742}
   currentlyHeldFurby: {fileID: 0}
   plushieHoldPos: {fileID: 0}
@@ -7089,7 +7062,7 @@ GameObject:
   - component: {fileID: 777441930}
   - component: {fileID: 777441929}
   - component: {fileID: 777441928}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Wall (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7381,7 +7354,7 @@ GameObject:
   - component: {fileID: 819676808}
   - component: {fileID: 819676807}
   - component: {fileID: 819676806}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Wall (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7630,7 +7603,7 @@ GameObject:
   - component: {fileID: 848717240}
   - component: {fileID: 848717239}
   - component: {fileID: 848717238}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Wall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8735,7 +8708,7 @@ GameObject:
   - component: {fileID: 1023466500}
   - component: {fileID: 1023466502}
   - component: {fileID: 1023466501}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Furby Collider?
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8771,6 +8744,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 0
   interactUI: {fileID: 1621738467}
+  drop: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
   player: {fileID: 156388631}
   currentlyHeldFurby: {fileID: 0}
   plushieHoldPos: {fileID: 0}
@@ -9195,7 +9172,7 @@ GameObject:
   - component: {fileID: 1133066371}
   - component: {fileID: 1133066370}
   - component: {fileID: 1133066369}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Wall (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9332,7 +9309,7 @@ GameObject:
   - component: {fileID: 1148472606}
   - component: {fileID: 1148472605}
   - component: {fileID: 1148472604}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Wall (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9437,7 +9414,7 @@ GameObject:
   - component: {fileID: 1154330210}
   - component: {fileID: 1154330209}
   - component: {fileID: 1154330208}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Wall (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10004,7 +9981,7 @@ GameObject:
   - component: {fileID: 1256402407}
   - component: {fileID: 1256402406}
   - component: {fileID: 1256402405}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Wall (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10109,7 +10086,7 @@ GameObject:
   - component: {fileID: 1257569911}
   - component: {fileID: 1257569910}
   - component: {fileID: 1257569909}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Wall (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10336,7 +10313,7 @@ GameObject:
   - component: {fileID: 1275364741}
   - component: {fileID: 1275364740}
   - component: {fileID: 1275364739}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Wall (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10564,7 +10541,7 @@ GameObject:
   - component: {fileID: 1316872652}
   - component: {fileID: 1316872651}
   - component: {fileID: 1316872650}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Wall (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12306,7 +12283,7 @@ GameObject:
   - component: {fileID: 1554937332}
   - component: {fileID: 1554937331}
   - component: {fileID: 1554937330}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Wall (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12666,7 +12643,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1625553208}
   m_Layer: 0
-  m_Name: PlayerPos
+  m_Name: RaycastPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12680,7 +12657,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625553207}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.891, z: 0.603}
+  m_LocalPosition: {x: 0, y: 0.551, z: 0.064}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14389,7 +14366,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1706405988}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14737,7 +14714,7 @@ GameObject:
   - component: {fileID: 1777934576}
   - component: {fileID: 1777934575}
   - component: {fileID: 1777934574}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Wall (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15226,10 +15203,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1625553208}
-    - targetCorrespondingSourceObject: {fileID: 1512163631619897942, guid: 97809dc24124b0a49a22b34ca1dfdeea,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 503577838}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5043994614624071845, guid: 97809dc24124b0a49a22b34ca1dfdeea,
         type: 3}
@@ -15243,6 +15216,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1778104693}
+    - targetCorrespondingSourceObject: {fileID: 5043994614624071845, guid: 97809dc24124b0a49a22b34ca1dfdeea,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1778104701}
     - targetCorrespondingSourceObject: {fileID: 5043994614624071845, guid: 97809dc24124b0a49a22b34ca1dfdeea,
         type: 3}
       insertIndex: -1
@@ -15313,12 +15290,13 @@ MonoBehaviour:
   - {fileID: 1863350664}
   centrePoint: {fileID: 1778104698}
   range: 10
+  raycastPos: {fileID: 1625553208}
   walkSpeed: 5
   chaseSpeed: 8
   minIdleTime: 0
   maxIdleTime: 0.5
   investigateTime: 2
-  visionRange: 10
+  visionRange: 15
   visionAngle: 45
   catchDistance: 2
   soundDetectionRange: 10
@@ -15404,10 +15382,36 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 2, y: 1.4099998, z: 3.926206}
   m_Center: {x: 0, y: 0.9, z: 1.4373777}
+--- !u!114 &1778104701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1778104691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d11f4e6ae75d51e47bbf9b738470d8d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 10
+  angle: 90
+  playerRef: {fileID: 0}
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 48128
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 131072
+  seePlayer1: 0
+  seePlayer2: 0
+  seePlayer3: 0
+  seePlayer4: 0
+  monsterAI: {fileID: 1778104693}
 --- !u!1 &1778441470
 GameObject:
   m_ObjectHideFlags: 0
@@ -16997,7 +17001,7 @@ GameObject:
   - component: {fileID: 1969448323}
   - component: {fileID: 1969448322}
   - component: {fileID: 1969448325}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17118,7 +17122,7 @@ GameObject:
   - component: {fileID: 1998273761}
   - component: {fileID: 1998273760}
   - component: {fileID: 1998273759}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Wall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17414,7 +17418,7 @@ GameObject:
   - component: {fileID: 2070218353}
   - component: {fileID: 2070218352}
   - component: {fileID: 2070218351}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Wall (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17765,7 +17769,7 @@ GameObject:
   - component: {fileID: 2113715216}
   - component: {fileID: 2113715215}
   - component: {fileID: 2113715214}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Wall (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17869,7 +17873,7 @@ GameObject:
   - component: {fileID: 2114027298}
   - component: {fileID: 2114027300}
   - component: {fileID: 2114027299}
-  m_Layer: 12
+  m_Layer: 0
   m_Name: Furby Collider?
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17905,6 +17909,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 0
   interactUI: {fileID: 1831722658}
+  drop: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
   player: {fileID: 1214123259}
   currentlyHeldFurby: {fileID: 0}
   plushieHoldPos: {fileID: 0}
@@ -18466,7 +18474,7 @@ MonoBehaviour:
   fov: 60
   invertCamera: 0
   cameraCanMove: 1
-  mouseSensitivity: 0.5
+  mouseSensitivity: 1
   maxLookAngle: 50
   lockCursor: 1
   enableZoom: 0
@@ -20674,7 +20682,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -21849,6 +21857,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 0
   interactUI: {fileID: 1803632660}
+  drop: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 16384
   player: {fileID: 3282465385530043439}
   currentlyHeldFurby: {fileID: 0}
   plushieHoldPos: {fileID: 968629868}
@@ -22667,7 +22679,7 @@ GameObject:
   - component: {fileID: 7623695856809437811}
   - component: {fileID: 915987157958976993}
   - component: {fileID: 6330583457761199783}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Furby Collider?
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -5210,6 +5210,7 @@ MonoBehaviour:
   - {fileID: 0}
   centrePoint: {fileID: 477871001}
   range: 10
+  raycastPos: {fileID: 580456381}
   walkSpeed: 5
   chaseSpeed: 8
   minIdleTime: 0
@@ -6587,7 +6588,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 580456380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.891, z: 0.603}
+  m_LocalPosition: {x: 0, y: 0.542, z: 0.172}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7612,8 +7613,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 0
   interactUI: {fileID: 0}
-  furbyCount: 0
+  drop: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
   player: {fileID: 481799290}
+  currentlyHeldFurby: {fileID: 0}
   plushieHoldPos: {fileID: 403364805}
   eventTrigger: {fileID: 403364803}
   player_A_Bttn: 
@@ -7622,6 +7627,8 @@ MonoBehaviour:
   - {fileID: 15832007502046211, guid: 599be8702f6063a4b9c9aa70f940f5a4, type: 3}
   - {fileID: 6726283253317659446, guid: 5d8e9b8f7749a1444a891e201012eb2a, type: 3}
   - {fileID: 5724210041268672449, guid: dafef1411bfc4614a9ee3b1bf9a8c640, type: 3}
+  canInteractwTree: 0
+  myCTScript: {fileID: 0}
 --- !u!65 &706399150
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11972,8 +11979,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canInteract: 0
   interactUI: {fileID: 0}
-  furbyCount: 0
+  drop: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
   player: {fileID: 22841629}
+  currentlyHeldFurby: {fileID: 0}
   plushieHoldPos: {fileID: 1541116191}
   eventTrigger: {fileID: 1541116189}
   player_A_Bttn: 
@@ -11982,6 +11993,8 @@ MonoBehaviour:
   - {fileID: 15832007502046211, guid: 599be8702f6063a4b9c9aa70f940f5a4, type: 3}
   - {fileID: 6726283253317659446, guid: 5d8e9b8f7749a1444a891e201012eb2a, type: 3}
   - {fileID: 5724210041268672449, guid: dafef1411bfc4614a9ee3b1bf9a8c640, type: 3}
+  canInteractwTree: 0
+  myCTScript: {fileID: 0}
 --- !u!65 &1159218011
 BoxCollider:
   m_ObjectHideFlags: 0

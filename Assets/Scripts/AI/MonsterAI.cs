@@ -18,7 +18,7 @@ public class MonsterAI : MonoBehaviour
     public List<Transform> waypoints;
     public Transform centrePoint;
     public float range;
-
+    public Transform raycastPos;
     public float walkSpeed = 5f;
     public float chaseSpeed = 8f;
     public float minIdleTime = 0f, maxIdleTime = 0.5f;
@@ -354,12 +354,12 @@ public class MonsterAI : MonoBehaviour
                     //    {
                     //        seePlayer4 = true;
                     //    }
-                    //}
-                    else
-                        seePlayer1 = false;
-                    seePlayer2 = false;
-                    seePlayer3 = false;
-                    seePlayer4 = false;
+                    ////}
+                    //else
+                    //    seePlayer1 = false;
+                    //seePlayer2 = false;
+                    //seePlayer3 = false;
+                    //seePlayer4 = false;
                 }
             }
         }
@@ -379,7 +379,7 @@ public class MonsterAI : MonoBehaviour
             {
                 // Check if there are obstacles between the enemy and the player
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, directionToPlayer, out hit, visionRange))
+                if (Physics.Raycast(raycastPos.position, directionToPlayer, out hit, visionRange))
                 {
                     if (hit.collider.GetComponent<FPS_Controller>()!=null)
                     {
@@ -512,26 +512,26 @@ public class MonsterAI : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("P1"))
-        {
-            seePlayer1 = false;
+        //if (other.CompareTag("P1"))
+        //{
+        //    seePlayer1 = false;
  
-        }
-        if (other.CompareTag("P2"))
-        {
-            seePlayer2 = false;
+        //}
+        //if (other.CompareTag("P2"))
+        //{
+        //    seePlayer2 = false;
 
-        }
-        if (other.CompareTag("P1"))
-        {
-            seePlayer3 = false;
+        //}
+        //if (other.CompareTag("P1"))
+        //{
+        //    seePlayer3 = false;
 
-        }
-        if (other.CompareTag("P1"))
-        {
-            seePlayer4 = false;
+        //}
+        //if (other.CompareTag("P1"))
+        //{
+        //    seePlayer4 = false;
 
-        }
+        //}
     }
     void ClearLOS()
     {

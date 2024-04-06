@@ -8,11 +8,11 @@ public class FurbyPicker : MonoBehaviour
     public GameObject interactUI;
 
     public bool drop;
-
+    public LayerMask groundLayer;
     GameObject currentFurby;
     string currentFurbyName;
     bool added;
-
+   
     [Header("Player")]
     public GameObject player;
     public GameObject currentlyHeldFurby;
@@ -22,7 +22,7 @@ public class FurbyPicker : MonoBehaviour
 
     [Header("Plushie Prefabs")]
     public List<GameObject> plushies;
-
+    
     [Header("Christmas Tree")]
     public bool canInteractwTree;
     public ChristmasTree myCTScript;
@@ -63,6 +63,7 @@ public class FurbyPicker : MonoBehaviour
                 eventTrigger.SetPickUp(true);
                 player.GetComponent<FPS_Controller>().playerCanMove = false;
                 currentFurbyName = currentFurby.name;
+     
                 //place furby on player?
             }
         }
@@ -75,6 +76,7 @@ public class FurbyPicker : MonoBehaviour
         {
             if (Input.GetButtonDown(player_A_Bttn))
             {
+                Debug.Log("A button pressed");
                 //drop furby
                 if (!myCTScript.completed)
                 {
@@ -91,6 +93,8 @@ public class FurbyPicker : MonoBehaviour
                 //insert code to drop the current furby found in the variable "currentlyHeldFurby" at where the player is
                 //might need to add rb, to give it gravity else it will float in the air
                 //or u can manualy set its height to be at the floor
+                currentlyHeldFurby.transform.SetParent(null);  
+                DropFurby();        
             }
             else
             {
@@ -101,6 +105,15 @@ public class FurbyPicker : MonoBehaviour
         //insert code whereby player drops 
     }
 
+    public void DropFurby()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(currentlyHeldFurby.transform.position,Vector3.down, out hit, Mathf.Infinity,groundLayer))
+        {
+            currentlyHeldFurby.transform.position = hit.point;
+            currentlyHeldFurby = null;
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Furby")
@@ -109,6 +122,14 @@ public class FurbyPicker : MonoBehaviour
             interactUI.SetActive(true);
             currentFurby = other.gameObject;
         }
+        if (other.gameObject.name == "Christmas Tree" && currentlyHeldFurby != null)
+        {
+            canInteractwTree = true;
+            Debug.Log("Collided w tree");
+            //Set Interact UI For Tree to be active;
+        }
+
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -118,6 +139,13 @@ public class FurbyPicker : MonoBehaviour
             canInteract = false;
             interactUI.SetActive(false);
             currentFurby = null;
+        }
+
+        if (other.gameObject.name == "Christmas Tree" && currentlyHeldFurby != null)
+        {
+            canInteractwTree = true;
+            Debug.Log("Collided w tree");
+            //Set Interact UI For Tree to be active;
         }
     }
 
@@ -136,6 +164,7 @@ public class FurbyPicker : MonoBehaviour
                 player.GetComponent<FPS_Controller>().playerCanMove = true;
 
                 //spawn plushie onto player holding positiion
+
                 for (int i = 0; i < plushies.Count; i++)
                 {
                     if (plushies[i].name == currentFurbyName)
@@ -154,6 +183,7 @@ public class FurbyPicker : MonoBehaviour
         if (collision.gameObject.name == "Christmas Tree" && currentlyHeldFurby != null)
         {
             canInteractwTree = true;
+            Debug.Log("Collided w tree");
             //Set Interact UI For Tree to be active;
         }
     }
