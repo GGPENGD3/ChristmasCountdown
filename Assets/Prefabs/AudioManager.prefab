@@ -179,6 +179,18 @@ MonoBehaviour:
       pitch: 1
       loop: 0
       source: {fileID: 0}
+    - name: gift_down
+      clip: {fileID: 8300000, guid: e7f751373ab030b4690ffa769c430063, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
+    - name: gift_up
+      clip: {fileID: 8300000, guid: 60e99f3a17ce91542a324445feb198a0, type: 3}
+      volume: 1
+      pitch: 1
+      loop: 0
+      source: {fileID: 0}
   - bundleName: flashlight_shake
     bundleSounds:
     - name: fl_shake1
