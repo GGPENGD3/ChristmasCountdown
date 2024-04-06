@@ -30,6 +30,7 @@ public class Monster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+   
         Vector3 direction = (player.position - transform.position).normalized;
         RaycastHit hit;
         if (Physics.Raycast(transform.position + rayCastOffset, direction, out hit, sightDistance))

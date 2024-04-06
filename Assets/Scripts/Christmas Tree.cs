@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ChristmasTree : MonoBehaviour
 {
-    public List<Transform> plushiesToFill;
+    public List<GameObject> plushiesToFill;
     public List<string> slotTaken;
     public List<GameObject> plushies;
     public bool completed;
     Transform currentEmptyPos;
-
+    public int plushieCounter = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +19,10 @@ public class ChristmasTree : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Debug.Log(plushiesToFill[plushieCounter].name);
+        }
     }
 
     public void CheckForEmptySpot(GameObject Furby)
@@ -29,14 +32,16 @@ public class ChristmasTree : MonoBehaviour
             if (slotTaken[i] != null)
             {
                 slotTaken[i] = Furby.name;
-                currentEmptyPos = plushiesToFill[i];
+               // currentEmptyPos = plushiesToFill[i];
 
-                PlaceFurby(Furby.name);
-                completed = true;
+                //PlaceFurby(Furby.name);
+                //PlaceToy(Furby);
+                break;
             }
         }
     }
 
+  
     public void PlaceFurby(string FurbyName)
     {
         for (int i = 0; i < plushies.Count; i++)
@@ -47,4 +52,17 @@ public class ChristmasTree : MonoBehaviour
             }
         }
     }
+
+    public void PlaceToy(GameObject toy)
+    {
+        if (plushieCounter <=7)
+        {
+            toy.transform.SetParent(plushiesToFill[plushieCounter].transform) ;
+            toy.transform.position = (plushiesToFill[plushieCounter]).transform.position;
+            plushieCounter++;
+        }
+   
+    }
+
+   
 }

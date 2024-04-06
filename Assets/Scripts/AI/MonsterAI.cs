@@ -19,8 +19,8 @@ public class MonsterAI : MonoBehaviour
     public Transform centrePoint;
     public float range;
     public Transform raycastPos;
-    public float walkSpeed = 5f;
-    public float chaseSpeed = 8f;
+    public float walkSpeed = 3f;
+    public float chaseSpeed = 5f;
     public float minIdleTime = 0f, maxIdleTime = 0.5f;
     public float investigateTime = 2f;
     public float visionRange = 10f;
@@ -33,6 +33,7 @@ public class MonsterAI : MonoBehaviour
     public Transform currentDestination;
     public Vector3 investigatePoint;
     public Transform closestPlayer;
+    public Transform caughtPlayer;
     Vector3 dest;
     int waypointIndex;
     public bool walking, investigating, chasing, capture;
@@ -48,14 +49,14 @@ public class MonsterAI : MonoBehaviour
         waypointIndex = Random.Range(0, waypoints.Count);
         currentDestination = waypoints[waypointIndex];
         currentState = AIState.Patrol;
-        //agent.autoBraking = true;
+        agent.autoBraking = true;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        LOS2();
+        //LOS2();
         CheckPlayer();
         if (playersInRange!=null)
         {
@@ -71,8 +72,7 @@ public class MonsterAI : MonoBehaviour
                 chasing = true;
                 walking = false;
             }
-            //else
-            //    currentState = AIState.Capture;
+         
               
 
         }
@@ -103,7 +103,7 @@ public class MonsterAI : MonoBehaviour
                 break;
 
             case AIState.Chase:
-                ReturnNearestPlayer();
+                //ReturnNearestPlayer();
                 ChasePlayer();
                 break;
             case AIState.Capture:
@@ -147,14 +147,14 @@ public class MonsterAI : MonoBehaviour
             //if (agent.remainingDistance <= 0.5f)
             float distanceToPlayer = Vector3.Distance(transform.position, closestPlayer.position);
             //Debug.Log(distanceToPlayer);
-            if (distanceToPlayer <= 5f) 
+            if (distanceToPlayer <= 2.5f) 
             {
                 agent.speed = 0;
                 agent.ResetPath();
                 agent.isStopped = true;
                 //agent.updateRotation = false;
                 //agent.transform.LookAt(closestPlayer);
-
+                //agent.transform.LookAt(closestPlayer.position);
                 anim.SetBool("Walk", false);
                 anim.SetBool("Run", false);
                 StartCoroutine(Capture());
@@ -435,7 +435,11 @@ public class MonsterAI : MonoBehaviour
             {
                 if (playersInRange.Contains(playerTransform[0]))
                 {
-                    playersInRange.Remove(playerTransform[0]);
+                    if (Vector3.Distance(transform.position, playerTransform[0].position) >= 6f)
+                    {
+                        playersInRange.Remove(playerTransform[0]);
+                    }
+                   
                 }
             }
 
@@ -451,7 +455,10 @@ public class MonsterAI : MonoBehaviour
         {
             if (playersInRange.Contains(playerTransform[1]))
             {
-                playersInRange.Remove(playerTransform[1]);
+                if (Vector3.Distance(transform.position, playerTransform[0].position) >= 6f)
+                {
+                    playersInRange.Remove(playerTransform[1]);
+                }
             }
         }
         if (seePlayer3)
@@ -465,7 +472,10 @@ public class MonsterAI : MonoBehaviour
         {
             if (playersInRange.Contains(playerTransform[2]))
             {
-                playersInRange.Remove(playerTransform[2]);
+                if (Vector3.Distance(transform.position, playerTransform[0].position) >= 6f)
+                {
+                    playersInRange.Remove(playerTransform[2]);
+                }
             }
         }
         if (seePlayer4)
@@ -479,7 +489,10 @@ public class MonsterAI : MonoBehaviour
         {
             if (playersInRange.Contains(playerTransform[3]))
             {
-                playersInRange.Remove(playerTransform[3]);
+                if (Vector3.Distance(transform.position, playerTransform[0].position) >= 6f)
+                {
+                    playersInRange.Remove(playerTransform[3]);
+                }
             }
         }
 
@@ -490,48 +503,55 @@ public class MonsterAI : MonoBehaviour
         if (other.CompareTag("P1"))
         {
             seePlayer1 = true;
-            Debug.Log("Saw player 1");
+            closestPlayer = other.transform;
         }
         if (other.CompareTag("P2"))
         {
             seePlayer2 = true;
-  
+            closestPlayer = other.transform;
+
         }
         if (other.CompareTag("P1"))
         {
             seePlayer3 = true;
-   
+            closestPlayer = other.transform;
+
         }
         if (other.CompareTag("P1"))
         {
             seePlayer4 = true;
-     
+            closestPlayer = other.transform;
+
         }
 
     }
 
     private void OnTriggerExit(Collider other)
     {
-        //if (other.CompareTag("P1"))
-        //{
-        //    seePlayer1 = false;
- 
-        //}
-        //if (other.CompareTag("P2"))
-        //{
-        //    seePlayer2 = false;
+        if (other.CompareTag("P1"))
+        {
+            seePlayer1 = false;
+            //closestPlayer = null;
 
-        //}
-        //if (other.CompareTag("P1"))
-        //{
-        //    seePlayer3 = false;
+        }
+        if (other.CompareTag("P2"))
+        {
+            seePlayer2 = false;
+            //closestPlayer = null;
 
-        //}
-        //if (other.CompareTag("P1"))
-        //{
-        //    seePlayer4 = false;
+        }
+        if (other.CompareTag("P1"))
+        {
+            seePlayer3 = false;
+            //closestPlayer = null;
 
-        //}
+        }
+        if (other.CompareTag("P1"))
+        {
+            seePlayer4 = false;
+            //closestPlayer = null;
+
+        }
     }
     void ClearLOS()
     {

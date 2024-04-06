@@ -1644,7 +1644,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 13495
+    m_Bits: 144567
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -7029,6 +7029,7 @@ MonoBehaviour:
   - {fileID: 5724210041268672449, guid: dafef1411bfc4614a9ee3b1bf9a8c640, type: 3}
   canInteractwTree: 0
   myCTScript: {fileID: 1301816240}
+  plushieTransform: {fileID: 0}
 --- !u!65 &763297686
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8518,7 +8519,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 7735
+    m_Bits: 138807
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -8760,6 +8761,7 @@ MonoBehaviour:
   - {fileID: 5724210041268672449, guid: dafef1411bfc4614a9ee3b1bf9a8c640, type: 3}
   canInteractwTree: 0
   myCTScript: {fileID: 1301816240}
+  plushieTransform: {fileID: 0}
 --- !u!65 &1023466502
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10449,6 +10451,7 @@ GameObject:
   - component: {fileID: 1301816239}
   - component: {fileID: 1301816240}
   - component: {fileID: 1301816241}
+  - component: {fileID: 1301816242}
   m_Layer: 0
   m_Name: Christmas Tree
   m_TagString: Untagged
@@ -10494,22 +10497,37 @@ MonoBehaviour:
   - {fileID: 6058487128448739003}
   - {fileID: 6058487129569477469}
   - {fileID: 6058487128704851489}
-  slotTaken:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  slotTaken: []
   plushies:
   - {fileID: 6058487129573482489, guid: f770e13484787d74696e3427e0560a81, type: 3}
   - {fileID: 15832007502046211, guid: 599be8702f6063a4b9c9aa70f940f5a4, type: 3}
   - {fileID: 6726283253317659446, guid: 5d8e9b8f7749a1444a891e201012eb2a, type: 3}
   - {fileID: 5724210041268672449, guid: dafef1411bfc4614a9ee3b1bf9a8c640, type: 3}
   completed: 0
+  plushieCounter: 0
 --- !u!65 &1301816241
 BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301816238}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6, y: 5, z: 6}
+  m_Center: {x: 0.052705295, y: 2.4249573, z: 0.10696748}
+--- !u!136 &1301816242
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10526,9 +10544,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 4.5378494, y: 5.849916, z: 4.9844646}
-  m_Center: {x: 0.052705295, y: 2.4249573, z: 0.10696748}
+  serializedVersion: 2
+  m_Radius: 2.06
+  m_Height: 7.249957
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.35, z: 0}
 --- !u!1 &1316872648
 GameObject:
   m_ObjectHideFlags: 0
@@ -11315,7 +11335,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 11575
+    m_Bits: 142647
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -15207,10 +15227,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5043994614624071845, guid: 97809dc24124b0a49a22b34ca1dfdeea,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1778104692}
-    - targetCorrespondingSourceObject: {fileID: 5043994614624071845, guid: 97809dc24124b0a49a22b34ca1dfdeea,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1778104694}
     - targetCorrespondingSourceObject: {fileID: 5043994614624071845, guid: 97809dc24124b0a49a22b34ca1dfdeea,
         type: 3}
@@ -15224,10 +15240,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1778104697}
-    - targetCorrespondingSourceObject: {fileID: 5043994614624071845, guid: 97809dc24124b0a49a22b34ca1dfdeea,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1778104700}
   m_SourcePrefab: {fileID: 100100000, guid: 97809dc24124b0a49a22b34ca1dfdeea, type: 3}
 --- !u!1 &1778104691 stripped
 GameObject:
@@ -15235,29 +15247,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1778104690}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &1778104692
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1778104691}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1.8359946
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.93299717, z: 0}
 --- !u!114 &1778104693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15305,6 +15294,7 @@ MonoBehaviour:
   currentDestination: {fileID: 0}
   investigatePoint: {x: 0, y: 0, z: 0}
   closestPlayer: {fileID: 0}
+  caughtPlayer: {fileID: 0}
   walking: 0
   investigating: 0
   chasing: 0
@@ -15365,27 +15355,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1778104690}
   m_PrefabAsset: {fileID: 0}
---- !u!65 &1778104700
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1778104691}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 2, y: 1.4099998, z: 3.926206}
-  m_Center: {x: 0, y: 0.9, z: 1.4373777}
 --- !u!114 &1778104701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17925,6 +17894,7 @@ MonoBehaviour:
   - {fileID: 5724210041268672449, guid: dafef1411bfc4614a9ee3b1bf9a8c640, type: 3}
   canInteractwTree: 0
   myCTScript: {fileID: 1301816240}
+  plushieTransform: {fileID: 0}
 --- !u!65 &2114027300
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18437,8 +18407,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3282465385530043439}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.25, y: 0, z: 0.143}
+  m_LocalRotation: {x: -0, y: -0.74098206, z: -0, w: 0.6715249}
+  m_LocalPosition: {x: 4.83, y: 0, z: -3.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18449,7 +18419,7 @@ Transform:
   - {fileID: 727519929214192041}
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -95.63, z: 0}
 --- !u!114 &583584448578037810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18915,7 +18885,7 @@ Camera:
     y: 0.5
     width: 0.499
     height: 0.5
-  near clip plane: 0.1
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60.000004
   orthographic: 0
@@ -18923,7 +18893,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 14455
+    m_Bits: 145527
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -21873,6 +21843,7 @@ MonoBehaviour:
   - {fileID: 5724210041268672449, guid: dafef1411bfc4614a9ee3b1bf9a8c640, type: 3}
   canInteractwTree: 0
   myCTScript: {fileID: 1301816240}
+  plushieTransform: {fileID: 0}
 --- !u!1 &6390981476785821569
 GameObject:
   m_ObjectHideFlags: 0
@@ -22281,7 +22252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6058487128378068921}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: -1.012, z: 2.29}
+  m_LocalPosition: {x: -0.5, y: -0.65, z: 2.29}
   m_LocalScale: {x: 2.2461345, y: 2.2461345, z: 2.2461345}
   m_ConstrainProportionsScale: 0
   m_Children: []
