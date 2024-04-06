@@ -83,13 +83,22 @@ public class MainMenuBrain : MonoBehaviour
             }
         }
         #endregion
+
+        //how to play 
+        //if (currentMenu == "HowToPlay")
+        //{
+        //    if (Input.GetButtonDown("P1 A"))
+        //    {
+        //        HowToPlayUI.SetActive(false);
+        //    }
+        //}
     }
 
     #region button functions
     public void StartGame()
     {
         FindObjectOfType<AudioManager>().Play("ui", "confirm");
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Intro_Cutscene");
         FindObjectOfType<AudioManager>().StopBundle("bgm");
         FindObjectOfType<AudioManager>().Play("bgm", "normal");
     }
