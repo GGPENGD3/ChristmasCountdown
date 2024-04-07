@@ -125,7 +125,8 @@ public class FPS_Controller : MonoBehaviour
         playerCamera.fieldOfView = fov;
         originalScale = transform.localScale;
         jointOriginalPos = joint.localPosition;
-        
+        playerCamera.enabled = false;
+        playerCamera.enabled = true;
         if (!unlimitedSprint)
         {
             sprintRemaining = sprintDuration;

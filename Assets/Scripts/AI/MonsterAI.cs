@@ -207,7 +207,7 @@ public class MonsterAI : MonoBehaviour
         {
             capture = true;
             Debug.Log("capturing");
-            FindObjectOfType<AudioManager>().Play("sfx", "player_die");
+            //FindObjectOfType<AudioManager>().Play("sfx", "player_die");
             anim.SetTrigger("Attack");
             //anim.SetTrigger("Possess");
             yield return new WaitForSeconds(2f);
