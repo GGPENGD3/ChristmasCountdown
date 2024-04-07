@@ -38,7 +38,7 @@ public class MonsterAI : MonoBehaviour
     int waypointIndex;
     public bool walking, investigating, chasing, capture;
     public bool seePlayer1, seePlayer2, seePlayer3, seePlayer4;
-    public Transform possessPosition;
+    public Transform cameraLookAt;
     public Animator anim;
     public WhoIsMonster whoIsMonsterScript;
     
@@ -207,9 +207,9 @@ public class MonsterAI : MonoBehaviour
         {
             capture = true;
             Debug.Log("capturing");
-            //FindObjectOfType<AudioManager>().Play("sfx", "player_die");
+            FindObjectOfType<AudioManager>().Play("sfx", "player_die");
             anim.SetTrigger("Attack");
-            //anim.SetTrigger("Possess");
+            closestPlayer.GetComponent<FPS_Controller>().playerCamera.transform.LookAt(transform.position);
             yield return new WaitForSeconds(2f);
             //closestPlayer.gameObject.transform.LookAt(transform.position);
             closestPlayer.GetComponent<FPS_Controller>().playerCanMove = false;
