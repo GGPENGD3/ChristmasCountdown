@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7625580779067225502}
+  - component: {fileID: 1066928509372467656}
   m_Layer: 0
   m_Name: KidShelf prefab
   m_TagString: Untagged
@@ -30,8 +31,29 @@ Transform:
   m_Children:
   - {fileID: 1466375839381345351}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1066928509372467656
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6396332682664794716}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.82601905, y: 0.740566, z: 0.52349794}
+  m_Center: {x: 0.008048415, y: 0.39766407, z: -0.0034330487}
 --- !u!1001 &1428525587361117100
 PrefabInstance:
   m_ObjectHideFlags: 0

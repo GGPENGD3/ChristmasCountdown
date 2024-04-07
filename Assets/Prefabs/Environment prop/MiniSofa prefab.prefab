@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5658083639746796051}
+  - component: {fileID: 6629051301226735214}
   m_Layer: 0
   m_Name: MiniSofa prefab
   m_TagString: Untagged
@@ -30,8 +31,29 @@ Transform:
   m_Children:
   - {fileID: 8944732895599956838}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6629051301226735214
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 237817154239186946}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.6828227, y: 0.8864732, z: 1.1364514}
+  m_Center: {x: -0.019035578, y: 0.41894042, z: -0.0025244355}
 --- !u!1001 &8910559123767161997
 PrefabInstance:
   m_ObjectHideFlags: 0

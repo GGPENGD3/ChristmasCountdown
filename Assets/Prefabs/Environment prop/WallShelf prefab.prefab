@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5053493875145878056}
+  - component: {fileID: 204382457774048179}
   m_Layer: 0
   m_Name: WallShelf prefab
   m_TagString: Untagged
@@ -30,8 +31,29 @@ Transform:
   m_Children:
   - {fileID: 156071719441637584}
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &204382457774048179
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2951833748874017672}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9140815, y: 0.23611063, z: 0.26792914}
+  m_Center: {x: -0.0001707375, y: 0.12809122, z: 0.0049389973}
 --- !u!1001 &405538489785960251
 PrefabInstance:
   m_ObjectHideFlags: 0
