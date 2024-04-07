@@ -867,7 +867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &473449502
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2040,7 +2040,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentMenu: 
   OptionBtn: {fileID: 1922889093}
-  HowToPlayUI: {fileID: 1960920013}
+  HowToPlayUI1: {fileID: 473449501}
+  HowToPlayUI2: {fileID: 1889533660}
   MainMenuButtons:
   - {fileID: 821991044}
   - {fileID: 1922889093}
@@ -2998,7 +2999,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1889533661
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3452,7 +3453,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1960920014
 RectTransform:
   m_ObjectHideFlags: 0

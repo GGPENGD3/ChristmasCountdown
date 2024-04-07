@@ -11,7 +11,9 @@ public class MainMenuBrain : MonoBehaviour
     public Button OptionBtn;
 
     [Header("How To Play Variables")]
-    public GameObject HowToPlayUI;
+    public GameObject HowToPlayUI1;
+    public GameObject HowToPlayUI2;
+    private int htpStep = 2;
 
     [Header("Main Menu Variables")]
     public List<Button> MainMenuButtons;
@@ -70,6 +72,11 @@ public class MainMenuBrain : MonoBehaviour
                     MainMenuButtons[2].image.sprite = MainMenuButtons[2].spriteState.selectedSprite;
                     HowToPlay();
                 }
+                else if (currentBttn == "HowToPlay")
+                {
+                    MainMenuButtons[2].image.sprite = MainMenuButtons[2].spriteState.selectedSprite;
+                    HowToPlay();
+                }
                 else if (currentBttn == "Quit")
                 {
                     MainMenuButtons[3].image.sprite = MainMenuButtons[3].spriteState.selectedSprite;
@@ -82,20 +89,34 @@ public class MainMenuBrain : MonoBehaviour
                 }
             }
         }
-        #endregion
+		#endregion
 
-        //how to play 
-        //if (currentMenu == "HowToPlay")
-        //{
-        //    if (Input.GetButtonDown("P1 A"))
-        //    {
-        //        HowToPlayUI.SetActive(false);
-        //    }
-        //}
-    }
+		else if (currentMenu == "HowToPlay")
+		{
+			if (Input.GetButtonDown("P1 A"))
+			{
+                if (htpStep == 0)
+                {
+                    Debug.Log(htpStep);
+                    HowToPlayUI1.SetActive(false);
+                    HowToPlayUI2.SetActive(true);
+                    FindObjectOfType<AudioManager>().Play("ui", "select");
+                    htpStep = 1;
+                }
+                else if (htpStep == 1)
+                {
+                    HowToPlayUI2.SetActive(false);
+                    htpStep = 2;
+                    currentMenu = "MainMenu";
+                    currentBttn = "HowToPlay";
+                    FindObjectOfType<AudioManager>().Play("ui", "confirm");
+                }
+            }
+		}
+	}
 
-    #region button functions
-    public void StartGame()
+	#region button functions
+	public void StartGame()
     {
         FindObjectOfType<AudioManager>().Play("ui", "confirm");
         SceneManager.LoadScene("Gameplay Scene");
@@ -123,10 +144,12 @@ public class MainMenuBrain : MonoBehaviour
 
     public void HowToPlay()
     {
-        FindObjectOfType<AudioManager>().Play("ui", "confirm");
+        FindObjectOfType<AudioManager>().Play("ui", "select");
         //open up How To Play
-        HowToPlayUI.SetActive(true);
+        HowToPlayUI1.SetActive(true);
+        Debug.Log(htpStep);
         currentMenu = "HowToPlay";
+        htpStep = 0;
     }
     #endregion
 
