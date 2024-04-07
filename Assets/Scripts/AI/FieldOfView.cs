@@ -89,33 +89,33 @@ public class FieldOfView : MonoBehaviour
                         monsterAI.seePlayer1 = true;
                         seePlayer1 = true;
                     }
-                    else
-                        monsterAI.seePlayer1 = false;
-                        seePlayer1 = false;
+                    //else
+                    //    monsterAI.seePlayer1 = false;
+                    //seePlayer1 = false;
                     if (target.CompareTag("P2"))
                     {
                         monsterAI.seePlayer2 = true;
                         seePlayer2 = true;
                     }
-                    else
-                    monsterAI.seePlayer2 = false;
-                    seePlayer2 = false;
+                    //else
+                    //    monsterAI.seePlayer2 = false;
+                    //seePlayer2 = false;
                     if (target.CompareTag("P3"))
                     {
                         monsterAI.seePlayer3 = true;
                         seePlayer3 = true;
                     }
-                    else
-                    monsterAI.seePlayer3 = false;
-                    seePlayer3 = false;
+                    //else
+                    //    monsterAI.seePlayer3 = false;
+                    //seePlayer3 = false;
                     if (target.CompareTag("P4"))
                     {
                         monsterAI.seePlayer4 = true;
                         seePlayer4 = true;
                     }
-                    else
-                        monsterAI.seePlayer4 = false;
-                        seePlayer4 = false;
+                    //else
+                    //    monsterAI.seePlayer4 = false;
+                    //seePlayer4 = false;
                 }
    
             }

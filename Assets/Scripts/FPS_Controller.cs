@@ -537,5 +537,22 @@ public class FPS_Controller : MonoBehaviour
             anim.SetBool("Crouch", true);
         }
     }
+    public void LookAt(Transform target)
+    {
+        transform.LookAt(target);
+        Vector3 eulerRotation = transform.eulerAngles;
+        eulerRotation.x = 0; // Set x-axis rotation to 0
+        eulerRotation.z = 0; // Set z-axis rotation to 0
+        transform.eulerAngles = eulerRotation;
+        Debug.Log("looking at");
+    }
+    public void CameraLookAt(Transform target)
+    {
+        cameraCanMove = false;
+        playerCamera.transform.LookAt(target);
+        Debug.Log("hihi");
+    }
+
+   
     #endregion
 }

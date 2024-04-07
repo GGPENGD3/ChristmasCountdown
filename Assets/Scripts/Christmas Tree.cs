@@ -5,8 +5,8 @@ using UnityEngine;
 public class ChristmasTree : MonoBehaviour
 {
     public List<GameObject> plushiesToFill;
-    public List<string> slotTaken;
-    public List<GameObject> plushies;
+    //public List<string> slotTaken;
+    //public List<GameObject> plushies;
     public bool completed;
     Transform currentEmptyPos;
     public int plushieCounter = 0;
@@ -25,35 +25,35 @@ public class ChristmasTree : MonoBehaviour
         }
     }
 
-    public void CheckForEmptySpot(GameObject Furby)
-    {
-        for (int i = 0; i < slotTaken.Count; i++)
-        {
-            if (slotTaken[i] != null)
-            {
-                slotTaken[i] = Furby.name;
-               // currentEmptyPos = plushiesToFill[i];
+    //public void CheckForEmptySpot(GameObject Furby)
+    //{
+    //    for (int i = 0; i < slotTaken.Count; i++)
+    //    {
+    //        if (slotTaken[i] != null)
+    //        {
+    //            slotTaken[i] = Furby.name;
+    //           // currentEmptyPos = plushiesToFill[i];
 
-                //PlaceFurby(Furby.name);
-                //PlaceToy(Furby);
-                break;
-            }
-        }
-    }
+    //            //PlaceFurby(Furby.name);
+    //            //PlaceToy(Furby);
+    //            break;
+    //        }
+    //    }
+    //}
 
   
-    public void PlaceFurby(string FurbyName)
-    {
-        for (int i = 0; i < plushies.Count; i++)
-        {
-            if (plushies[i].name == FurbyName)
-            {
-                Instantiate(plushies[i], currentEmptyPos);
+    //public void PlaceFurby(string FurbyName)
+    //{
+    //    for (int i = 0; i < plushies.Count; i++)
+    //    {
+    //        if (plushies[i].name == FurbyName)
+    //        {
+    //            Instantiate(plushies[i], currentEmptyPos);
 
-                FindObjectOfType<AudioManager>().Play("sfx", "plush_get");
-            }
-        }
-    }
+    //            FindObjectOfType<AudioManager>().Play("sfx", "plush_get");
+    //        }
+    //    }
+    //}
 
     public void PlaceToy(GameObject toy)
     {

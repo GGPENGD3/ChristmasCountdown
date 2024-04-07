@@ -73,8 +73,6 @@ public class MonsterAI : MonoBehaviour
                 walking = false;
             }
          
-              
-
         }
 
 
@@ -142,7 +140,7 @@ public class MonsterAI : MonoBehaviour
             //if (agent.remainingDistance <= 0.5f)
             float distanceToPlayer = Vector3.Distance(transform.position, closestPlayer.position);
             //Debug.Log(distanceToPlayer);
-            if (distanceToPlayer <= 2.5f) 
+            if (distanceToPlayer <= 3.5f) 
             {
                 agent.speed = 0;
                 agent.ResetPath();
@@ -206,10 +204,11 @@ public class MonsterAI : MonoBehaviour
         if (!capture)
         {
             capture = true;
-            Debug.Log("capturing");
+            LookAt(closestPlayer);
             FindObjectOfType<AudioManager>().Play("sfx", "player_die");
             anim.SetTrigger("Attack");
-            closestPlayer.GetComponent<FPS_Controller>().playerCamera.transform.LookAt(transform.position);
+            closestPlayer.GetComponent<FPS_Controller>().LookAt(transform);
+            closestPlayer.GetComponent<FPS_Controller>().CameraLookAt(cameraLookAt);
             yield return new WaitForSeconds(2f);
             //closestPlayer.gameObject.transform.LookAt(transform.position);
             closestPlayer.GetComponent<FPS_Controller>().playerCanMove = false;
@@ -524,18 +523,18 @@ public class MonsterAI : MonoBehaviour
 
         }
     }
-    void ClearLOS()
+
+
+    void LookAt(Transform target)
     {
-        LOSTimer += Time.deltaTime;
-        if (LOSTimer >=LOSInterval)
-        {
-            LOSTimer = 0;
-            seePlayer1 = false;
-            seePlayer2 = false;
-            seePlayer3 = false;
-            seePlayer4 = false;
-        }
+        transform.LookAt(target);
+        Vector3 eulerRotation = transform.eulerAngles;
+        eulerRotation.x = 0; // Set x-axis rotation to 0
+        eulerRotation.z = 0; // Set z-axis rotation to 0
+        transform.eulerAngles = eulerRotation;
+        Debug.Log("looking at");
     }
+
 
     #region AI Catch Player Code
     //private void OnCollisionEnter(Collision collision)
@@ -592,6 +591,8 @@ public class MonsterAI : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    
     #endregion
 }
    

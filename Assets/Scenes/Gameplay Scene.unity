@@ -1093,6 +1093,7 @@ MonoBehaviour:
   playerModel: {fileID: 2035130650}
   monsterModel: {fileID: 1914498710}
   myPMC: {fileID: 156388641}
+  isMonster: 0
   blackScreen: {fileID: 186065046}
   fadeIn: 0
   fadeOut: 0
@@ -1109,9 +1110,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whoIsMonsterScript: {fileID: 1546059192}
+  becomeMonsterScript: {fileID: 0}
+  caughtPlayer: {fileID: 0}
+  cameraLookAt: {fileID: 0}
+  eventTrigger: {fileID: 0}
   immunityTimer: 5
   resetTimer: 5
   immune: 0
+  player_A_Bttn: 
+  player: {fileID: 0}
 --- !u!1 &158929379
 GameObject:
   m_ObjectHideFlags: 0
@@ -3760,6 +3767,7 @@ MonoBehaviour:
   playerModel: {fileID: 1835554327}
   monsterModel: {fileID: 158929379}
   myPMC: {fileID: 551182752}
+  isMonster: 0
   blackScreen: {fileID: 1226185421}
   fadeIn: 0
   fadeOut: 0
@@ -3776,9 +3784,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whoIsMonsterScript: {fileID: 1546059192}
+  becomeMonsterScript: {fileID: 0}
+  caughtPlayer: {fileID: 0}
+  cameraLookAt: {fileID: 0}
+  eventTrigger: {fileID: 0}
   immunityTimer: 5
   resetTimer: 5
   immune: 0
+  player_A_Bttn: 
+  player: {fileID: 0}
 --- !u!1 &560314821
 GameObject:
   m_ObjectHideFlags: 0
@@ -9441,6 +9455,7 @@ MonoBehaviour:
   playerAnim: {fileID: 1133331722}
   monsterAnim: {fileID: 0}
   furbyPickerScript: {fileID: 2114027299}
+  becomeMonster: {fileID: 0}
 --- !u!1 &1148472602
 GameObject:
   m_ObjectHideFlags: 0
@@ -9986,6 +10001,7 @@ MonoBehaviour:
   playerModel: {fileID: 1133331719}
   monsterModel: {fileID: 317139849}
   myPMC: {fileID: 1214123269}
+  isMonster: 0
   blackScreen: {fileID: 2112256186}
   fadeIn: 0
   fadeOut: 0
@@ -10002,9 +10018,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whoIsMonsterScript: {fileID: 1546059192}
+  becomeMonsterScript: {fileID: 0}
+  caughtPlayer: {fileID: 0}
+  cameraLookAt: {fileID: 0}
+  eventTrigger: {fileID: 0}
   immunityTimer: 5
   resetTimer: 5
   immune: 0
+  player_A_Bttn: 
+  player: {fileID: 0}
 --- !u!1 &1226153168
 GameObject:
   m_ObjectHideFlags: 0
@@ -10639,12 +10661,6 @@ MonoBehaviour:
   - {fileID: 6058487128448739003}
   - {fileID: 6058487129569477469}
   - {fileID: 6058487128704851489}
-  slotTaken: []
-  plushies:
-  - {fileID: 6058487129573482489, guid: f770e13484787d74696e3427e0560a81, type: 3}
-  - {fileID: 15832007502046211, guid: 599be8702f6063a4b9c9aa70f940f5a4, type: 3}
-  - {fileID: 6726283253317659446, guid: 5d8e9b8f7749a1444a891e201012eb2a, type: 3}
-  - {fileID: 5724210041268672449, guid: dafef1411bfc4614a9ee3b1bf9a8c640, type: 3}
   completed: 0
   plushieCounter: 0
 --- !u!65 &1301816241
@@ -12770,7 +12786,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1621738468
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15625,7 +15641,7 @@ MonoBehaviour:
   seePlayer2: 0
   seePlayer3: 0
   seePlayer4: 0
-  possessPosition: {fileID: 1625553208}
+  cameraLookAt: {fileID: 0}
   anim: {fileID: 1778104697}
   whoIsMonsterScript: {fileID: 1546059192}
 --- !u!195 &1778104694
@@ -16033,7 +16049,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1803632661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16330,7 +16346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1831722659
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16455,6 +16471,7 @@ MonoBehaviour:
   playerAnim: {fileID: 1835554328}
   monsterAnim: {fileID: 0}
   furbyPickerScript: {fileID: 763297685}
+  becomeMonster: {fileID: 0}
 --- !u!1 &1839718782
 GameObject:
   m_ObjectHideFlags: 0
@@ -17026,7 +17043,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1956233140
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17637,6 +17654,7 @@ MonoBehaviour:
   playerAnim: {fileID: 2035130653}
   monsterAnim: {fileID: 0}
   furbyPickerScript: {fileID: 1023466501}
+  becomeMonster: {fileID: 0}
 --- !u!1 &2039752850
 GameObject:
   m_ObjectHideFlags: 0
@@ -20524,9 +20542,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whoIsMonsterScript: {fileID: 1546059192}
+  becomeMonsterScript: {fileID: 0}
+  caughtPlayer: {fileID: 0}
+  cameraLookAt: {fileID: 0}
+  eventTrigger: {fileID: 0}
   immunityTimer: 5
   resetTimer: 5
   immune: 0
+  player_A_Bttn: 
+  player: {fileID: 0}
 --- !u!4 &3548976218333837355
 Transform:
   m_ObjectHideFlags: 0
@@ -21628,6 +21652,7 @@ MonoBehaviour:
   playerModel: {fileID: 7993768252199780506}
   monsterModel: {fileID: 2089355206184530369}
   myPMC: {fileID: 3469287836620322662}
+  isMonster: 0
   blackScreen: {fileID: 1596551537}
   fadeIn: 0
   fadeOut: 0
@@ -23316,6 +23341,7 @@ MonoBehaviour:
   playerAnim: {fileID: 7867963566968702313}
   monsterAnim: {fileID: 0}
   furbyPickerScript: {fileID: 6330583457761199783}
+  becomeMonster: {fileID: 0}
 --- !u!4 &8095558110555977255
 Transform:
   m_ObjectHideFlags: 0

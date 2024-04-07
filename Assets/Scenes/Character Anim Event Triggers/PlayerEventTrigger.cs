@@ -8,13 +8,21 @@ public class PlayerEventTrigger : MonoBehaviour
     public Animator monsterAnim;
     [Header("Other Variables")]
     public FurbyPicker furbyPickerScript;
-
+    public PlayerBecomeMonster becomeMonster;
     #region Player Animation Booleans
+
+    private void Start()
+    {
+      becomeMonster = GetComponentInParent<PlayerBecomeMonster>();
+    }
     public void SetRun(bool option)
     {
         playerAnim.SetBool("Run", option);
-       
-        //monsterAnim.SetBool("Run", option);
+       if (becomeMonster.isMonster)
+        {
+            monsterAnim.SetBool("Run", option);
+        }
+ 
   
     }
     public void SetCarryRun(bool option)
@@ -54,6 +62,15 @@ public class PlayerEventTrigger : MonoBehaviour
     }
     #endregion
 
+    public void SetMonsterAttack()
+    {
+        monsterAnim.SetTrigger("Attack");
+    }
+
+    public void SetMonsterPossess()
+    {
+        monsterAnim.SetTrigger("Possess");
+    }
     public void ChangePickUpToCarry()
     {
         furbyPickerScript.FinishPickUp();

@@ -25,7 +25,6 @@ public class WhoIsMonster : MonoBehaviour
             playerFour.tag = "P4";
 
             p1_PBM_Script.becomeMonster = true;
-
             p2_PBM_Script.becomePlayer = true;
             p3_PBM_Script.becomePlayer = true;
             p4_PBM_Script.becomePlayer = true;

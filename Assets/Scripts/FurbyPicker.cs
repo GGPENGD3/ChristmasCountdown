@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class FurbyPicker : MonoBehaviour
@@ -51,7 +52,7 @@ public class FurbyPicker : MonoBehaviour
         }
         #endregion
 
-        //myCTScript = GameObject.Find("Christmas Tree").GetComponent<ChristmasTree>();
+        myCTScript = GameObject.Find("ChristmasTree").GetComponent<ChristmasTree>();
     }
 
     // Update is called once per frame
@@ -61,10 +62,16 @@ public class FurbyPicker : MonoBehaviour
         {
             if (Input.GetButtonDown(player_A_Bttn))
             {
+                if (currentlyHeldFurby == null)
+                {
+                    Debug.Log("AAA");
+                    eventTrigger.SetPickUp(true);
+                    player.GetComponent<FPS_Controller>().playerCanMove = false;
+                    player.GetComponent<FPS_Controller>().cameraCanMove = false;
+                    currentFurbyName = currentFurby.name;
+                }
                 //play pickup animation
-                eventTrigger.SetPickUp(true);
-                player.GetComponent<FPS_Controller>().playerCanMove = false;
-                currentFurbyName = currentFurby.name;
+             
      
                 //place furby on player?
             }
@@ -85,15 +92,30 @@ public class FurbyPicker : MonoBehaviour
                     FindObjectOfType<AudioManager>().Play("sfx", "gift_up");
                     //myCTScript.CheckForEmptySpot(currentlyHeldFurby);
                     //myCTScript.PlaceToy(currentlyHeldFurby);
-                    plushieTransform = myCTScript.plushiesToFill[myCTScript.plushieCounter];
-                    currentlyHeldFurby.transform.SetParent(plushieTransform.transform);
-                    currentlyHeldFurby.transform.position = plushieTransform.transform.position;
-                    currentlyHeldFurby = null;
+                    //plushieTransform = myCTScript.plushiesToFill[myCTScript.plushieCounter];
+                    //currentlyHeldFurby.transform.SetParent(plushieTransform.transform);
+                    //currentlyHeldFurby.transform.position = plushieTransform.transform.position;
+                    //currentlyHeldFurby = null;
+                    myCTScript.PlaceToy(currentlyHeldFurby);
                   
                 }
             }
         }
 
+        if (eventTrigger.playerAnim.GetBool("Carry") == true)
+        {
+            interactUI.SetActive(true);
+            interactUI.GetComponent<TextMeshProUGUI>().text = "[A] to drop";
+            if (Input.GetButtonDown(player_A_Bttn))
+            {
+             if (currentlyHeldFurby!=null)
+                {
+                    currentlyHeldFurby.transform.SetParent(null);
+                    DropFurby();
+         
+                }
+            }
+        }
         if (drop)
         {
             //drop furby
@@ -119,9 +141,11 @@ public class FurbyPicker : MonoBehaviour
         {
             currentlyHeldFurby.transform.position = hit.point;
             currentlyHeldFurby = null;
-
             eventTrigger.SetCarry(false);
+            Debug.Log(eventTrigger.playerAnim.GetBool("Carry"));
+            interactUI.SetActive(false);
             FindObjectOfType<AudioManager>().Play("sfx", "gift_down");
+      
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -131,18 +155,21 @@ public class FurbyPicker : MonoBehaviour
             //if ( other !=null)
             {
                 canInteract = true;
-                //interactUI.SetActive(true);
+                interactUI.SetActive(true);
+                interactUI.GetComponent<TextMeshProUGUI>().text = "[A] to pickup";
                 currentFurby = other.gameObject;
-                plushieTransform = myCTScript.plushiesToFill[myCTScript.plushieCounter];
+                //plushieTransform = myCTScript.plushiesToFill[myCTScript.plushieCounter];
             }
 
         }
-        if (other.gameObject.name == "Christmas Tree" && currentlyHeldFurby != null)
+        if (other.gameObject.name == "ChristmasTree" && currentlyHeldFurby != null)
         {
             canInteractwTree = true;
             Debug.Log("Collided w tree");
             plushieTransform = null;
             //Set Interact UI For Tree to be active;
+            interactUI.SetActive(true);
+            interactUI.GetComponent<TextMeshProUGUI>().text = "[A] to return Puffy!";
         }
 
 
@@ -153,7 +180,7 @@ public class FurbyPicker : MonoBehaviour
         if (other.tag == "Furby")
         {
             canInteract = false;
-            //interactUI.SetActive(false);
+            interactUI.SetActive(false);
             currentFurby = null;
         }
 
@@ -173,12 +200,12 @@ public class FurbyPicker : MonoBehaviour
             {
                 added = true;
                 canInteract = false;
-
+                interactUI.SetActive(false);
                 //once pickup animation is done, set carry to true
                 eventTrigger.SetPickUp(false);
                 eventTrigger.SetCarry(true);
                 player.GetComponent<FPS_Controller>().playerCanMove = true;
-
+                player.GetComponent<FPS_Controller>().cameraCanMove = true;
                 //spawn plushie onto player holding positiion
 
                 for (int i = 0; i < plushies.Count; i++)
@@ -186,6 +213,9 @@ public class FurbyPicker : MonoBehaviour
                     if (plushies[i].name == currentFurbyName)
                     {
                         currentlyHeldFurby = Instantiate(plushies[i], plushieHoldPos);
+                        currentlyHeldFurby.transform.SetParent(plushieHoldPos);
+                        currentlyHeldFurby.transform.localPosition = Vector3.zero;
+                        currentlyHeldFurby.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
                         currentlyHeldFurby.name = plushies[i].name;
                     }
                 }
