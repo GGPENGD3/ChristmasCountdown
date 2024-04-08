@@ -24,6 +24,10 @@ public class ChristmasTree : MonoBehaviour
         {
             completed = true;
         }
+      if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            plushieCounter++;
+        }
     }
 
     //public void CheckForEmptySpot(GameObject Furby)

@@ -28,8 +28,9 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
            if (Cursor.lockState == CursorLockMode.Locked)
-            {
+            {   
                 Cursor.lockState = CursorLockMode.None;
+                Debug.Log(Cursor.lockState.ToString());
                 PauseMenu.SetActive(true);
             }
 
