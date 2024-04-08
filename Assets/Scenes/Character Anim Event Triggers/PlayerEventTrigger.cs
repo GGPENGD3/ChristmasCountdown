@@ -9,18 +9,20 @@ public class PlayerEventTrigger : MonoBehaviour
     [Header("Other Variables")]
     public FurbyPicker furbyPickerScript;
     public PlayerBecomeMonster becomeMonster;
+    AudioManager audio;
     #region Player Animation Booleans
 
     private void Start()
     {
       becomeMonster = GetComponentInParent<PlayerBecomeMonster>();
+      audio = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
     public void SetRun(bool option)
     {
         playerAnim.SetBool("Run", option);
        if (becomeMonster.isMonster)
         {
-            monsterAnim.SetBool("Run", option);
+            monsterAnim.SetBool("Walk", option);
         }
  
   
@@ -65,6 +67,7 @@ public class PlayerEventTrigger : MonoBehaviour
     public void SetMonsterAttack()
     {
         monsterAnim.SetTrigger("Attack");
+        audio.Play("sfx", "monster_atk");
     }
 
     public void SetMonsterPossess()
@@ -74,5 +77,10 @@ public class PlayerEventTrigger : MonoBehaviour
     public void ChangePickUpToCarry()
     {
         furbyPickerScript.FinishPickUp();
+    }
+
+    void PlayFootstepsPlayer()
+    {
+        audio.PlayRandom("footstep_player");
     }
 }

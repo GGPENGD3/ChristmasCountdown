@@ -60,11 +60,13 @@ public class Flashlight : MonoBehaviour
 
             if (onLight)
             {
+                FindObjectOfType<AudioManager>().Play("sfx", "fl_on");
                 mylight.SetActive(false);
                 onLight = false;
             }
             else if (!onLight)
             {
+                FindObjectOfType<AudioManager>().Play("sfx", "fl_off");
                 mylight.SetActive(true);
                 onLight = true;
             }
@@ -123,7 +125,7 @@ public class Flashlight : MonoBehaviour
         //shaking anim + noise
         eventTriggers.SetStartShaking();
         eventTriggers.SetShaking(true);
-
+        FindObjectOfType<AudioManager>().PlayRandom("flashlight_shake");
         //recharge battery
         if (mylight.GetComponent<Light>().intensity <= 10)
         {

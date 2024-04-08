@@ -8,10 +8,13 @@ public class GameManager : MonoBehaviour
     public GameObject player1, player2, player3, player4;
     public GameObject PauseMenu;
     public GameObject puffyCollected;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        puffyCollected.SetActive(false);
+        PauseMenu.SetActive(false);
+        FindObjectOfType<AudioManager>().Play("bgm", "normal");
     }
 
     // Update is called once per frame
@@ -43,12 +46,14 @@ public class GameManager : MonoBehaviour
 
     IEnumerator EndGame()
     {
-        yield return new WaitForSeconds(2f);
+        FindObjectOfType<AudioManager>().Play("bgm", "timeup");
+        yield return new WaitForSeconds(4f);
         SceneManager.LoadScene("Ending_cutscene");
     }
 
-    IEnumerator FlashPuffy()
+    public IEnumerator FlashPuffy()
     {
+        FindObjectOfType<AudioManager>().Play("sfx", "plush_get");    
         puffyCollected.SetActive(true);
         yield return new WaitForSeconds(2f);
         puffyCollected.SetActive(false);
@@ -56,5 +61,11 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
         PauseMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void BackToMain()
+    {
+        SceneManager.LoadScene("Main Menu");
     }
 }

@@ -1,13 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class cutsceneManager : MonoBehaviour
 {
+    public Animator cutsceneAnim;
+    public bool intro;
+    private void Start()
+    {
+        if (intro)
+        {
+            cutsceneAnim.SetTrigger("Intro");
+        }
+        else
+
+            cutsceneAnim.SetTrigger("End");
+    }
     public void SkiptoNextScene()
     {
-        SceneManager.LoadScene("Gameplay");
+        SceneManager.LoadScene("Level_Input_level_1");
     }
 
     public void ReturntoMain()

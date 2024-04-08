@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChristmasTree : MonoBehaviour
 {
     public List<GameObject> plushiesToFill;
+    public GameManager gameManager;
     //public List<string> slotTaken;
     //public List<GameObject> plushies;
     public bool completed;
@@ -59,6 +60,7 @@ public class ChristmasTree : MonoBehaviour
     {
         if (plushieCounter <=7)
         {
+            StartCoroutine(gameManager.FlashPuffy());
             toy.transform.SetParent(plushiesToFill[plushieCounter].transform) ;
             toy.transform.position = (plushiesToFill[plushieCounter]).transform.position;
             plushieCounter++;

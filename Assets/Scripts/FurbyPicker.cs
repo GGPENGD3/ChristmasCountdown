@@ -204,6 +204,7 @@ public class FurbyPicker : MonoBehaviour
                 //once pickup animation is done, set carry to true
                 eventTrigger.SetPickUp(false);
                 eventTrigger.SetCarry(true);
+                FindObjectOfType<AudioManager>().Play("sfx", "plush_get");
                 player.GetComponent<FPS_Controller>().playerCanMove = true;
                 player.GetComponent<FPS_Controller>().cameraCanMove = true;
                 //spawn plushie onto player holding positiion

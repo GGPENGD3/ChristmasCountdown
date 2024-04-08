@@ -135,7 +135,7 @@ public class MonsterAI : MonoBehaviour
             agent.speed = chaseSpeed;
             agent.ResetPath();
             agent.SetDestination(closestPlayer.position);
-
+      
             //if (Vector3.Distance(closestPlayer.position, transform.position) <= 4f)
             //if (agent.remainingDistance <= 0.5f)
             float distanceToPlayer = Vector3.Distance(transform.position, closestPlayer.position);
@@ -203,9 +203,10 @@ public class MonsterAI : MonoBehaviour
     {
         if (!capture)
         {
+
             capture = true;
             LookAt(closestPlayer);
-            FindObjectOfType<AudioManager>().Play("sfx", "player_die");
+         
             anim.SetTrigger("Attack");
             closestPlayer.GetComponent<FPS_Controller>().LookAt(transform);
             closestPlayer.GetComponent<FPS_Controller>().CameraLookAt(cameraLookAt);
@@ -216,6 +217,7 @@ public class MonsterAI : MonoBehaviour
 
             yield return new WaitForSeconds(3f);
             PlayerToMonster();
+            FindObjectOfType<AudioManager>().Play("sfx", "player_die");
         }
 
     }
