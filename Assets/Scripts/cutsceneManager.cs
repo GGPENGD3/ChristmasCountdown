@@ -7,7 +7,7 @@ public class cutsceneManager : MonoBehaviour
 {
     public void SkiptoNextScene()
     {
-        SceneManager.LoadScene("Gameplay Scene");
+        SceneManager.LoadScene("Gameplay");
     }
 
     public void ReturntoMain()

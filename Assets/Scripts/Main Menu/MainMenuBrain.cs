@@ -119,7 +119,7 @@ public class MainMenuBrain : MonoBehaviour
 	public void StartGame()
     {
         FindObjectOfType<AudioManager>().Play("ui", "confirm");
-        SceneManager.LoadScene("Gameplay Scene");
+        SceneManager.LoadScene("Intro_Cutscene");
         FindObjectOfType<AudioManager>().StopBundle("bgm");
         FindObjectOfType<AudioManager>().Play("bgm", "normal");
     }
