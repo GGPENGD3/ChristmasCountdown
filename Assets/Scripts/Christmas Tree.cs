@@ -13,15 +13,15 @@ public class ChristmasTree : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        plushieCounter = 0;   
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+      if (plushieCounter >=7)
         {
-            Debug.Log(plushiesToFill[plushieCounter].name);
+            completed = true;
         }
     }
 
@@ -62,6 +62,11 @@ public class ChristmasTree : MonoBehaviour
             toy.transform.SetParent(plushiesToFill[plushieCounter].transform) ;
             toy.transform.position = (plushiesToFill[plushieCounter]).transform.position;
             plushieCounter++;
+            
+        }
+        if (plushieCounter >= 7)
+        {
+            completed = true;
         }
    
     }
