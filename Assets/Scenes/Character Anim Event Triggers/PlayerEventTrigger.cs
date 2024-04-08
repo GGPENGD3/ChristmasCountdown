@@ -67,7 +67,7 @@ public class PlayerEventTrigger : MonoBehaviour
     public void SetMonsterAttack()
     {
         monsterAnim.SetTrigger("Attack");
-        audio.Play("sfx", "monster_atk");
+        //audio.Play("sfx", "monster_atk");
     }
 
     public void SetMonsterPossess()

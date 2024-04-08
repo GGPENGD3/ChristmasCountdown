@@ -141,6 +141,7 @@ public class FPS_Controller : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
+        
     }
 
     float camRotation;
@@ -212,6 +213,15 @@ public class FPS_Controller : MonoBehaviour
 
                 transform.localEulerAngles = new Vector3(0, yaw, 0);
                 playerCamera.transform.localEulerAngles = new Vector3(pitch, 0, 0);
+            }
+
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                isSprinting = true;
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                isSprinting = false;
             }
         }
 
@@ -550,7 +560,9 @@ public class FPS_Controller : MonoBehaviour
     {
         cameraCanMove = false;
         playerCamera.transform.LookAt(target);
-        Debug.Log("hihi");
+        cameraCanMove = true;
+
+     
     }
 
    

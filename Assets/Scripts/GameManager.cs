@@ -5,16 +5,16 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public ChristmasTree christmasTree;
-    public GameObject player1, player2, player3, player4;
     public GameObject PauseMenu;
     public GameObject puffyCollected;
-
+    public bool gameEnd;
     // Start is called before the first frame update
     void Start()
     {
         puffyCollected.SetActive(false);
         PauseMenu.SetActive(false);
         FindObjectOfType<AudioManager>().Play("bgm", "normal");
+        gameEnd = false;
     }
 
     // Update is called once per frame
@@ -43,13 +43,21 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
+
+   
     }
 
     IEnumerator EndGame()
     {
-        FindObjectOfType<AudioManager>().Play("bgm", "timeup");
-        yield return new WaitForSeconds(4f);
-        SceneManager.LoadScene("Ending_cutscene");
+       if (!gameEnd)
+        {
+            FindObjectOfType<AudioManager>().Play("bgm", "timeup");
+            gameEnd = true;
+            yield return new WaitForSeconds(5f);
+            SceneManager.LoadScene("Ending_cutscene");
+  
+        }
+        
     }
 
     public IEnumerator FlashPuffy()

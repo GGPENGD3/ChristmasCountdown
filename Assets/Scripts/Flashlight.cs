@@ -18,7 +18,7 @@ public class Flashlight : MonoBehaviour
 
     public Image batteryLifeImg;
     public List<Sprite> batteryLifeUI;
-
+    public GameObject flashlightIcon;
     [Header("Player")]
     public GameObject player;
     public string player_Y;
@@ -27,7 +27,7 @@ public class Flashlight : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        flashlightIcon.SetActive(false);
     }
 
     // Update is called once per frame
@@ -63,12 +63,14 @@ public class Flashlight : MonoBehaviour
                 FindObjectOfType<AudioManager>().Play("sfx", "fl_on");
                 mylight.SetActive(false);
                 onLight = false;
+                flashlightIcon.SetActive(false);
             }
             else if (!onLight)
             {
                 FindObjectOfType<AudioManager>().Play("sfx", "fl_off");
                 mylight.SetActive(true);
                 onLight = true;
+                flashlightIcon.SetActive(true);
             }
         }
 

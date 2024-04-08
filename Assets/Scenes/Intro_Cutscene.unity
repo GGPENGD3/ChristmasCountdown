@@ -1290,7 +1290,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: X to Skip
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 38e00957f13a96f449e4260edc52d549, type: 2}
   m_sharedMaterial: {fileID: 2697138595042400328, guid: 38e00957f13a96f449e4260edc52d549,
@@ -1706,7 +1706,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wait, do you guys hear that eerie laughter? All the presents are open!
+  m_text: Huh? All the presents are open!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 38e00957f13a96f449e4260edc52d549, type: 2}
   m_sharedMaterial: {fileID: 2697138595042400328, guid: 38e00957f13a96f449e4260edc52d549,

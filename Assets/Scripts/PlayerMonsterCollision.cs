@@ -223,6 +223,8 @@ public class PlayerMonsterCollision : MonoBehaviour
 
             //find the child object called "Furby Collider?" then access the "Furby Picker" script in it to make drop true
             caughtPlayer.transform.Find("Furby Collider?").GetComponent<FurbyPicker>().drop = true;
+            caughtPlayer.GetComponent<FPS_Controller>().playerCanMove = true;
+            caughtPlayer.GetComponent<FPS_Controller>().cameraCanMove = true;
 
         }
         else if (caughtPlayer.gameObject.tag == "P2")
@@ -232,7 +234,8 @@ public class PlayerMonsterCollision : MonoBehaviour
 
             //find the child object called "Furby Collider?" then access the "Furby Picker" script in it to make drop true
             caughtPlayer.transform.Find("Furby Collider?").GetComponent<FurbyPicker>().drop = true;
-
+            caughtPlayer.GetComponent<FPS_Controller>().playerCanMove = true;
+            caughtPlayer.GetComponent<FPS_Controller>().cameraCanMove = true;
         }
         else if (caughtPlayer.gameObject.tag == "P3")
         {
@@ -241,6 +244,8 @@ public class PlayerMonsterCollision : MonoBehaviour
 
             //find the child object called "Furby Collider?" then access the "Furby Picker" script in it to make drop true
             caughtPlayer.transform.Find("Furby Collider?").GetComponent<FurbyPicker>().drop = true;
+            caughtPlayer.GetComponent<FPS_Controller>().playerCanMove = true;
+            caughtPlayer.GetComponent<FPS_Controller>().cameraCanMove = true;
 
         }
         else if (caughtPlayer.gameObject.tag == "P4")
@@ -250,6 +255,8 @@ public class PlayerMonsterCollision : MonoBehaviour
 
             //find the child object called "Furby Collider?" then access the "Furby Picker" script in it to make drop true
             caughtPlayer.transform.Find("Furby Collider?").GetComponent<FurbyPicker>().drop = true;
+            caughtPlayer.GetComponent<FPS_Controller>().playerCanMove = true;
+            caughtPlayer.GetComponent<FPS_Controller>().cameraCanMove = true;
 
         }
     }

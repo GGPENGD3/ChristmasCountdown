@@ -517,6 +517,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df348ee997a86ee47ad181b570d449d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cutsceneAnim: {fileID: 1019903383}
+  intro: 0
 --- !u!95 &1019903383
 Animator:
   serializedVersion: 5
@@ -1074,7 +1076,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: X to Skip
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 38e00957f13a96f449e4260edc52d549, type: 2}
   m_sharedMaterial: {fileID: 2697138595042400328, guid: 38e00957f13a96f449e4260edc52d549,
@@ -1600,6 +1602,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df348ee997a86ee47ad181b570d449d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cutsceneAnim: {fileID: 1019903383}
+  intro: 0
 --- !u!4 &1789855937
 Transform:
   m_ObjectHideFlags: 0
