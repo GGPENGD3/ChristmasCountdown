@@ -14,17 +14,17 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  m_FogMode: 3
-  m_FogDensity: 0.01
-  m_LinearFogStart: 0
-  m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.057992183, g: 0.06408871, b: 0.084905684, a: 1}
-  m_AmbientEquatorColor: {r: 0.017265923, g: 0.024973284, b: 0.09433961, a: 1}
-  m_AmbientGroundColor: {r: 0.0719829, g: 0.07541828, b: 0.11320752, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.28003207, g: 0.25882354, b: 0.3764706, a: 1}
+  m_FogMode: 2
+  m_FogDensity: 0.03
+  m_LinearFogStart: 1000
+  m_LinearFogEnd: 1000.01
+  m_AmbientSkyColor: {r: 0.13955142, g: 0.14937697, b: 0.18867922, a: 1}
+  m_AmbientEquatorColor: {r: 0.12399429, g: 0.128576, b: 0.16981131, a: 1}
+  m_AmbientGroundColor: {r: 0.061480954, g: 0.07475969, b: 0.20754719, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 3
+  m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.23182628, g: 0.25284442, b: 0.3018868, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -10956,7 +10956,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522284860}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 1.45, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
