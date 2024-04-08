@@ -359,7 +359,7 @@ public class FPS_Controller : MonoBehaviour
         if (playerCanMove)
         {
             if (Input.GetAxis(player_LeftThumbStickVertical) != 0 || Input.GetAxis(player_LeftThumbStickHorizontal) != 0)
-            {
+            {   
                 // Calculate how fast we should be moving
                 targetVelocity = new Vector3(Input.GetAxis(player_LeftThumbStickHorizontal), 0, Input.GetAxis(player_LeftThumbStickVertical));
                 isWalking = true;

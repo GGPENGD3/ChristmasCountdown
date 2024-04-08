@@ -208,16 +208,16 @@ public class MonsterAI : MonoBehaviour
             LookAt(closestPlayer);
          
             anim.SetTrigger("Attack");
+            FindObjectOfType<AudioManager>().Play("sfx", "player_die");
             closestPlayer.GetComponent<FPS_Controller>().LookAt(transform);
             closestPlayer.GetComponent<FPS_Controller>().CameraLookAt(cameraLookAt);
             yield return new WaitForSeconds(2f);
             //closestPlayer.gameObject.transform.LookAt(transform.position);
             closestPlayer.GetComponent<FPS_Controller>().playerCanMove = false;
             anim.SetTrigger("Possess");
-
             yield return new WaitForSeconds(3f);
             PlayerToMonster();
-            FindObjectOfType<AudioManager>().Play("sfx", "player_die");
+          
         }
 
     }
